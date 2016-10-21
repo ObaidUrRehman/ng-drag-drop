@@ -4,7 +4,9 @@
   "description": "Angular 2 HTML5 Drag and Drop",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "prepublish": "tsc"
   },
   "repository": {
     "type": "git",
@@ -33,7 +35,7 @@
     "@angular/router": "~3.1.0",
     "@angular/upgrade": "~2.1.0",
 
-    
+
     "bootstrap": "^3.3.7",
     "systemjs": "0.19.39",
     "core-js": "^2.4.1",
