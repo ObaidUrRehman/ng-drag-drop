@@ -1,9 +1,8 @@
 import {Component} from '@angular/core';
-import {DropEvent} from "../shared/drop-event.model";
 
 @Component({
     selector: 'demo-app',
-    templateUrl: 'src/demo/components/demo-component.html',
+    templateUrl: 'app/components/demo-component.html',
     styles: [`
     div.scroll-list {
       overflow: auto;
@@ -37,12 +36,12 @@ export class DemoComponent {
     droppedFruits = [];
     droppedVegetables = [];
 
-    onFruitDrop(e: DropEvent) {
+    onFruitDrop(e: any) {
         this.droppedFruits.push(e.dragData);
         this.removeItem(e.dragData);
     }
 
-    onVegetableDrop(e: DropEvent) {
+    onVegetableDrop(e: any) {
         this.droppedVegetables.push(e.dragData);
         this.removeItem(e.dragData);
     }

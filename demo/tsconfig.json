@@ -7,17 +7,13 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "removeComments": false,
-    "noImplicitAny": false,
-    "declaration": true
+    "noImplicitAny": false
   },
-  "exclude": [
-  ],
   "files": [
-    "index.ts",
+    "app/main.ts",
     "typings/index.d.ts"
   ],
   "exclude": [
-    "node_modules",
-    "demo"
+    "node_modules"
   ]
 }
