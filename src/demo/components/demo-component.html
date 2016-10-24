@@ -1,24 +1,39 @@
 <div class="row">
-  <div class="col-md-6">
-    <div class="panel panel-default">
-      <div class="panel-heading">Drag Items from here</div>
-      <div class="panel-body scroll-list">
 
-        <ul class="list-group">
-          <li draggable [dragOverClass]="'drag-over-border'" *ngFor="let country of countries" class="list-group-item">{{country}}</li>
-        </ul>
-
-      </div>
+    <div class="col-md-4">
+        <div class="panel panel-default">
+            <div class="panel-heading">Drag Items from here</div>
+            <div class="panel-body scroll-list">
+                <ul class="list-group">
+                    <li draggable *ngFor="let item of items"
+                        [dragOverClass]="'drag-over-border'"
+                        [dragData]="item" class="list-group-item" [dragScope]="item.type">{{item.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div class="col-md-6">
-    <div class="panel panel-default" droppable [dragOverClass]="'drag-target-border'">
-      <div class="panel-heading">Drop Items here</div>
-      <div class="panel-body scroll-list">
-        Panel content
-      </div>
+    <div class="col-md-4">
+        <div class="panel panel-default" droppable [dragOverClass]="'drag-target-border'" [dropScope]="'fruit'"
+             (onDrop)="onFruitDrop($event)">
+            <div class="panel-heading">Drop Fruits here</div>
+            <div class="panel-body scroll-list">
+                <li *ngFor="let item of droppedFruits" class="list-group-item">{{item.name}}</li>
+            </div>
+        </div>
     </div>
-  </div>
+
+
+    <div class="col-md-4">
+        <div class="panel panel-default" droppable [dragOverClass]="'drag-target-border'" [dropScope]="'vegetable'"
+             (onDrop)="onVegetableDrop($event)">
+            <div class="panel-heading">Drop Vegetables here</div>
+            <div class="panel-body scroll-list">
+                <li *ngFor="let item of droppedVegetables" class="list-group-item">{{item.name}}</li>
+            </div>
+        </div>
+    </div>
+
 </div>
 

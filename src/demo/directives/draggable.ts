@@ -1,7 +1,3 @@
-/**
- * Created by orehman on 9/20/2016.
- */
-
 import {Directive, ElementRef, HostListener, Input, Output, EventEmitter} from '@angular/core';
 
 @Directive({
@@ -17,8 +13,8 @@ export class Draggable {
     @Input() dragOverClass: string;
 
     @Output() onDragStart: EventEmitter<any> = new EventEmitter();
-    @Output() onDragEnd: EventEmitter<any> = new EventEmitter();
     @Output() onDrag: EventEmitter<any> = new EventEmitter();
+    @Output() onDragEnd: EventEmitter<any> = new EventEmitter();
 
 
     @HostListener('dragstart', ['$event'])
@@ -27,7 +23,12 @@ export class Draggable {
         e.dataTransfer.setData('application/json', JSON.stringify(this.dragData));
         e.dataTransfer.setData(this.dragScope, this.dragScope);
         e.stopPropagation();
-        this.onDragStart.emit(event);
+        this.onDragStart.emit(e);
+    }
+
+    @HostListener('drag', ['$event'])
+    drag(e) {
+        this.onDrag.emit(e)
     }
 
     @HostListener('dragend', ['$event'])
@@ -38,5 +39,3 @@ export class Draggable {
         e.preventDefault();
     }
 }
-
-
