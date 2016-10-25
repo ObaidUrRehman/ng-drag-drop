@@ -3,6 +3,11 @@ Angular 2 Drag and Drop based on HTML5 with no external dependencies.
 
 **This package is under active development please check back in a few days**
 
+![alt tag](https://raw.githubusercontent.com/ObaidUrRehman/ng2-drag-drop/master/drag-drop.gif)
+
+## Demo
+Coming soon
+
 ## Installation
 ```bash
 npm install ng2-drag-drop --save dev
