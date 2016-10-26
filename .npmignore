@@ -1,13 +1,62 @@
-# Node generated files
+#################
+## Node generated files
+#################
 node_modules
 npm-debug.log
-/demo
 
-# OS generated files
+############
+## Others
+############
+demo/*
+
+############
+## Windows
+############
+
+# Windows image file caches
 Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+############
+## Mac
+############
+
+# Mac crap
 .DS_Store
 
-# Ignored files
-*.js
-*.map
-*.d.ts
+#################
+## JetBrains
+#################
+.idea
+.project
+.settings
+.idea/*
+*.iml
+
+#################
+## Misc
+#################
+**/.DS_Store
+nbproject
+manifest.mf
+build.xml
+node_modules/*
+npm-debug.log
+coverage
+typings
+typings.json
+**/*.ts
+**/*.js.map
+!*.d.ts
+!src/*.d.ts
+!tests/*.d.ts
+.travis.yml
+karma*
+make.js
+tsconfig.json
+_test-output
+systemconfig.js
+*.gif
+.editorconfig
