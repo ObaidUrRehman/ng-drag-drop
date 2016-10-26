@@ -1,8 +1,9 @@
-# Angular 2 Drag & Drop ![npm version](https://img.shields.io/npm/v/ng2-drag-drop.svg) ![npm monthly downloads](https://img.shields.io/npm/dm/ng2-drag-drop.svg?style=flat-square)
+# Angular 2 Drag & Drop [![npm version](https://img.shields.io/npm/v/ng2-drag-drop.svg)](https://www.npmjs.com/package/ng2-drag-drop) [![npm downloads](https://img.shields.io/npm/dm/ng2-drag-drop.svg)](https://www.npmjs.com/package/ng2-drag-drop)
 Angular 2 Drag and Drop based on HTML5 with no external dependencies.
 
+[![Dependency Status](https://david-dm.org/ObaidUrRehman/ng2-drag-drop.svg)](https://david-dm.org/ObaidUrRehman/ng2-drag-drop) [![Devdependency Status](https://david-dm.org/ObaidUrRehman/ng2-drag-drop/dev-status.svg)](https://david-dm.org/ObaidUrRehman/ng2-drag-drop#info=devDependencies)
 
-**This package is under active development please check back in a few days**
+**This package is under active development and is subject to change!**
 
 ![Demo](https://raw.githubusercontent.com/ObaidUrRehman/ng2-drag-drop/master/drag-drop.gif)
 
