@@ -3,11 +3,12 @@
 #################
 node_modules
 npm-debug.log
+npm-debug.log*
 
 ############
 ## Others
 ############
-demo/*
+demo
 
 ############
 ## Windows
