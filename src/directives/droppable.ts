@@ -9,12 +9,34 @@ import {DropEvent} from "../shared/drop-event.model";
 })
 export class Droppable {
 
+    /**
+     *  Event fired when Drag dragged element enters a valid drop target.
+     */
     @Output() onDragEnter: EventEmitter<any> = new EventEmitter();
+    
+    /**
+     * Event fired when an element is being dragged over a valid drop target  
+     */
     @Output() onDragOver: EventEmitter<any> = new EventEmitter();
+
+    /**
+     * Event fired when a dragged element leaves a valid drop target.
+     */
     @Output() onDragLeave: EventEmitter<any> = new EventEmitter();
+
+    /**
+     * Event fired when an element is dropped on a valid drop target.
+     */
     @Output() onDrop: EventEmitter<DropEvent> = new EventEmitter();
 
+    /**
+     * CSS class applied on the draggable that is applied when the item is being dragged.
+     */
     @Input() dragOverClass: string;
+
+    /**
+     * Defines compatible drag drop pairs. Values must match both in draggable and droppable.dropScope.
+     */
     @Input() dropScope: string = 'default';
 
     constructor(protected el: ElementRef) {

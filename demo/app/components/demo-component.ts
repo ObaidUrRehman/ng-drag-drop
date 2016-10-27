@@ -16,6 +16,10 @@ import {Component} from '@angular/core';
     .drag-target-border {
        border: #00bfff dashed 2px;
     }
+
+    .drag-target-border-green {
+       border: #3c763d dashed 2px;
+    }
    `
     ]
 })
