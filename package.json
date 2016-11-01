@@ -14,8 +14,10 @@
   },
   "keywords": [
     "Angular2",
+    "Angular",
     "drag",
-    "drop"
+    "drop",
+    "dragdrop"
   ],
   "author": "Obaid ur Rehman",
   "license": "MIT",
