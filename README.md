@@ -77,16 +77,16 @@ Both the `draggable` & `droppable` directives take a `[dragOverClass]` input. Yo
  ```
 
 ### Restrict Drop
-You can use the `dropScope` property to restrict user from dropping a draggable element into a `droppable`.
- Its a string property that is common on both directives and must match in both to indicate compatible drag-drop zones.
+You can use the `dragScope` & `dropScope` property on `draggable` and `droppable` respectively to restrict user from dropping a `draggable` element into a `droppable`.
+ Both are string properties and must match in both to indicate compatible drag-drop zones.
  In the following example, only the `draggable` with the `drink` dropScope can be dropped on the `droppable`.
  
 ```bash
 <ul>
-  <li draggable [dropScope]="'drink'">Coffee</li>
-  <li draggable [dropScope]="'drink'">Tea</li>
-  <li draggable [dropScope]="'meal'">Biryani</li>
-  <li draggable [dropScope]="'meal'">Kebab</li>
+  <li draggable [dragScope]="'drink'">Coffee</li>
+  <li draggable [dragScope]="'drink'">Tea</li>
+  <li draggable [dragScope]="'meal'">Biryani</li>
+  <li draggable [dragScope]="'meal'">Kebab</li>
   ...
 </ul>               
 ```
@@ -149,7 +149,7 @@ export class AppComponent {
 | Name   | Type      |Default Value |Description |
 |:-------|:----------|:-------------|:-----------|
 | `dragData` |  `any` | `null` | The data that will be avaliable to the droppable directive on its `onDrop()` event. |
-| `dragScope` |    `string` | `'default'`   |  Defines compatible drag drop pairs. Values must match both in draggable and droppable.dropScope. |
+| `dragScope` |    `string` | `'default'`   |  Defines compatible drag drop pairs. Values must match with `droppable.dropScope`. |
 | `dragOverClass` | `string` | `null` | CSS class applied on the draggable that is applied when the item is being dragged. |
 
 ####Events
@@ -168,7 +168,7 @@ For more information on Drag DOM Events: [Drag Event](https://developer.mozilla.
 
 | Name   | Type      |Default Value |Description |
 |:-------|:----------|:-------------|:-----------|
-| `dropScope` |    `string` | `'default'`   |   Defines compatible drag drop pairs. Values must match both in draggable and droppable.dropScope. |
+| `dropScope` |    `string` | `'default'`   |   Defines compatible drag drop pairs. Values must match with `draggable.dragScope` |
 | `dragOverClass` | `string` | `null` | CSS class applied on the droppable element when the item is being dragged over valid drop target. |
 
 ####Events
