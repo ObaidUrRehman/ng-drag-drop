@@ -44,8 +44,8 @@ export class Droppable {
 
     @HostListener('dragenter', ['$event'])
     dragEnter(e) {
-        event.preventDefault();
-        event.stopPropagation();
+        e.preventDefault();
+        e.stopPropagation();
         this.onDragEnter.emit(e);
     }
 
