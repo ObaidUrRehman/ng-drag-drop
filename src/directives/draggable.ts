@@ -1,4 +1,4 @@
-import {Directive, ElementRef, HostListener, Input, Output, EventEmitter} from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, Output, EventEmitter } from '@angular/core';
 
 @Directive({
     selector: '[draggable]',
@@ -14,6 +14,11 @@ export class Draggable {
      * The data that will be avaliable to the droppable directive on its `onDrop()` event. 
      */
     @Input() dragData;
+
+    /**
+     * The selector that defines the drag Handle. If defined drag will only be allowed if dragged from the selector element. 
+     */
+    @Input() dragHandle: string;
 
     /**
      * Currently not used
@@ -45,14 +50,21 @@ export class Draggable {
      */
     @Output() onDragEnd: EventEmitter<any> = new EventEmitter();
 
+    private mouseOverElement: any;
+
 
     @HostListener('dragstart', ['$event'])
     dragStart(e) {
-        e.target.classList.add(this.dragOverClass);
-        e.dataTransfer.setData('application/json', JSON.stringify(this.dragData));
-        e.dataTransfer.setData(this.dragScope, this.dragScope);
-        e.stopPropagation();
-        this.onDragStart.emit(e);
+        if (this.allowDrag()) {
+            e.target.classList.add(this.dragOverClass);
+            e.dataTransfer.setData('application/json', JSON.stringify(this.dragData));
+            e.dataTransfer.setData(this.dragScope, this.dragScope);
+            e.stopPropagation();
+            this.onDragStart.emit(e);
+        }
+        else {
+            e.preventDefault();
+        }
     }
 
     @HostListener('drag', ['$event'])
@@ -66,5 +78,17 @@ export class Draggable {
         this.onDragEnd.emit(e);
         e.stopPropagation();
         e.preventDefault();
+    }
+
+    @HostListener('mouseover', ['$event'])
+    mouseover(e) {
+        this.mouseOverElement = e.target;
+    }
+
+    private allowDrag() {
+        if (this.dragHandle)
+            return this.mouseOverElement.matches(this.dragHandle);
+        else
+            return true;
     }
 }
