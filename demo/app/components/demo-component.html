@@ -4,10 +4,25 @@
         <div class="panel panel-primary">
             <div class="panel-heading">Drag Items from here</div>
             <div class="panel-body scroll-list">
+                
                 <ul class="list-group">
-                    <li draggable *ngFor="let item of items"
+                    <li draggable *ngFor="let item of vegetables"
                         [dragOverClass]="'drag-over-border'"
-                        [dragData]="item" class="list-group-item" [dragScope]="item.type">{{item.name}}
+                        [dragData]="item" class="list-group-item" 
+                        [dragScope]="item.type">
+                        {{item.name}} 
+                    </li>
+                </ul>
+
+                <ul class="list-group">
+                    <p class="text-justify">The following items can only be dragged by their handle.</p>
+                    <li draggable *ngFor="let item of fruits"
+                        [dragOverClass]="'drag-over-border'"
+                        [dragData]="item" class="list-group-item" 
+                        [dragScope]="item.type"
+                        [dragHandle]="'.drag-handle'">
+                        {{item.name}}
+                        <div class="pull-right"><i class="drag-handle fa fa-bars fa-lg" aria-hidden="true"></i></div> 
                     </li>
                 </ul>
             </div>
@@ -34,5 +49,5 @@
             </div>
         </div>
     </div>
-
+    
 </div>
