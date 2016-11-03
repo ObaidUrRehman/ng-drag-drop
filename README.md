@@ -11,14 +11,14 @@ Angular 2 Drag & Drop based on HTML5 with no external dependencies. Provides `dr
 Coming soon
 
 ## Installation
-```bash
+```js
 npm install ng2-drag-drop --save dev
 ```
 
 ## Usage
 ### Update SystemJS config:
 If you use SystemJS as your module loader then you will need to update the config to load the `ng2-drag-drop` module.
-```bash
+```js
 System.config({
     map: {
         'ng2-drag-drop': 'node_modules/ng2-drag-drop'
@@ -32,7 +32,7 @@ System.config({
 
 You need to import the `Ng2DragDropModule` in the module of your app where you want to use it.
 
-```bash
+```js
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {DemoComponent} from "./components/demo-component";
@@ -51,7 +51,7 @@ export class AppModule {}
 Place the `draggable` directive on an element that you want to be draggable. The following example makes the
  List item draggable:
 
-```bash
+```html
 <ul>
   <li draggable>Coffee</li>
   <li draggable>Tea</li>
@@ -61,7 +61,7 @@ Place the `draggable` directive on an element that you want to be draggable. The
 
 Similarly use the `droppable` directive on an element where you want to drop `draggable`:
  
- ```bash
+ ```html
  <div droppable>
    <p>Drop items here</p>
  </div>               
@@ -70,7 +70,7 @@ Similarly use the `droppable` directive on an element where you want to drop `dr
 ### Add visual cues
 Both the `draggable` & `droppable` directives take a `[dragOverClass]` input. You can pass a class name to it that will be applied when the `draggable` item is being dragged and when the `droppable` is under the mouse:
  
- ```bash
+ ```html
  <div droppable [dragOverClass]="'drag-target-border'">
    <p>Drop items here</p>
  </div>               
@@ -81,7 +81,7 @@ You can use the `dragScope` & `dropScope` property on `draggable` and `droppable
  Both are string properties and must match in both to indicate compatible drag-drop zones.
  In the following example, only the `draggable` with the `drink` dropScope can be dropped on the `droppable`.
  
-```bash
+```html
 <ul>
   <li draggable [dragScope]="'drink'">Coffee</li>
   <li draggable [dragScope]="'drink'">Tea</li>
@@ -102,7 +102,7 @@ You can use the `dragScope` & `dropScope` property on `draggable` and `droppable
 You can transfer data from the `draggable` to the `droppable` via the `dragData` property on the `draggable` directive. 
  The data will be received in the `(onDrop)` event of the `droppable`:
 
-```bash
+```js
 import {Component} from '@angular/core';
 
 @Component({
@@ -141,6 +141,16 @@ export class AppComponent {
 }             
 ```
 
+### Drag Handle
+Drag Handle can be defined for a `draggable` item that will restrict drag of the element unless the item is dragged from the specified element.
+ The handle should be a valid selector string. Example: 
+```html
+<li draggable [dragHandle]="'.drag-handle'">
+   Not Draggable by list item but by the handle only.    
+   <div class="pull-right"><i class="drag-handle fa fa-bars fa-lg" aria-hidden="true"></i></div> 
+</li>               
+```
+
 ## API Doc
 ### Draggable directive
 
@@ -151,6 +161,7 @@ export class AppComponent {
 | `dragData` |  `any` | `null` | The data that will be avaliable to the droppable directive on its `onDrop()` event. |
 | `dragScope` |    `string` | `'default'`   |  Defines compatible drag drop pairs. Values must match with `droppable.dropScope`. |
 | `dragOverClass` | `string` | `null` | CSS class applied on the draggable that is applied when the item is being dragged. |
+| `draghandle` | `string` | `null` | The selector that defines the drag Handle. If defined drag will only be allowed if dragged from the selector element. |
 
 ####Events
 
