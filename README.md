@@ -8,7 +8,7 @@ Angular 2 Drag & Drop based on HTML5 with no external dependencies. Provides `dr
 ![Demo](https://raw.githubusercontent.com/ObaidUrRehman/ng2-drag-drop/master/drag-drop.gif)
 
 ## Demo
-Coming soon
+Check out the demo folder for a SystemJS based app. Online demo is coming soon.
 
 ## Installation
 ```js
@@ -92,7 +92,7 @@ You can use the `dragScope` & `dropScope` property on `draggable` and `droppable
 ```
  
  
-```bash
+```html
 <div droppable [dropScope]="'drink'" [dragOverClass]="'drag-target-border'">
   <p>Only Drinks can be dropped in the above container</p>
 </div>               
