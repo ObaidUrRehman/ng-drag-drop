@@ -10,7 +10,9 @@ Angular 2 Drag & Drop based on HTML5 with no external dependencies. Provides `dr
 ## Demo
 
 Plunker demo is [here.](http://plnkr.co/edit/2bjGgzWnbFrciEiCKLew?p=preview)
- Check out the demo folder in the repository for a SystemJS based app. Online demo is coming soon.
+
+
+Check out the demo folder in the repository for a SystemJS based app. Online demo is coming soon.
 
 ## Installation
 ```js
