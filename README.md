@@ -8,7 +8,9 @@ Angular 2 Drag & Drop based on HTML5 with no external dependencies. Provides `dr
 ![Demo](https://raw.githubusercontent.com/ObaidUrRehman/ng2-drag-drop/master/drag-drop.gif)
 
 ## Demo
-Check out the demo folder for a SystemJS based app. Online demo is coming soon.
+
+Plunker demo is [here.](http://plnkr.co/edit/2bjGgzWnbFrciEiCKLew?p=preview)
+ Check out the demo folder in the repository for a SystemJS based app. Online demo is coming soon.
 
 ## Installation
 ```js
