@@ -8,16 +8,14 @@ Angular 2 Drag & Drop based on HTML5 with no external dependencies. Provides `dr
 * Restrict drag to happen from either drag handles or the entire element.
 * Ability to add custom visual cues styles.
 
-**This package is under active development and is subject to change!**
-
 ![Demo](https://raw.githubusercontent.com/ObaidUrRehman/ng2-drag-drop/master/drag-drop.gif)
 
 ## Demo
 
-Plunker demo is [here.](http://plnkr.co/edit/2bjGgzWnbFrciEiCKLew?p=preview)
+Check out the [Plunker demo](http://plnkr.co/edit/2bjGgzWnbFrciEiCKLew?p=preview).
 
 
-Check out the demo folder in the repository for a SystemJS based app. Online demo is coming soon.
+The [demo folder](https://github.com/ObaidUrRehman/ng2-drag-drop/tree/master/demo) of the repository contains the same demo as Plunkr that uses SystemJS. To run that demo do an `npm install` in that folder followed by `npm start` to serve the demo app.
 
 ## Installation
 ```js
