@@ -1,13 +1,14 @@
 # Angular 2 Drag & Drop [![npm version](https://img.shields.io/npm/v/ng2-drag-drop.svg)](https://www.npmjs.com/package/ng2-drag-drop) [![npm downloads](https://img.shields.io/npm/dm/ng2-drag-drop.svg)](https://www.npmjs.com/package/ng2-drag-drop)
-Angular 2 Drag & Drop based on HTML5 with no external dependencies. Provides `draggable` & `droppable` directives. Features:
-
-* Ability to add custom visual cues via CSS.
-* Restrict drop to drop zones based on scopes.
-* Restrict drag to happen from drag handles or entire element.
-
-**This package is under active development and is subject to change!**
 
 [![Dependency Status](https://david-dm.org/ObaidUrRehman/ng2-drag-drop.svg)](https://david-dm.org/ObaidUrRehman/ng2-drag-drop) [![Devdependency Status](https://david-dm.org/ObaidUrRehman/ng2-drag-drop/dev-status.svg)](https://david-dm.org/ObaidUrRehman/ng2-drag-drop#info=devDependencies)
+
+Angular 2 Drag & Drop based on HTML5 with no external dependencies. Provides `draggable` & `droppable` directives. Features:
+* Transfer data from `draggable` to `droppable`.
+* Restrict drop to drop zones based on drag-drop scopes.
+* Restrict drag to happen from either drag handles or the entire element.
+* Ability to add custom visual cues styles.
+
+**This package is under active development and is subject to change!**
 
 ![Demo](https://raw.githubusercontent.com/ObaidUrRehman/ng2-drag-drop/master/drag-drop.gif)
 
