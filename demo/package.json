@@ -40,7 +40,7 @@
     "reflect-metadata": "^0.1.8",
     "rxjs": "5.0.0-beta.12",
     "zone.js": "^0.6.25",
-    "ng2-drag-drop": "^0.2.2"
+    "ng2-drag-drop": "latest"
   },
   "devDependencies": {
     "concurrently": "^3.0.0",
