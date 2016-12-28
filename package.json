@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "postinstall": "npm run typings install",
+    "typings": "typings",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "prepublish": "tsc"
