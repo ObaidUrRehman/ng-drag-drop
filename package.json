@@ -4,8 +4,6 @@
   "description": "Angular 2 Drag and Drop based on HTML5",
   "main": "index.js",
   "scripts": {
-    "postinstall": "npm run typings install",
-    "typings": "typings",
     "test": "echo \"Error: no test specified\" && exit 0",
     "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
     "prepublish": "tsc"
