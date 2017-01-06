@@ -12,6 +12,10 @@ e2e/**/*.js
 e2e/**/*.js.map
 _test-output
 _temp
+*.metadata.json
+*.ngsummary.json
+*.ngfactory.json
+*.ngfactory.ts
 
 !karma*.js
 !protractor*.js
