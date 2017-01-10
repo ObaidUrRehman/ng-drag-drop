@@ -10,11 +10,8 @@
     "noImplicitAny": false,
     "declaration": true
   },
-  "exclude": [
-  ],
   "files": [
-    "index.ts",
-    "typings/index.d.ts"
+    "index.ts"
   ],
   "exclude": [
     "node_modules",
