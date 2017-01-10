@@ -23,31 +23,27 @@
   "homepage": "https://github.com/ObaidUrRehman/ng2-drag-drop#readme",
 
   "dependencies": {
-    "@angular/common": "~2.1.0",
-    "@angular/compiler": "~2.1.0",
-    "@angular/core": "~2.1.0",
-    "@angular/forms": "~2.1.0",
-    "@angular/http": "~2.1.0",
-    "@angular/platform-browser": "~2.1.0",
-    "@angular/platform-browser-dynamic": "~2.1.0",
-    "@angular/router": "~3.1.0",
-    "@angular/upgrade": "~2.1.0",
-
+    "@angular/common": "~2.4.0",
+    "@angular/compiler": "~2.4.0",
+    "@angular/core": "~2.4.0",
+    "@angular/forms": "~2.4.0",
+    "@angular/http": "~2.4.0",
+    "@angular/platform-browser": "~2.4.0",
+    "@angular/platform-browser-dynamic": "~2.4.0",
 
     "bootstrap": "^3.3.7",
-    "systemjs": "0.19.39",
+    "systemjs": "0.19.40",
     "core-js": "^2.4.1",
     "reflect-metadata": "^0.1.8",
-    "rxjs": "5.0.0-beta.12",
-    "zone.js": "^0.6.25",
+    "rxjs": "5.0.1",
+    "zone.js": "^0.7.4",
     "ng2-drag-drop": "latest"
   },
   "devDependencies": {
-    "concurrently": "^3.0.0",
+    "concurrently": "^3.1.0",
     "lite-server": "^2.2.2",
-    "typescript": "^2.0.3",
+    "typescript": "^2.0.10",
     "typings": "^1.4.0",
-
     "canonical-path": "0.0.2",
     "http-server": "^0.9.0",
     "tslint": "^3.15.1",
