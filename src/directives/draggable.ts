@@ -56,7 +56,8 @@ export class Draggable {
     @HostListener('dragstart', ['$event'])
     dragStart(e) {
         if (this.allowDrag()) {
-            e.target.classList.add(this.dragOverClass);
+            if (e.target.classList != undefined && e.target.classList != null)
+				e.target.classList.add(this.dragOverClass);
             e.dataTransfer.setData('application/json', JSON.stringify(this.dragData));
             e.dataTransfer.setData(this.dragScope, this.dragScope);
             e.stopPropagation();
@@ -74,7 +75,8 @@ export class Draggable {
 
     @HostListener('dragend', ['$event'])
     dragEnd(e) {
-        e.target.classList.remove(this.dragOverClass);
+        if (e.target.classList != undefined && e.target.classList != null)
+            e.target.classList.remove(this.dragOverClass);
         this.onDragEnd.emit(e);
         e.stopPropagation();
         e.preventDefault();
