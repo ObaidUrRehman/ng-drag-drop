@@ -52,7 +52,8 @@ export class Droppable {
     @HostListener('dragover', ['$event'])
     dragOver(e) {
         if (this.allowDrop(e)) {
-            e.target.classList.add(this.dragOverClass);
+            if (e.target.classList != undefined && e.target.classList != null)
+		e.target.classList.add(this.dragOverClass);
             e.preventDefault();
             this.onDragOver.emit(e);
         }
@@ -60,14 +61,16 @@ export class Droppable {
 
     @HostListener('dragleave', ['$event'])
     dragLeave(e) {
-        e.target.classList.remove(this.dragOverClass);
+        if (e.target.classList != undefined && e.target.classList != null)
+            e.target.classList.remove(this.dragOverClass);
         e.preventDefault();
         this.onDragLeave.emit(e);
     }
 
     @HostListener('drop', ['$event'])
     drop(e) {
-        e.target.classList.remove(this.dragOverClass);
+        if (e.target.classList != undefined && e.target.classList != null)
+            e.target.classList.remove(this.dragOverClass);
         e.preventDefault();
         e.stopPropagation();
         let data;
