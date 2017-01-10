@@ -11,4 +11,4 @@ branches:
   - develop
 
 after_success:
-  - npm run prepublish
+  - npm run build
