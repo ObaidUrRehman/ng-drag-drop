@@ -57,7 +57,7 @@ export class Draggable {
     dragStart(e) {
         if (this.allowDrag()) {
             if (e.target.classList != undefined && e.target.classList != null)
-				e.target.classList.add(this.dragOverClass);
+		e.target.classList.add(this.dragOverClass);
             e.dataTransfer.setData('application/json', JSON.stringify(this.dragData));
             e.dataTransfer.setData(this.dragScope, this.dragScope);
             e.stopPropagation();
