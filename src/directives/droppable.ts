@@ -53,7 +53,7 @@ export class Droppable {
     dragOver(e) {
         if (this.allowDrop(e)) {
             if (e.target.classList != undefined && e.target.classList != null)
-				e.target.classList.add(this.dragOverClass);
+		e.target.classList.add(this.dragOverClass);
             e.preventDefault();
             this.onDragOver.emit(e);
         }
