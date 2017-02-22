@@ -104,7 +104,7 @@ You can use the `dragScope` & `dropScope` property on `draggable` and `droppable
 </div>               
 
 <div droppable [dropScope]="['drink', 'meal']" [dragOverClass]="'drag-target-border'">
-  <p>Both Meal & Drinks can be dropped in the above container</p>
+  <p>Both Meal and Drinks can be dropped in the above container</p>
 </div>               
 ```
   
