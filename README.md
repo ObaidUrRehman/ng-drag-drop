@@ -9,19 +9,19 @@ Angular 2 Drag & Drop based on HTML5 with no external dependencies. Provides `dr
 
 ![Demo](https://raw.githubusercontent.com/ObaidUrRehman/ng2-drag-drop/master/drag-drop.gif)
 
-## Demo
+# Demo
 
 Check out the [Plunker demo](http://plnkr.co/edit/2bjGgzWnbFrciEiCKLew?p=preview).
 
 
 The [demo folder](https://github.com/ObaidUrRehman/ng2-drag-drop/tree/master/demo) of the repository contains the same demo as Plunkr that uses SystemJS. To run that demo do an `npm install` in that folder followed by `npm start` to serve the demo app.
 
-## Installation
+# Installation
 ```js
 npm install ng2-drag-drop --save dev
 ```
 
-## Usage
+# Usage
 ### Update SystemJS config:
 If you use SystemJS as your module loader then you will need to update the config to load the `ng2-drag-drop` module.
 ```js
@@ -161,7 +161,7 @@ Drag Handle can be defined for a `draggable` item that will restrict drag of the
 </li>               
 ```
 
-## API Doc
+# API Doc
 ### Draggable directive
 
 ####Attributes
