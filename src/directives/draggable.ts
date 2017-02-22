@@ -1,4 +1,6 @@
-import { Directive, ElementRef, HostListener, Input, Output, EventEmitter } from '@angular/core';
+import {Directive, ElementRef, HostListener, Input, Output, EventEmitter} from '@angular/core';
+import {Ng2DragDropService} from "../services/ng2-drag-drop.service";
+import {Utils} from "../shared/utils";
 
 @Directive({
     selector: '[draggable]',
@@ -11,12 +13,12 @@ import { Directive, ElementRef, HostListener, Input, Output, EventEmitter } from
  */
 export class Draggable {
     /**
-     * The data that will be avaliable to the droppable directive on its `onDrop()` event. 
+     * The data that will be avaliable to the droppable directive on its `onDrop()` event.
      */
     @Input() dragData;
 
     /**
-     * The selector that defines the drag Handle. If defined drag will only be allowed if dragged from the selector element. 
+     * The selector that defines the drag Handle. If defined drag will only be allowed if dragged from the selector element.
      */
     @Input() dragHandle: string;
 
@@ -50,16 +52,24 @@ export class Draggable {
      */
     @Output() onDragEnd: EventEmitter<any> = new EventEmitter();
 
+    /**
+     * Keeps track of mouse over element that is used to determine drag handles
+     */
     private mouseOverElement: any;
 
+
+    constructor(private ng2DragDropService: Ng2DragDropService) {
+    }
 
     @HostListener('dragstart', ['$event'])
     dragStart(e) {
         if (this.allowDrag()) {
             if (e.target.classList != undefined && e.target.classList != null)
-		e.target.classList.add(this.dragOverClass);
-            e.dataTransfer.setData('application/json', JSON.stringify(this.dragData));
-            e.dataTransfer.setData(this.dragScope, this.dragScope);
+                e.target.classList.add(this.dragOverClass);
+
+            this.ng2DragDropService.dragData = this.dragData;
+            this.ng2DragDropService.scope = this.dragScope;
+
             e.stopPropagation();
             this.onDragStart.emit(e);
         }
@@ -77,6 +87,7 @@ export class Draggable {
     dragEnd(e) {
         if (e.target.classList != undefined && e.target.classList != null)
             e.target.classList.remove(this.dragOverClass);
+
         this.onDragEnd.emit(e);
         e.stopPropagation();
         e.preventDefault();
@@ -88,8 +99,9 @@ export class Draggable {
     }
 
     private allowDrag() {
+        console.log(this.mouseOverElement.matches);
         if (this.dragHandle)
-            return this.mouseOverElement.matches(this.dragHandle);
+            return Utils.matches(this.mouseOverElement, this.dragHandle);
         else
             return true;
     }
