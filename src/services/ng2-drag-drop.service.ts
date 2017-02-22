@@ -7,7 +7,7 @@ import {Injectable} from '@angular/core';
 @Injectable()
 export class Ng2DragDropService {
     dragData: any;
-    scope: any;
+    scope: string | Array<string>;
 
     constructor() {
     }

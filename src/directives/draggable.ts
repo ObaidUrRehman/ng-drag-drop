@@ -30,7 +30,7 @@ export class Draggable {
     /**
      * Defines compatible drag drop pairs. Values must match both in draggable and droppable.dropScope.
      */
-    @Input() dragScope: string = 'default';
+    @Input() dragScope: string | Array<string> = 'default';
 
     /**
      * CSS class applied on the draggable that is applied when the item is being dragged.
@@ -99,7 +99,6 @@ export class Draggable {
     }
 
     private allowDrag() {
-        console.log(this.mouseOverElement.matches);
         if (this.dragHandle)
             return Utils.matches(this.mouseOverElement, this.dragHandle);
         else
