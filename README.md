@@ -85,6 +85,7 @@ Both the `draggable` & `droppable` directives take a `[dragOverClass]` input. Yo
 ### Restrict Drop based on Scopes
 You can use the `dragScope` & `dropScope` property on `draggable` and `droppable` respectively to restrict user from dropping a `draggable` element into a `droppable`.
  The Scope properties can either be string or an Array of string (to indicate multiple scope). The scopes must match in both to indicate compatible drag-drop zones.
+ 
  In the following example, only the `draggable` with the `drink` dropScope can be dropped on the first `droppable` and both `drink` and `meal` can be dropped in the second one.
  
 ```html
