@@ -9,19 +9,19 @@ Angular 2 Drag & Drop based on HTML5 with no external dependencies. Provides `dr
 
 ![Demo](https://raw.githubusercontent.com/ObaidUrRehman/ng2-drag-drop/master/drag-drop.gif)
 
-## Demo
+# Demo
 
 Check out the [Plunker demo](http://plnkr.co/edit/2bjGgzWnbFrciEiCKLew?p=preview).
 
 
 The [demo folder](https://github.com/ObaidUrRehman/ng2-drag-drop/tree/master/demo) of the repository contains the same demo as Plunkr that uses SystemJS. To run that demo do an `npm install` in that folder followed by `npm start` to serve the demo app.
 
-## Installation
+# Installation
 ```js
 npm install ng2-drag-drop --save dev
 ```
 
-## Usage
+# Usage
 ### Update SystemJS config:
 If you use SystemJS as your module loader then you will need to update the config to load the `ng2-drag-drop` module.
 ```js
@@ -82,10 +82,11 @@ Both the `draggable` & `droppable` directives take a `[dragOverClass]` input. Yo
  </div>               
  ```
 
-### Restrict Drop
+### Restrict Drop based on Scopes
 You can use the `dragScope` & `dropScope` property on `draggable` and `droppable` respectively to restrict user from dropping a `draggable` element into a `droppable`.
- Both are string properties and must match in both to indicate compatible drag-drop zones.
- In the following example, only the `draggable` with the `drink` dropScope can be dropped on the `droppable`.
+ The Scope properties can either be string or an Array of string (to indicate multiple scope). The scopes must match in both to indicate compatible drag-drop zones.
+ 
+ In the following example, only the `draggable` with the `drink` dropScope can be dropped on the first `droppable` and both `drink` and `meal` can be dropped in the second one.
  
 ```html
 <ul>
@@ -96,11 +97,14 @@ You can use the `dragScope` & `dropScope` property on `draggable` and `droppable
   ...
 </ul>               
 ```
- 
- 
+
 ```html
 <div droppable [dropScope]="'drink'" [dragOverClass]="'drag-target-border'">
   <p>Only Drinks can be dropped in the above container</p>
+</div>               
+
+<div droppable [dropScope]="['drink', 'meal']" [dragOverClass]="'drag-target-border'">
+  <p>Both Meal and Drinks can be dropped in the above container</p>
 </div>               
 ```
   
@@ -148,7 +152,7 @@ export class AppComponent {
 ```
 
 ### Drag Handle
-Drag Handle can be defined for a `draggable` item that will restrict drag of the element unless the item is dragged from the specified element.
+Drag Handle can be defined for a `draggable` item which will restrict drag of the element unless the item is dragged from the specified element.
  The handle should be a valid selector string. Example: 
 ```html
 <li draggable [dragHandle]="'.drag-handle'">
@@ -157,7 +161,7 @@ Drag Handle can be defined for a `draggable` item that will restrict drag of the
 </li>               
 ```
 
-## API Doc
+# API Doc
 ### Draggable directive
 
 ####Attributes
@@ -165,7 +169,7 @@ Drag Handle can be defined for a `draggable` item that will restrict drag of the
 | Name   | Type      |Default Value |Description |
 |:-------|:----------|:-------------|:-----------|
 | `dragData` |  `any` | `null` | The data that will be avaliable to the droppable directive on its `onDrop()` event. |
-| `dragScope` |    `string` | `'default'`   |  Defines compatible drag drop pairs. Values must match with `droppable.dropScope`. |
+| `dragScope` |    `string | Array<string>` | `'default'`   |  Defines compatible drag drop pairs. Values must match with `droppable.dropScope`. |
 | `dragOverClass` | `string` | `null` | CSS class applied on the draggable that is applied when the item is being dragged. |
 | `draghandle` | `string` | `null` | The selector that defines the drag Handle. If defined drag will only be allowed if dragged from the selector element. |
 
@@ -185,7 +189,7 @@ For more information on Drag DOM Events: [Drag Event](https://developer.mozilla.
 
 | Name   | Type      |Default Value |Description |
 |:-------|:----------|:-------------|:-----------|
-| `dropScope` |    `string` | `'default'`   |   Defines compatible drag drop pairs. Values must match with `draggable.dragScope` |
+| `dropScope` |    `string | Array<string>` | `'default'`   |   Defines compatible drag drop pairs. Values must match with `draggable.dragScope` |
 | `dragOverClass` | `string` | `null` | CSS class applied on the droppable element when the item is being dragged over valid drop target. |
 
 ####Events
@@ -196,4 +200,8 @@ For more information on Drag DOM Events: [Drag Event](https://developer.mozilla.
 | `onDragOver`       | e: DOM event   | Event fired when an element is being dragged over a valid drop target. |
 | `onDragLeave`    | e: DOM event   | Event fired when a dragged element leaves a valid drop target. |
 | `onDrop`    | e: `DropEventModel`   | Event fired when an element is dropped on a valid drop target. |
+
+# License
+
+MIT
 

@@ -1,7 +1,5 @@
 import { EventEmitter } from '@angular/core';
-import { Ng2DragDropService } from "../services/ng2-drag-drop.service";
 export declare class Draggable {
-    private ng2DragDropService;
     /**
      * The data that will be avaliable to the droppable directive on its `onDrop()` event.
      */
@@ -17,7 +15,7 @@ export declare class Draggable {
     /**
      * Defines compatible drag drop pairs. Values must match both in draggable and droppable.dropScope.
      */
-    dragScope: string | Array<string>;
+    dragScope: string;
     /**
      * CSS class applied on the draggable that is applied when the item is being dragged.
      */
@@ -34,11 +32,7 @@ export declare class Draggable {
      * Event fired when dragged ends
      */
     onDragEnd: EventEmitter<any>;
-    /**
-     * Keeps track of mouse over element that is used to determine drag handles
-     */
     private mouseOverElement;
-    constructor(ng2DragDropService: Ng2DragDropService);
     dragStart(e: any): void;
     drag(e: any): void;
     dragEnd(e: any): void;
