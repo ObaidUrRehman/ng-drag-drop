@@ -1,9 +1,7 @@
 import { ElementRef, EventEmitter } from '@angular/core';
 import { DropEvent } from "../shared/drop-event.model";
-import { Ng2DragDropService } from "../services/ng2-drag-drop.service";
 export declare class Droppable {
     protected el: ElementRef;
-    private ng2DragDropService;
     /**
      *  Event fired when Drag dragged element enters a valid drop target.
      */
@@ -27,8 +25,8 @@ export declare class Droppable {
     /**
      * Defines compatible drag drop pairs. Values must match both in draggable and droppable.dropScope.
      */
-    dropScope: string | Array<string>;
-    constructor(el: ElementRef, ng2DragDropService: Ng2DragDropService);
+    dropScope: string;
+    constructor(el: ElementRef);
     dragEnter(e: any): void;
     dragOver(e: any): void;
     dragLeave(e: any): void;
