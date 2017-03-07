@@ -82,10 +82,10 @@ Both the `draggable` & `droppable` directives take a `[dragOverClass]` input. Yo
  </div>               
  ```
 
-### Restrict Drop
+### Restrict Drop based on Scopes
 You can use the `dragScope` & `dropScope` property on `draggable` and `droppable` respectively to restrict user from dropping a `draggable` element into a `droppable`.
  The Scope properties can either be string or an Array of string (to indicate multiple scope). The scopes must match in both to indicate compatible drag-drop zones.
- In the following example, only the `draggable` with the `drink` dropScope can be dropped on the `droppable`.
+ In the following example, only the `draggable` with the `drink` dropScope can be dropped on the first `droppable` and both `drink` and `meal` can be dropped in the second one.
  
 ```html
 <ul>
@@ -96,8 +96,7 @@ You can use the `dragScope` & `dropScope` property on `draggable` and `droppable
   ...
 </ul>               
 ```
- 
- 
+
 ```html
 <div droppable [dropScope]="'drink'" [dragOverClass]="'drag-target-border'">
   <p>Only Drinks can be dropped in the above container</p>
@@ -152,7 +151,7 @@ export class AppComponent {
 ```
 
 ### Drag Handle
-Drag Handle can be defined for a `draggable` item that will restrict drag of the element unless the item is dragged from the specified element.
+Drag Handle can be defined for a `draggable` item which will restrict drag of the element unless the item is dragged from the specified element.
  The handle should be a valid selector string. Example: 
 ```html
 <li draggable [dragHandle]="'.drag-handle'">
