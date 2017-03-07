@@ -58,6 +58,11 @@ export class DemoComponent {
 
     onAnyDrop(e: any) {
         this.droppedItems.push(e.dragData);
+
+        if(e.dragData.type === 'vegetable')
+            this.removeItem(e.dragData, this.vegetables);
+        else
+            this.removeItem(e.dragData, this.fruits);
     }
 
     removeItem(item: any, list: Array<any>) {
