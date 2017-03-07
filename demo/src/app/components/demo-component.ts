@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
     selector: 'demo-app',
@@ -30,20 +30,21 @@ import { Component } from '@angular/core';
 export class DemoComponent {
 
     vegetables = [
-        { name: "Carrot", type: "vegetable" },
-        { name: "Onion", type: "vegetable" },
-        { name: "Potato", type: "vegetable" },
-        { name: "Capsicum", type: "vegetable" }];
+        {name: "Carrot", type: "vegetable"},
+        {name: "Onion", type: "vegetable"},
+        {name: "Potato", type: "vegetable"},
+        {name: "Capsicum", type: "vegetable"}];
 
     fruits = [
-        { name: "Apple", type: "fruit" },
-        { name: "Orange", type: "fruit" },
-        { name: "Mango", type: "fruit" },
-        { name: "Banana", type: "fruit" },
-        { name: "Pear", type: "fruit" }];
+        {name: "Apple", type: "fruit"},
+        {name: "Orange", type: "fruit"},
+        {name: "Mango", type: "fruit"},
+        {name: "Banana", type: "fruit"},
+        {name: "Pear", type: "fruit"}];
 
     droppedFruits = [];
     droppedVegetables = [];
+    droppedItems = [];
 
     onFruitDrop(e: any) {
         this.droppedFruits.push(e.dragData);
@@ -53,6 +54,10 @@ export class DemoComponent {
     onVegetableDrop(e: any) {
         this.droppedVegetables.push(e.dragData);
         this.removeItem(e.dragData, this.vegetables);
+    }
+
+    onAnyDrop(e: any) {
+        this.droppedItems.push(e.dragData);
     }
 
     removeItem(item: any, list: Array<any>) {

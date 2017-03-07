@@ -1,16 +1,16 @@
 <div class="row">
 
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <div class="panel panel-primary">
             <div class="panel-heading">Drag Items from here</div>
             <div class="panel-body scroll-list">
-                
+
                 <ul class="list-group">
                     <li draggable *ngFor="let item of vegetables"
                         [dragOverClass]="'drag-over-border'"
-                        [dragData]="item" class="list-group-item" 
+                        [dragData]="item" class="list-group-item"
                         [dragScope]="item.type">
-                        {{item.name}} 
+                        {{item.name}}
                     </li>
                 </ul>
 
@@ -18,18 +18,18 @@
                     <p class="text-justify">The following items can only be dragged by their handle.</p>
                     <li draggable *ngFor="let item of fruits"
                         [dragOverClass]="'drag-over-border'"
-                        [dragData]="item" class="list-group-item" 
+                        [dragData]="item" class="list-group-item"
                         [dragScope]="item.type"
                         [dragHandle]="'.drag-handle'">
                         {{item.name}}
-                        <div class="pull-right"><i class="drag-handle fa fa-bars fa-lg" aria-hidden="true"></i></div> 
+                        <div class="pull-right"><i class="drag-handle fa fa-bars fa-lg" aria-hidden="true"></i></div>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <div class="panel panel-info" droppable  [dragOverClass]="'drag-target-border'" [dropScope]="'fruit'"
              (onDrop)="onFruitDrop($event)">
             <div class="panel-heading">Drop Fruits here</div>
@@ -40,7 +40,7 @@
     </div>
 
 
-    <div class="col-sm-4">
+    <div class="col-sm-3">
         <div class="panel panel-success" droppable [dragOverClass]="'drag-target-border-green'" [dropScope]="'vegetable'"
              (onDrop)="onVegetableDrop($event)">
             <div class="panel-heading">Drop Vegetables here</div>
@@ -49,5 +49,15 @@
             </div>
         </div>
     </div>
-    
+
+    <div class="col-sm-3">
+        <div class="panel panel-info" droppable  [dragOverClass]="'drag-target-border'" [dropScope]="['fruit', 'vegetable']"
+             (onDrop)="onAnyDrop($event)">
+            <div class="panel-heading">Drop Anything here</div>
+            <div class="panel-body scroll-list">
+                <li *ngFor="let item of droppedItems" class="list-group-item">{{item.name}}</li>
+            </div>
+        </div>
+    </div>
+
 </div>
