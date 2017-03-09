@@ -45,7 +45,8 @@ export class Droppable {
 
     @HostListener('dragenter', ['$event'])
     dragEnter(e) {
-        e.preventDefault();
+        
+		e.preventDefault();
         e.stopPropagation();
         this.onDragEnter.emit(e);
     }
@@ -53,8 +54,8 @@ export class Droppable {
     @HostListener('dragover', ['$event'])
     dragOver(e) {
         if (this.allowDrop(e)) {
-            if (e.target.classList != undefined && e.target.classList != null)
-                e.target.classList.add(this.dragOverClass);
+            if (this.el.nativeElement.classList != undefined && this.el.nativeElement.classList != null)
+                this.el.nativeElement.classList.add(this.dragOverClass);
 
             e.preventDefault();
             this.onDragOver.emit(e);
@@ -63,8 +64,8 @@ export class Droppable {
 
     @HostListener('dragleave', ['$event'])
     dragLeave(e) {
-        if (e.target.classList != undefined && e.target.classList != null)
-            e.target.classList.remove(this.dragOverClass);
+		if (this.el.nativeElement.classList != undefined && this.el.nativeElement.classList != null)
+            this.el.nativeElement.classList.remove(this.dragOverClass);
 
         e.preventDefault();
         this.onDragLeave.emit(e);
@@ -72,9 +73,9 @@ export class Droppable {
 
     @HostListener('drop', ['$event'])
     drop(e) {
-        if (e.target.classList != undefined && e.target.classList != null)
-            e.target.classList.remove(this.dragOverClass);
-
+        if (this.el.nativeElement.classList != undefined && this.el.nativeElement.classList != null)
+            this.el.nativeElement.classList.remove(this.dragOverClass);
+		
         e.preventDefault();
         e.stopPropagation();
 

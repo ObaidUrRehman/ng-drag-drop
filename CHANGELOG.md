@@ -1,3 +1,12 @@
+## 1.1.0 (2017-03-09)
+
+Enhacements:
+
+- droppable.dragOverClass is applied only on droppable element, closes 
+([#15](https://github.com/ObaidUrRehman/ng2-drag-drop/issues/15))
+
+
+
 ## 1.0.0 (2017-03-07)
 
 Bugfixes:
