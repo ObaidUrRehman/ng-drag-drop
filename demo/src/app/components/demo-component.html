@@ -61,3 +61,41 @@
     </div>
 
 </div>
+
+
+<h3>Swap List Demo</h3>
+<p>Move Items back and forth from List 1 to List 2 and vice versa.</p>
+
+<div class="row">
+   <div class="col-xs-3">
+      <div class="panel panel-primary" droppable 
+      [dragOverClass]="'drag-target-border'" (onDrop)="onList1Drop($event)">
+         <div class="panel-heading">List 1</div>
+         <div class="panel-body scroll-list">
+            <ul class="list-group">
+               <li draggable *ngFor="let item of list1"
+               [dragOverClass]="'drag-over-border'"
+               [dragData]="item" class="list-group-item">
+               {{item.name}}
+               </li>
+            </ul>
+         </div>
+      </div>
+   </div>
+   
+    <div class = "col-xs-3">
+         <div class="panel panel-primary" droppable 
+         [dragOverClass]="'drag-target-border'" (onDrop)="onList2Drop($event)">
+            <div class="panel-heading">List 2</div>
+            <div class="panel-body scroll-list">
+               <ul class="list-group">
+                  <li draggable *ngFor="let item of list2"
+                  [dragOverClass]="'drag-over-border'"
+                  [dragData]="item" class="list-group-item">
+                  {{item.name}}
+                  </li>
+               </ul>
+            </div>
+         </div>
+    </div>
+</div>
