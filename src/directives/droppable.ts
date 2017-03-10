@@ -3,10 +3,7 @@ import {DropEvent} from "../shared/drop-event.model";
 import {Ng2DragDropService} from "../services/ng2-drag-drop.service";
 
 @Directive({
-    selector: '[droppable]',
-    host: {
-        '[draggable]': 'false'
-    }
+    selector: '[droppable]'
 })
 export class Droppable {
 
