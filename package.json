@@ -39,7 +39,7 @@
     "zone.js": "^0.7.4"
   },
   "devDependencies": {
-    "@angular/compiler": "^2.4.1",
+    "@angular/compiler": "^4.0.0",
     "@angular/compiler-cli": "^2.4.1",
     "@types/core-js": "^0.9.35",
     "canonical-path": "0.0.2",
