@@ -29,7 +29,7 @@
   "homepage": "https://github.com/ObaidUrRehman/ng2-drag-drop#readme",
   "dependencies": {
     "@angular/common": "~2.4.0",
-    "@angular/core": "~2.4.0",
+    "@angular/core": "~4.0.0",
     "@angular/compiler": "~2.4.0",
     "@angular/platform-browser": "~2.4.0",
     "@angular/platform-browser-dynamic": "~2.4.0",
