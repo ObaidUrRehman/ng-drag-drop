@@ -1,1 +1,1 @@
-export * from "./src/ng2-drag-drop.module";
+export { Ng2DragDropModule } from "./src/ng2-drag-drop.module";
