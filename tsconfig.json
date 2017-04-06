@@ -2,13 +2,14 @@
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
-    "moduleResolution": "node",
     "sourceMap": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
+    "stripInternal": true,
+    "declaration": true,
+    "moduleResolution": "node",   
     "removeComments": false,
-    "noImplicitAny": false,
-    "declaration": true
+    "noImplicitAny": false
   },
   "typeRoots": [
     "./node_modules/@types"
@@ -22,5 +23,9 @@
   "exclude": [
     "node_modules",
     "demo"
-  ]
+  ],
+  "angularCompilerOptions": {
+    "skipTemplateCodegen": true,
+    "strictMetadataEmit": true
+  }
 }

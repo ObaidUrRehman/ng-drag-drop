@@ -88,7 +88,7 @@ export class DemoComponent {
     }
 
     removeItem(item: any, list: Array<any>) {
-        let index = list.map((e) => {
+        let index = list.map(function (e)  {
             return e.name
         }).indexOf(item.name);
         list.splice(index, 1);

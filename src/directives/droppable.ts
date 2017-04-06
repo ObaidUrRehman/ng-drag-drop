@@ -93,7 +93,7 @@ export class Droppable {
                 allowed = this.dropScope.indexOf(this.ng2DragDropService.scope) > -1;
             else if (this.ng2DragDropService.scope instanceof Array)
                 allowed = this.dropScope.filter(
-                        (item) => {
+                        function (item) {
                             return this.ng2DragDropService.scope.indexOf(item) !== -1;
                         }).length > 0;
         }
