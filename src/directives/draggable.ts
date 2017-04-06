@@ -54,8 +54,9 @@ export class Draggable {
 
     /**
      * Keeps track of mouse over element that is used to determine drag handles
+     * @internal
      */
-    private mouseOverElement: any;
+    mouseOverElement: any;
 
 
     constructor(private ng2DragDropService: Ng2DragDropService) {
