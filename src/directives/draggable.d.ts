@@ -34,10 +34,6 @@ export declare class Draggable {
      * Event fired when dragged ends
      */
     onDragEnd: EventEmitter<any>;
-    /**
-     * Keeps track of mouse over element that is used to determine drag handles
-     */
-    private mouseOverElement;
     constructor(ng2DragDropService: Ng2DragDropService);
     dragStart(e: any): void;
     drag(e: any): void;

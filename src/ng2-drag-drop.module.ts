@@ -15,7 +15,7 @@ import {Ng2DragDropService} from "./services/ng2-drag-drop.service";
     Droppable
   ],
   providers: [
-      Ng2DragDropService
+    Ng2DragDropService
   ],
 })
 export class Ng2DragDropModule {
