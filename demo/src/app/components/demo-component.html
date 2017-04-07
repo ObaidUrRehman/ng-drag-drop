@@ -31,7 +31,7 @@
 
     <div class="col-sm-3">
         <div class="panel panel-info" droppable  [dragOverClass]="'drag-target-border'" [dropScope]="'fruit'"
-             (onDrop)="onFruitDrop($event)">
+             [dragHintClass]="'drag-hint-border'" (onDrop)="onFruitDrop($event)">
             <div class="panel-heading">Drop Fruits here</div>
             <div class="panel-body scroll-list">
                 <li *ngFor="let item of droppedFruits" class="list-group-item">{{item.name}}</li>
@@ -42,7 +42,7 @@
 
     <div class="col-sm-3">
         <div class="panel panel-success" droppable [dragOverClass]="'drag-target-border-green'" [dropScope]="'vegetable'"
-             (onDrop)="onVegetableDrop($event)">
+             [dragHintClass]="'drag-hint-border'" (onDrop)="onVegetableDrop($event)">
             <div class="panel-heading">Drop Vegetables here</div>
             <div class="panel-body scroll-list">
                 <li *ngFor="let item of droppedVegetables" class="list-group-item">{{item.name}}</li>
@@ -52,7 +52,7 @@
 
     <div class="col-sm-3">
         <div class="panel panel-info" droppable  [dragOverClass]="'drag-target-border'" [dropScope]="['fruit', 'vegetable']"
-             (onDrop)="onAnyDrop($event)">
+             [dragHintClass]="'drag-hint-border'" (onDrop)="onAnyDrop($event)">
             <div class="panel-heading">Drop Anything here</div>
             <div class="panel-body scroll-list">
                 <li *ngFor="let item of droppedItems" class="list-group-item">{{item.name}}</li>
@@ -68,7 +68,7 @@
 
 <div class="row">
    <div class="col-xs-3">
-      <div class="panel panel-primary" droppable 
+      <div class="panel panel-primary" droppable
       [dragOverClass]="'drag-target-border'" (onDrop)="onList1Drop($event)">
          <div class="panel-heading">List 1</div>
          <div class="panel-body scroll-list">
@@ -82,9 +82,9 @@
          </div>
       </div>
    </div>
-   
+
     <div class = "col-xs-3">
-         <div class="panel panel-primary" droppable 
+         <div class="panel panel-primary" droppable
          [dragOverClass]="'drag-target-border'" (onDrop)="onList2Drop($event)">
             <div class="panel-heading">List 2</div>
             <div class="panel-body scroll-list">
