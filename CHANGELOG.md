@@ -1,3 +1,11 @@
+## 1.4.0 (2017-04-08)
+
+- Removed dependencies & added peerDependencies. Should resolve AOT build issues
+([#24](https://github.com/ObaidUrRehman/ng2-drag-drop/issues/24)) &
+([#38](https://github.com/ObaidUrRehman/ng2-drag-drop/issues/38))
+
+Bugfixes:
+
 ## 1.3.0 (2017-04-06)
 
 Enhacements:
