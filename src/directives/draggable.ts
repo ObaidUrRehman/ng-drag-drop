@@ -48,7 +48,7 @@ export class Draggable {
     @Output() onDrag: EventEmitter<any> = new EventEmitter();
 
     /**
-     * Event fired when dragged ends
+     * Event fired when drag ends
      */
     @Output() onDragEnd: EventEmitter<any> = new EventEmitter();
 
@@ -59,15 +59,14 @@ export class Draggable {
     mouseOverElement: any;
 
 
-    constructor(private ng2DragDropService: Ng2DragDropService) {
+    constructor(protected el: ElementRef, private ng2DragDropService: Ng2DragDropService) {
     }
 
     @HostListener('dragstart', ['$event'])
     dragStart(e) {
         if (this.allowDrag()) {
-            if (e.target.classList != undefined && e.target.classList != null)
-                e.target.classList.add(this.dragOverClass);
-
+            Utils.addClass(this.el, this.dragOverClass);
+    
             this.ng2DragDropService.dragData = this.dragData;
             this.ng2DragDropService.scope = this.dragScope;
 
@@ -87,9 +86,7 @@ export class Draggable {
 
     @HostListener('dragend', ['$event'])
     dragEnd(e) {
-        if (e.target.classList != undefined && e.target.classList != null)
-            e.target.classList.remove(this.dragOverClass);
-
+        Utils.removeClass(this.el, this.dragOverClass);
         this.ng2DragDropService.onDragEnd.next();
         this.onDragEnd.emit(e);
         e.stopPropagation();

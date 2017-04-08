@@ -49,7 +49,6 @@ export class Droppable implements OnInit {
 
     ngOnInit() {
         this.ng2DragDropService.onDragStart.subscribe(() => {
-            console.log("DragStart Fired");
             if (this.allowDrop()) {
                 Utils.addClass(this.el, this.dragHintClass);
             }

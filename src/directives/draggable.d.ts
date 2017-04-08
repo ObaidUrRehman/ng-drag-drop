@@ -1,6 +1,7 @@
-import { EventEmitter } from '@angular/core';
+import { ElementRef, EventEmitter } from '@angular/core';
 import { Ng2DragDropService } from "../services/ng2-drag-drop.service";
 export declare class Draggable {
+    protected el: ElementRef;
     private ng2DragDropService;
     /**
      * The data that will be avaliable to the droppable directive on its `onDrop()` event.
@@ -31,10 +32,10 @@ export declare class Draggable {
      */
     onDrag: EventEmitter<any>;
     /**
-     * Event fired when dragged ends
+     * Event fired when drag ends
      */
     onDragEnd: EventEmitter<any>;
-    constructor(ng2DragDropService: Ng2DragDropService);
+    constructor(el: ElementRef, ng2DragDropService: Ng2DragDropService);
     dragStart(e: any): void;
     drag(e: any): void;
     dragEnd(e: any): void;
