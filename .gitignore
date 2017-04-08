@@ -16,6 +16,7 @@ _temp
 *.ngsummary.json
 *.ngfactory.json
 *.ngfactory.ts
+*.d.ts
 
 !karma*.js
 !protractor*.js

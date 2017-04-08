@@ -53,6 +53,7 @@ typings.json
 !*.d.ts
 !src/*.d.ts
 !tests/*.d.ts
+!*.metadata.json
 .travis.yml
 karma*
 make.js

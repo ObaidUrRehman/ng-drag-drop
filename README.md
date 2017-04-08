@@ -18,7 +18,7 @@ The [demo folder](https://github.com/ObaidUrRehman/ng2-drag-drop/tree/master/dem
 
 # Installation
 ```js
-npm install ng2-drag-drop --save dev
+npm install ng2-drag-drop --save
 ```
 
 # Usage
