@@ -71,6 +71,11 @@ export class Draggable {
             this.ng2DragDropService.dragData = this.dragData;
             this.ng2DragDropService.scope = this.dragScope;
 
+            // Firefox requires setData() to be called otherwise the drag does not work.
+            // We don't use setData() to transfer data anymore so this is just a dummy call.
+            if (e.dataTransfer != null)
+                e.dataTransfer.setData('text', '');
+
             e.stopPropagation();
             this.onDragStart.emit(e);
         }
