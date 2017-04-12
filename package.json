@@ -6,7 +6,7 @@
   "scripts": {
     "tsc": "tsc",
     "test": "echo \"Error: no test specified\" && exit 0",
-    "start": "tsc && concurrently \"tsc -w\" \"lite-server\" ",
+    "start": "tsc -w",
     "transpile": "ngc",
     "build": "npm run transpile",
     "prepublish": "npm run build"
