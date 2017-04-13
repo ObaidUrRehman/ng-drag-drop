@@ -29,7 +29,16 @@ import {Component} from '@angular/core';
     }
     
     .drag-handle {
-      cursor: move;
+    cursor: move; /* fallback if grab cursor is unsupported */
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab;
+    }
+
+    .drag-handle:active { 
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing;
     }
   `
   ]
