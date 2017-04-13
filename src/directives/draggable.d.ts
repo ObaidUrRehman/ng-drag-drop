@@ -24,6 +24,10 @@ export declare class Draggable {
      */
     dragOverClass: string;
     /**
+     * The url to image that will be used as custom drag image when the draggable is being dragged.
+     */
+    dragImage: string;
+    /**
      * Event fired when Drag is started
      */
     onDragStart: EventEmitter<any>;

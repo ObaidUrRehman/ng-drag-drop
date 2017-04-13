@@ -1,6 +1,6 @@
-import {Directive, ElementRef, HostListener, Input, Output, EventEmitter} from '@angular/core';
-import {Ng2DragDropService} from "../services/ng2-drag-drop.service";
-import {Utils} from "../shared/utils";
+import { Directive, ElementRef, HostListener, Input, Output, EventEmitter } from '@angular/core';
+import { Ng2DragDropService } from "../services/ng2-drag-drop.service";
+import { Utils } from "../shared/utils";
 
 @Directive({
     selector: '[draggable]',
@@ -37,6 +37,12 @@ export class Draggable {
      */
     @Input() dragOverClass: string;
 
+
+    /**
+     * The url to image that will be used as custom drag image when the draggable is being dragged. 
+     */
+    @Input() dragImage: string;
+
     /**
      * Event fired when Drag is started
      */
@@ -52,6 +58,7 @@ export class Draggable {
      */
     @Output() onDragEnd: EventEmitter<any> = new EventEmitter();
 
+
     /**
      * Keeps track of mouse over element that is used to determine drag handles
      * @internal
@@ -66,7 +73,7 @@ export class Draggable {
     dragStart(e) {
         if (this.allowDrag()) {
             Utils.addClass(this.el, this.dragOverClass);
-    
+
             this.ng2DragDropService.dragData = this.dragData;
             this.ng2DragDropService.scope = this.dragScope;
 
@@ -74,6 +81,13 @@ export class Draggable {
             // We don't use setData() to transfer data anymore so this is just a dummy call.
             if (e.dataTransfer != null)
                 e.dataTransfer.setData('text', '');
+
+            // Set dragImage
+            if (this.dragImage) {
+                let img:HTMLImageElement = document.createElement("img");
+                img.src = this.dragImage;
+                e.dataTransfer.setDragImage(img, 0, 0);
+            }
 
             e.stopPropagation();
             this.onDragStart.emit(e);
