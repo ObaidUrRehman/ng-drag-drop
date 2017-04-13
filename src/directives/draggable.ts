@@ -37,11 +37,15 @@ export class Draggable {
      */
     @Input() dragOverClass: string;
 
-
     /**
      * The url to image that will be used as custom drag image when the draggable is being dragged. 
      */
     @Input() dragImage: string;
+
+    /**
+     * Defines if drag is enabled. `true` by default.
+     */
+    @Input() dragEnabled: boolean = true;
 
     /**
      * Event fired when Drag is started
@@ -57,7 +61,6 @@ export class Draggable {
      * Event fired when drag ends
      */
     @Output() onDragEnd: EventEmitter<any> = new EventEmitter();
-
 
     /**
      * Keeps track of mouse over element that is used to determine drag handles
@@ -84,7 +87,7 @@ export class Draggable {
 
             // Set dragImage
             if (this.dragImage) {
-                let img:HTMLImageElement = document.createElement("img");
+                let img: HTMLImageElement = document.createElement("img");
                 img.src = this.dragImage;
                 e.dataTransfer.setDragImage(img, 0, 0);
             }
@@ -119,8 +122,8 @@ export class Draggable {
 
     private allowDrag() {
         if (this.dragHandle)
-            return Utils.matches(this.mouseOverElement, this.dragHandle);
+            return Utils.matches(this.mouseOverElement, this.dragHandle) && this.dragEnabled;
         else
-            return true;
+            return this.dragEnabled;
     }
 }

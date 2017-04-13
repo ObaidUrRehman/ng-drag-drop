@@ -44,6 +44,11 @@ export class Droppable implements OnInit {
      */
     @Input() dropScope: string | Array<string> = 'default';
 
+    /**
+     * Defines if drop is enabled. `true` by default.
+     */
+    @Input() dropEnabled: boolean = true;
+
     constructor(protected el: ElementRef, private ng2DragDropService: Ng2DragDropService) {
     }
 
@@ -116,6 +121,6 @@ export class Droppable implements OnInit {
                         }).length > 0;
         }
 
-        return allowed;
+        return allowed && this.dropEnabled;
     }
 }

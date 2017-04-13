@@ -33,6 +33,10 @@ export declare class Droppable implements OnInit {
      * Defines compatible drag drop pairs. Values must match both in draggable and droppable.dropScope.
      */
     dropScope: string | Array<string>;
+    /**
+     * Defines if drop is enabled. `true` by default.
+     */
+    dropEnabled: boolean;
     constructor(el: ElementRef, ng2DragDropService: Ng2DragDropService);
     ngOnInit(): void;
     ngOnDestroy(): void;

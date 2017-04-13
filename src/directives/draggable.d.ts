@@ -28,6 +28,10 @@ export declare class Draggable {
      */
     dragImage: string;
     /**
+     * Defines if drag is enabled. `true` by default.
+     */
+    dragEnabled: boolean;
+    /**
      * Event fired when Drag is started
      */
     onDragStart: EventEmitter<any>;
