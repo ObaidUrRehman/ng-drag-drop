@@ -1,7 +1,7 @@
-import { ElementRef, EventEmitter } from '@angular/core';
+import { ElementRef, EventEmitter, OnInit } from '@angular/core';
 import { DropEvent } from "../shared/drop-event.model";
 import { Ng2DragDropService } from "../services/ng2-drag-drop.service";
-export declare class Droppable {
+export declare class Droppable implements OnInit {
     protected el: ElementRef;
     private ng2DragDropService;
     /**
@@ -21,17 +21,28 @@ export declare class Droppable {
      */
     onDrop: EventEmitter<DropEvent>;
     /**
-     * CSS class applied on the draggable that is applied when the item is being dragged.
+     * CSS class that is applied when a compatible draggable is being dragged over this droppable.
      */
     dragOverClass: string;
+    /**
+     * CSS class applied on this droppable when a compatible draggable item is being dragged.
+     * This can be used to visually show allowed drop zones.
+     */
+    dragHintClass: string;
     /**
      * Defines compatible drag drop pairs. Values must match both in draggable and droppable.dropScope.
      */
     dropScope: string | Array<string>;
+    /**
+     * Defines if drop is enabled. `true` by default.
+     */
+    dropEnabled: boolean;
     constructor(el: ElementRef, ng2DragDropService: Ng2DragDropService);
+    ngOnInit(): void;
+    ngOnDestroy(): void;
     dragEnter(e: any): void;
     dragOver(e: any): void;
     dragLeave(e: any): void;
     drop(e: any): void;
-    allowDrop(e: any): boolean;
+    allowDrop(): boolean;
 }

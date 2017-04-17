@@ -1,6 +1,7 @@
-import { EventEmitter } from '@angular/core';
+import { ElementRef, EventEmitter } from '@angular/core';
 import { Ng2DragDropService } from "../services/ng2-drag-drop.service";
 export declare class Draggable {
+    protected el: ElementRef;
     private ng2DragDropService;
     /**
      * The data that will be avaliable to the droppable directive on its `onDrop()` event.
@@ -23,6 +24,14 @@ export declare class Draggable {
      */
     dragOverClass: string;
     /**
+     * The url to image that will be used as custom drag image when the draggable is being dragged.
+     */
+    dragImage: string;
+    /**
+     * Defines if drag is enabled. `true` by default.
+     */
+    dragEnabled: boolean;
+    /**
      * Event fired when Drag is started
      */
     onDragStart: EventEmitter<any>;
@@ -31,10 +40,10 @@ export declare class Draggable {
      */
     onDrag: EventEmitter<any>;
     /**
-     * Event fired when dragged ends
+     * Event fired when drag ends
      */
     onDragEnd: EventEmitter<any>;
-    constructor(ng2DragDropService: Ng2DragDropService);
+    constructor(el: ElementRef, ng2DragDropService: Ng2DragDropService);
     dragStart(e: any): void;
     drag(e: any): void;
     dragEnd(e: any): void;

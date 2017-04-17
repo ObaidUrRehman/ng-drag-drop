@@ -1,3 +1,17 @@
+## 1.5.0 (2017-04-17)
+
+Enhacements:
+
+- Added ability to disable draggable and droppable, closes
+([#41](https://github.com/ObaidUrRehman/ng2-drag-drop/issues/41))
+
+- Highlight valid drop targets upon drag start, closes
+([#27](https://github.com/ObaidUrRehman/ng2-drag-drop/issues/27))
+
+- Added custom dragHandler feature on draggable. Currently only supports images will enhance this in later releases, closes
+([#22](https://github.com/ObaidUrRehman/ng2-drag-drop/issues/22))
+
+
 ## 1.4.1 (2017-04-11)
 
 Bugfixes:
