@@ -1,7 +1,7 @@
 {
-  "name": "angular-quickstart",
+  "name": "ng2-drag-drop-demo",
   "version": "1.0.0",
-  "description": "QuickStart package.json from the documentation, supplemented with testing support",
+  "description": "Demo app for the ng2-drag-drop package",
   "scripts": {
     "build": "tsc -p src/",
     "build:watch": "tsc -p src/ -w",
@@ -43,7 +43,7 @@
   "devDependencies": {
     "concurrently": "^3.1.0",
     "lite-server": "^2.2.2",
-    "typescript": "~2.0.10",
+    "typescript": "~2.2.1",
 
     "canonical-path": "0.0.2",
     "tslint": "^3.15.1",

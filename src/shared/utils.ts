@@ -1,3 +1,4 @@
+import {ElementRef} from "@angular/core";
 /**
  * Created by orehman on 2/22/2017.
  */
@@ -10,7 +11,7 @@ export class Utils {
      */
     public static matches(element: any, selectorName: string): boolean {
 
-        let proto :any = Element.prototype;
+        let proto: any = Element.prototype;
 
         var func =
             proto['matches'] ||
@@ -28,5 +29,25 @@ export class Utils {
             };
 
         return func.call(element, selectorName);
+    }
+
+    /**
+     * Applies the specified css class on nativeElement
+     * @param elementRef
+     * @param className
+     */
+    public static addClass(elementRef: ElementRef, className: string) {
+        if (elementRef.nativeElement.classList != undefined && elementRef.nativeElement.classList != null)
+            elementRef.nativeElement.classList.add(className);
+    }
+
+    /**
+     * Removes the specified class from nativeElement
+     * @param elementRef
+     * @param className
+     */
+    public static removeClass(elementRef: ElementRef, className: string) {
+        if (elementRef.nativeElement.classList != undefined && elementRef.nativeElement.classList != null)
+            elementRef.nativeElement.classList.remove(className);
     }
 }
