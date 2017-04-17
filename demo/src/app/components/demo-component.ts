@@ -73,6 +73,7 @@ export class DemoComponent {
   droppedFruits = [];
   droppedVegetables = [];
   droppedItems = [];
+  fruitDropEnabled = true;
 
   onFruitDrop(e: any) {
     this.droppedFruits.push(e.dragData);

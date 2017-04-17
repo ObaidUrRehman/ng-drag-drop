@@ -6,10 +6,11 @@
             <div class="panel-body scroll-list">
 
                 <ul class="list-group">
-                    <li draggable *ngFor="let item of vegetables"
-                        [dragOverClass]="'drag-over-border'"
-                        [dragData]="item" class="list-group-item"
-                        [dragScope]="item.type">
+                    <li class="list-group-item drag-handle" [draggable] *ngFor="let item of vegetables"
+                    [dragOverClass]="'drag-over-border'"
+                    [dragData]="item" 
+                    [dragScope]="item.type"
+                    [dragEnabled]="true">
                         {{item.name}}
                     </li>
                 </ul>
@@ -31,8 +32,10 @@
 
     <div class="col-sm-3">
         <div class="panel panel-info" droppable  [dragOverClass]="'drag-target-border'" [dropScope]="'fruit'"
-             [dragHintClass]="'drag-hint-border'" (onDrop)="onFruitDrop($event)">
-            <div class="panel-heading">Drop Fruits here</div>
+             [dragHintClass]="'drag-hint-border'" (onDrop)="onFruitDrop($event)" [dropEnabled]="fruitDropEnabled">
+            <div class="panel-heading">
+                Drop Fruits here <input type="checkbox" class="pull-right" title="Enabled" [(ngModel)]="fruitDropEnabled">
+            </div>
             <div class="panel-body scroll-list">
                 <li *ngFor="let item of droppedFruits" class="list-group-item">{{item.name}}</li>
             </div>
@@ -75,7 +78,7 @@
             <ul class="list-group">
                <li draggable *ngFor="let item of list1"
                [dragOverClass]="'drag-over-border'"
-               [dragData]="item" class="list-group-item">
+               [dragData]="item" class="list-group-item drag-handle">
                {{item.name}}
                </li>
             </ul>
@@ -91,7 +94,7 @@
                <ul class="list-group">
                   <li draggable *ngFor="let item of list2"
                   [dragOverClass]="'drag-over-border'"
-                  [dragData]="item" class="list-group-item">
+                  [dragData]="item" class="list-group-item drag-handle">
                   {{item.name}}
                   </li>
                </ul>
