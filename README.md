@@ -81,6 +81,8 @@ Both the `draggable` & `droppable` directives take a `[dragOverClass]` input. Yo
    <p>Drop items here</p>
  </div>               
  ```
+There is also a `droppable.dragHintClass` that is applied to droppable when a valid draggable item is being dragged.
+
 
 ### Restrict Drop based on Scopes
 You can use the `dragScope` & `dropScope` property on `draggable` and `droppable` respectively to restrict user from dropping a `draggable` element into a `droppable`.
@@ -164,7 +166,7 @@ Drag Handle can be defined for a `draggable` item which will restrict drag of th
 # API Doc
 ### Draggable directive
 
-####Attributes
+###Attributes
 
 | Name   | Type      |Default Value |Description |
 |:-------|:----------|:-------------|:-----------|
@@ -172,8 +174,10 @@ Drag Handle can be defined for a `draggable` item which will restrict drag of th
 | `dragScope` |    `string | Array<string>` | `'default'`   |  Defines compatible drag drop pairs. Values must match with `droppable.dropScope`. |
 | `dragOverClass` | `string` | `null` | CSS class applied on the draggable that is applied when the item is being dragged. |
 | `draghandle` | `string` | `null` | The selector that defines the drag Handle. If defined drag will only be allowed if dragged from the selector element. |
+| `dragImage` | `string` | `null` | The url to image that will be used as custom drag image when the draggable is being dragged. |
+| `dragEnabled` | `boolean` | `true` | Defines if drag is enabled. `true` by default. |
 
-####Events
+###Events
 
 | Name   | Parameters  |Description |
 |:-------|:------------|:-----------|
@@ -185,14 +189,15 @@ For more information on Drag DOM Events: [Drag Event](https://developer.mozilla.
 
 ### Droppable directive
 
-####Attributes
+###Attributes
 
 | Name   | Type      |Default Value |Description |
 |:-------|:----------|:-------------|:-----------|
 | `dropScope` |    `string | Array<string>` | `'default'`   |   Defines compatible drag drop pairs. Values must match with `draggable.dragScope` |
 | `dragOverClass` | `string` | `null` | CSS class applied on the droppable element when the item is being dragged over valid drop target. |
+| `dragHintClass` | `string` | `null` | CSS class applied on this droppable when a compatible draggable item is being dragged. This can be used to visually show allowed drop zones. |
 
-####Events
+###Events
 
 | Name   | Parameters  |Description |
 |:-------|:------------|:-----------|
