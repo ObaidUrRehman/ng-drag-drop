@@ -166,7 +166,7 @@ Drag Handle can be defined for a `draggable` item which will restrict drag of th
 # API Doc
 ### Draggable directive
 
-###Attributes
+### Attributes
 
 | Name   | Type      |Default Value |Description |
 |:-------|:----------|:-------------|:-----------|
@@ -177,7 +177,7 @@ Drag Handle can be defined for a `draggable` item which will restrict drag of th
 | `dragImage` | `string` | `null` | The url to image that will be used as custom drag image when the draggable is being dragged. |
 | `dragEnabled` | `boolean` | `true` | Defines if drag is enabled. `true` by default. |
 
-###Events
+### Events
 
 | Name   | Parameters  |Description |
 |:-------|:------------|:-----------|
@@ -189,15 +189,16 @@ For more information on Drag DOM Events: [Drag Event](https://developer.mozilla.
 
 ### Droppable directive
 
-###Attributes
+### Attributes
 
 | Name   | Type      |Default Value |Description |
 |:-------|:----------|:-------------|:-----------|
 | `dropScope` |    `string | Array<string>` | `'default'`   |   Defines compatible drag drop pairs. Values must match with `draggable.dragScope` |
 | `dragOverClass` | `string` | `null` | CSS class applied on the droppable element when the item is being dragged over valid drop target. |
 | `dragHintClass` | `string` | `null` | CSS class applied on this droppable when a compatible draggable item is being dragged. This can be used to visually show allowed drop zones. |
+| `dropEnabled` | `boolean` | `true` | Defines if drop is enabled. `true` by default. |
 
-###Events
+### Events
 
 | Name   | Parameters  |Description |
 |:-------|:------------|:-----------|
