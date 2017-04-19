@@ -1,3 +1,10 @@
+## 1.5.1 (2017-04-19)
+
+Bugfixes:
+
+- ObjectUnsubscribedError bug fix, closes
+([#43](https://github.com/ObaidUrRehman/ng2-drag-drop/issues/43))
+
 ## 1.5.0 (2017-04-17)
 
 Enhacements:
