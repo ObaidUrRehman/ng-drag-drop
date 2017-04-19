@@ -1,4 +1,5 @@
-import {Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit} from '@angular/core';
+import {Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit, OnDestroy} from '@angular/core';
+import {Subscription}   from 'rxjs/Subscription';
 import {DropEvent} from "../shared/drop-event.model";
 import {Ng2DragDropService} from "../services/ng2-drag-drop.service";
 import {Utils} from "../shared/utils";
@@ -6,7 +7,7 @@ import {Utils} from "../shared/utils";
 @Directive({
     selector: '[droppable]'
 })
-export class Droppable implements OnInit {
+export class Droppable implements OnInit, OnDestroy {
 
     /**
      *  Event fired when Drag dragged element enters a valid drop target.
@@ -49,24 +50,34 @@ export class Droppable implements OnInit {
      */
     @Input() dropEnabled: boolean = true;
 
+    /**
+     * @private
+     */
+    dragStartSubscription: Subscription;
+    
+    /**
+     * @private
+     */
+    dragEndSubscription: Subscription;
+
     constructor(protected el: ElementRef, private ng2DragDropService: Ng2DragDropService) {
     }
 
     ngOnInit() {
-        this.ng2DragDropService.onDragStart.subscribe(() => {
+        this.dragStartSubscription = this.ng2DragDropService.onDragStart.subscribe(() => {
             if (this.allowDrop()) {
                 Utils.addClass(this.el, this.dragHintClass);
             }
         });
 
-        this.ng2DragDropService.onDragEnd.subscribe(() => {
+        this.dragEndSubscription = this.ng2DragDropService.onDragEnd.subscribe(() => {
             Utils.removeClass(this.el, this.dragHintClass);
         });
     }
 
     ngOnDestroy() {
-        this.ng2DragDropService.onDragStart.unsubscribe();
-        this.ng2DragDropService.onDragEnd.unsubscribe();
+        this.dragStartSubscription.unsubscribe();
+        this.dragEndSubscription.unsubscribe();
     }
 
     @HostListener('dragenter', ['$event'])

@@ -63,8 +63,8 @@ export class Draggable {
     @Output() onDragEnd: EventEmitter<any> = new EventEmitter();
 
     /**
+     * @private
      * Keeps track of mouse over element that is used to determine drag handles
-     * @internal
      */
     mouseOverElement: any;
 
