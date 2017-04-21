@@ -1,7 +1,8 @@
-import { ElementRef, EventEmitter, OnInit } from '@angular/core';
+import { ElementRef, EventEmitter, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
 import { DropEvent } from "../shared/drop-event.model";
 import { Ng2DragDropService } from "../services/ng2-drag-drop.service";
-export declare class Droppable implements OnInit {
+export declare class Droppable implements OnInit, OnDestroy {
     protected el: ElementRef;
     private ng2DragDropService;
     /**
@@ -37,6 +38,14 @@ export declare class Droppable implements OnInit {
      * Defines if drop is enabled. `true` by default.
      */
     dropEnabled: boolean;
+    /**
+     * @private
+     */
+    dragStartSubscription: Subscription;
+    /**
+     * @private
+     */
+    dragEndSubscription: Subscription;
     constructor(el: ElementRef, ng2DragDropService: Ng2DragDropService);
     ngOnInit(): void;
     ngOnDestroy(): void;

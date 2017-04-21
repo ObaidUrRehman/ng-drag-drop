@@ -102,3 +102,31 @@
          </div>
     </div>
 </div>
+
+
+<h3>Delete Demo</h3>
+<p>Move Items to the bin.</p>
+
+<div class="row">
+   <div class="col-xs-3">
+      <div class="panel panel-primary">
+         <div class="panel-heading">Delete Items</div>
+         <div class="panel-body scroll-list">
+            <ul class="list-group">
+               <li draggable *ngFor="let item of deleteItems"
+               [dragOverClass]="'drag-over-border'" [dragScope]="'delete'"
+               [dragData]="item" class="list-group-item drag-handle">
+               {{item.name}}
+               </li>
+            </ul>
+         </div>
+      </div>
+   </div>
+
+    <div class = "col-xs-3">
+        <div class="well" droppable [dragHintClass]="'drag-hint-scale'"
+         [dragOverClass]="'drag-target-border'" [dropScope]="'delete'"
+         (onDrop)="onDeleteDrop($event)">
+         Drop here to delete</div>
+    </div>
+</div>

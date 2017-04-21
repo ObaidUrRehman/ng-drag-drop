@@ -19,6 +19,12 @@ import {Component} from '@angular/core';
       /*transform: scale(1.05);*/
     }
 
+    .drag-hint-scale {
+      border: #ffc100 dashed 2px;
+      transition: all .1s ease-in-out;
+      transform: scale(1.2);
+    }
+
     .drag-target-border {
       border: #00bfff dashed 2px;
     }
@@ -70,6 +76,14 @@ export class DemoComponent {
     {name: 'Mercedes'},
   ];
 
+  deleteItems = [
+    {name: 'Angular2'},
+    {name: 'AngularJS'},
+    {name: 'Vue'},
+    {name: 'ReactJS'},
+    {name: 'Backbone'}
+  ];
+
   droppedFruits = [];
   droppedVegetables = [];
   droppedItems = [];
@@ -102,6 +116,10 @@ export class DemoComponent {
   onList2Drop(e: any) {
     this.list2.push(e.dragData);
     this.removeItem(e.dragData, this.list1)
+  }
+
+  onDeleteDrop(e: any) {
+    this.removeItem(e.dragData, this.deleteItems);
   }
 
   removeItem(item: any, list: Array<any>) {
