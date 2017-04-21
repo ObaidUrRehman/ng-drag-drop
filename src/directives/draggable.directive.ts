@@ -1,6 +1,6 @@
 import { Directive, ElementRef, HostListener, Input, Output, EventEmitter } from '@angular/core';
-import { Ng2DragDropService } from "../services/ng2-drag-drop.service";
-import { DomHelper } from "../shared/dom-helper";
+import { Ng2DragDropService } from '../services/ng2-drag-drop.service';
+import { DomHelper } from '../shared/dom-helper';
 
 @Directive({
     selector: '[draggable]',
@@ -45,7 +45,7 @@ export class Draggable {
     /**
      * Defines if drag is enabled. `true` by default.
      */
-    @Input() dragEnabled: boolean = true;
+    @Input() dragEnabled = true;
 
     /**
      * Event fired when Drag is started
@@ -82,12 +82,13 @@ export class Draggable {
 
             // Firefox requires setData() to be called otherwise the drag does not work.
             // We don't use setData() to transfer data anymore so this is just a dummy call.
-            if (e.dataTransfer != null)
+            if (e.dataTransfer != null) {
                 e.dataTransfer.setData('text', '');
+            }
 
             // Set dragImage
             if (this.dragImage) {
-                let img: HTMLImageElement = document.createElement("img");
+                let img: HTMLImageElement = document.createElement('img');
                 img.src = this.dragImage;
                 e.dataTransfer.setDragImage(img, 0, 0);
             }
@@ -95,8 +96,7 @@ export class Draggable {
             e.stopPropagation();
             this.onDragStart.emit(e);
             this.ng2DragDropService.onDragStart.next();
-        }
-        else {
+        } else {
             e.preventDefault();
         }
     }
@@ -121,9 +121,10 @@ export class Draggable {
     }
 
     private allowDrag() {
-        if (this.dragHandle)
+        if (this.dragHandle) {
             return DomHelper.matches(this.mouseOverElement, this.dragHandle) && this.dragEnabled;
-        else
+        } else {
             return this.dragEnabled;
+        }
     }
 }

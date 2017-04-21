@@ -9,7 +9,8 @@
     "start": "tsc -w",
     "transpile": "ngc",
     "build": "npm run transpile",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "lint": "tslint ./src/**/*.ts -t verbose"
   },
   "repository": {
     "type": "git",

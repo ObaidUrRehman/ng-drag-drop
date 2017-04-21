@@ -1,8 +1,8 @@
 import { Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
-import { DropEvent } from "../shared/drop-event.model";
-import { Ng2DragDropService } from "../services/ng2-drag-drop.service";
-import { DomHelper } from "../shared/dom-helper";
+import { DropEvent } from '../shared/drop-event.model';
+import { Ng2DragDropService } from '../services/ng2-drag-drop.service';
+import { DomHelper } from '../shared/dom-helper';
 
 @Directive({
     selector: '[droppable]'
@@ -48,7 +48,7 @@ export class Droppable implements OnInit, OnDestroy {
     /**
      * Defines if drop is enabled. `true` by default.
      */
-    @Input() dropEnabled: boolean = true;
+    @Input() dropEnabled = true;
 
     /**
      * @private
@@ -116,14 +116,14 @@ export class Droppable implements OnInit, OnDestroy {
     allowDrop(): boolean {
         let allowed = false;
 
-        if (typeof this.dropScope === "string") {
-            if (typeof this.ng2DragDropService.scope === "string")
+        /* tslint:disable:curly */
+        if (typeof this.dropScope === 'string') {
+            if (typeof this.ng2DragDropService.scope === 'string')
                 allowed = this.ng2DragDropService.scope === this.dropScope;
             else if (this.ng2DragDropService.scope instanceof Array)
                 allowed = this.ng2DragDropService.scope.indexOf(this.dropScope) > -1;
-        }
-        else if (this.dropScope instanceof Array) {
-            if (typeof this.ng2DragDropService.scope === "string")
+        } else if (this.dropScope instanceof Array) {
+            if (typeof this.ng2DragDropService.scope === 'string')
                 allowed = this.dropScope.indexOf(this.ng2DragDropService.scope) > -1;
             else if (this.ng2DragDropService.scope instanceof Array)
                 allowed = this.dropScope.filter(
@@ -131,6 +131,7 @@ export class Droppable implements OnInit, OnDestroy {
                         return this.ng2DragDropService.scope.indexOf(item) !== -1;
                     }).length > 0;
         }
+        /* tslint:enable:curly */
 
         return allowed && this.dropEnabled;
     }

@@ -2,10 +2,9 @@
  * Created by orehman on 2/22/2017.
  */
 
-import { ElementRef } from "@angular/core";
+import { ElementRef } from '@angular/core';
 
 export class DomHelper {
-    
     /**
      * Polyfill for element.matches()
      * See: https://developer.mozilla.org/en/docs/Web/API/Element/matches#Polyfill
@@ -39,8 +38,9 @@ export class DomHelper {
      * @param className
      */
     public static addClass(elementRef: ElementRef, className: string) {
-        if (elementRef.nativeElement.classList !== undefined && elementRef.nativeElement.classList !== null)
+        if (elementRef.nativeElement.classList !== undefined && elementRef.nativeElement.classList !== null) {
             elementRef.nativeElement.classList.add(className);
+        }
     }
 
     /**
@@ -49,7 +49,8 @@ export class DomHelper {
      * @param className
      */
     public static removeClass(elementRef: ElementRef, className: string) {
-        if (elementRef.nativeElement.classList !== undefined && elementRef.nativeElement.classList !== null)
+        if (elementRef.nativeElement.classList !== undefined && elementRef.nativeElement.classList !== null) {
             elementRef.nativeElement.classList.remove(className);
+        }
     }
 }
