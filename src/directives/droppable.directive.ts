@@ -117,14 +117,13 @@ export class Droppable implements OnInit, OnDestroy {
         let allowed = false;
 
         /* tslint:disable:curly */
-        /* tslint:disable:line */
+        /* tslint:disable:one-line */
         if (typeof this.dropScope === 'string') {
             if (typeof this.ng2DragDropService.scope === 'string')
                 allowed = this.ng2DragDropService.scope === this.dropScope;
             else if (this.ng2DragDropService.scope instanceof Array)
                 allowed = this.ng2DragDropService.scope.indexOf(this.dropScope) > -1;
-        } else
-        if (this.dropScope instanceof Array) {
+        } else if (this.dropScope instanceof Array) {
             if (typeof this.ng2DragDropService.scope === 'string')
                 allowed = this.dropScope.indexOf(this.ng2DragDropService.scope) > -1;
             else if (this.ng2DragDropService.scope instanceof Array)
@@ -134,7 +133,7 @@ export class Droppable implements OnInit, OnDestroy {
                     }).length > 0;
         }
         /* tslint:enable:curly */
-        /* tslint:disable:line */
+        /* tslint:disable:one-line */
 
         return allowed && this.dropEnabled;
     }
