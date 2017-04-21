@@ -117,6 +117,7 @@ export class Droppable implements OnInit, OnDestroy {
         let allowed = false;
 
         /* tslint:disable:curly */
+        /* tslint:disable:line */
         if (typeof this.dropScope === 'string') {
             if (typeof this.ng2DragDropService.scope === 'string')
                 allowed = this.ng2DragDropService.scope === this.dropScope;
@@ -132,6 +133,7 @@ export class Droppable implements OnInit, OnDestroy {
                     }).length > 0;
         }
         /* tslint:enable:curly */
+        /* tslint:disable:line */
 
         return allowed && this.dropEnabled;
     }

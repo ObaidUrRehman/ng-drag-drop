@@ -38,7 +38,7 @@ export class Draggable {
     @Input() dragOverClass: string;
 
     /**
-     * The url to image that will be used as custom drag image when the draggable is being dragged. 
+     * The url to image that will be used as custom drag image when the draggable is being dragged.
      */
     @Input() dragImage: string;
 
