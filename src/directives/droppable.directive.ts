@@ -1,8 +1,8 @@
-import {Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit, OnDestroy} from '@angular/core';
-import {Subscription}   from 'rxjs/Subscription';
-import {DropEvent} from "../shared/drop-event.model";
-import {Ng2DragDropService} from "../services/ng2-drag-drop.service";
-import {Utils} from "../shared/utils";
+import { Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+import { DropEvent } from "../shared/drop-event.model";
+import { Ng2DragDropService } from "../services/ng2-drag-drop.service";
+import { DomHelper } from "../shared/dom-helper";
 
 @Directive({
     selector: '[droppable]'
@@ -54,7 +54,7 @@ export class Droppable implements OnInit, OnDestroy {
      * @private
      */
     dragStartSubscription: Subscription;
-    
+
     /**
      * @private
      */
@@ -66,12 +66,12 @@ export class Droppable implements OnInit, OnDestroy {
     ngOnInit() {
         this.dragStartSubscription = this.ng2DragDropService.onDragStart.subscribe(() => {
             if (this.allowDrop()) {
-                Utils.addClass(this.el, this.dragHintClass);
+                DomHelper.addClass(this.el, this.dragHintClass);
             }
         });
 
         this.dragEndSubscription = this.ng2DragDropService.onDragEnd.subscribe(() => {
-            Utils.removeClass(this.el, this.dragHintClass);
+            DomHelper.removeClass(this.el, this.dragHintClass);
         });
     }
 
@@ -90,7 +90,7 @@ export class Droppable implements OnInit, OnDestroy {
     @HostListener('dragover', ['$event'])
     dragOver(e) {
         if (this.allowDrop()) {
-            Utils.addClass(this.el, this.dragOverClass);
+            DomHelper.addClass(this.el, this.dragOverClass);
             e.preventDefault();
             this.onDragOver.emit(e);
         }
@@ -98,14 +98,14 @@ export class Droppable implements OnInit, OnDestroy {
 
     @HostListener('dragleave', ['$event'])
     dragLeave(e) {
-        Utils.removeClass(this.el, this.dragOverClass);
+        DomHelper.removeClass(this.el, this.dragOverClass);
         e.preventDefault();
         this.onDragLeave.emit(e);
     }
 
     @HostListener('drop', ['$event'])
     drop(e) {
-        Utils.removeClass(this.el, this.dragOverClass);
+        DomHelper.removeClass(this.el, this.dragOverClass);
         e.preventDefault();
         e.stopPropagation();
 
@@ -127,9 +127,9 @@ export class Droppable implements OnInit, OnDestroy {
                 allowed = this.dropScope.indexOf(this.ng2DragDropService.scope) > -1;
             else if (this.ng2DragDropService.scope instanceof Array)
                 allowed = this.dropScope.filter(
-                        function (item) {
-                            return this.ng2DragDropService.scope.indexOf(item) !== -1;
-                        }).length > 0;
+                    function (item) {
+                        return this.ng2DragDropService.scope.indexOf(item) !== -1;
+                    }).length > 0;
         }
 
         return allowed && this.dropEnabled;

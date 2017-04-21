@@ -1,6 +1,6 @@
 import { Directive, ElementRef, HostListener, Input, Output, EventEmitter } from '@angular/core';
 import { Ng2DragDropService } from "../services/ng2-drag-drop.service";
-import { Utils } from "../shared/utils";
+import { DomHelper } from "../shared/dom-helper";
 
 @Directive({
     selector: '[draggable]',
@@ -75,7 +75,7 @@ export class Draggable {
     @HostListener('dragstart', ['$event'])
     dragStart(e) {
         if (this.allowDrag()) {
-            Utils.addClass(this.el, this.dragOverClass);
+            DomHelper.addClass(this.el, this.dragOverClass);
 
             this.ng2DragDropService.dragData = this.dragData;
             this.ng2DragDropService.scope = this.dragScope;
@@ -108,7 +108,7 @@ export class Draggable {
 
     @HostListener('dragend', ['$event'])
     dragEnd(e) {
-        Utils.removeClass(this.el, this.dragOverClass);
+        DomHelper.removeClass(this.el, this.dragOverClass);
         this.ng2DragDropService.onDragEnd.next();
         this.onDragEnd.emit(e);
         e.stopPropagation();
@@ -122,7 +122,7 @@ export class Draggable {
 
     private allowDrag() {
         if (this.dragHandle)
-            return Utils.matches(this.mouseOverElement, this.dragHandle) && this.dragEnabled;
+            return DomHelper.matches(this.mouseOverElement, this.dragHandle) && this.dragEnabled;
         else
             return this.dragEnabled;
     }
