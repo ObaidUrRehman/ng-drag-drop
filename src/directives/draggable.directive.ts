@@ -103,7 +103,7 @@ export class Draggable {
 
     @HostListener('drag', ['$event'])
     drag(e) {
-        this.onDrag.emit(e)
+        this.onDrag.emit(e);
     }
 
     @HostListener('dragend', ['$event'])
