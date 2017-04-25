@@ -1,48 +1,80 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ"
+    crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous">
   <title>ng2-drag-drop Demo</title>
 </head>
-<body>
 
-<a href="https://github.com/ObaidUrRehman/ng2-drag-drop" class="hidden-xs">
-  <img
-    style="position: absolute; top: 0; right: 0; border: 0; z-index: 2000"
-    alt="Fork me on GitHub"
-    src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
-</a>
+<body style="padding-top: 5rem;">
 
-<nav class="navbar navbar-default" role="navigation">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="#">Angular 2 drag drop</a>
+  <nav class="navbar navbar-toggleable-md navbar-inverse bg-inverse fixed-top">
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault"
+      aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+    <a class="navbar-brand" href="#">Angular2 Drag & Drop</a>
+
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Github <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">NPM</a>
+        </li>
+      </ul>
     </div>
-    <ul class="nav navbar-nav hidden-xs">
-      <li><a href="#">Demo</a></li>
-    </ul>
+  </nav>
+
+  <div class="container">
+
+    <demo-app>
+      <i class="fa fa-circle-o-notch fa-spin fa-2x fa-fw"></i>
+      <span class="sr-only">Loading...</span>
+    </demo-app>
+
   </div>
-</nav>
+  <!-- /.container -->
 
-<div class="container-fluid" id="demo">
-  <demo-app>Loading demo...</demo-app>
-</div>
+  <!--<a href="https://github.com/ObaidUrRehman/ng2-drag-drop" class="hidden-xs">
+    <img style="position: absolute; top: 0; right: 0; border: 0; z-index: 2000" alt="Fork me on GitHub" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png">
+  </a>
 
-    <!-- Polyfill(s) for older browsers -->
-    <script src="node_modules/core-js/client/shim.min.js"></script>
+  <nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">Angular 2 drag drop</a>
+      </div>
+      <ul class="nav navbar-nav hidden-xs">
+        <li><a href="#">Demo</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
+  <div class="container-fluid" id="demo">
+    <demo-app>Loading demo...</demo-app>
+  </div>-->
 
-    <script src="systemjs.config.js"></script>
-    <script>
-      System.import('main.js').catch(function(err){ console.error(err); });
-    </script>
+  <!-- Polyfill(s) for older browsers -->
+  <script src="node_modules/core-js/client/shim.min.js"></script>
+
+  <script src="node_modules/zone.js/dist/zone.js"></script>
+  <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+  <script src="systemjs.config.js"></script>
+  <script>
+    System.import('main.js').catch(function (err) { console.error(err); });
+  </script>
 
 </body>
-</html>
 
+</html>
