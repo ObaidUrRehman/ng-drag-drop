@@ -35,7 +35,7 @@ export class Draggable {
     /**
      * CSS class applied on the draggable that is applied when the item is being dragged.
      */
-    @Input() dragOverClass: string;
+    @Input() dragClass: string;
 
     /**
      * The url to image that will be used as custom drag image when the draggable is being dragged.
@@ -75,7 +75,7 @@ export class Draggable {
     @HostListener('dragstart', ['$event'])
     dragStart(e) {
         if (this.allowDrag()) {
-            DomHelper.addClass(this.el, this.dragOverClass);
+            DomHelper.addClass(this.el, this.dragClass);
 
             this.ng2DragDropService.dragData = this.dragData;
             this.ng2DragDropService.scope = this.dragScope;
@@ -108,7 +108,7 @@ export class Draggable {
 
     @HostListener('dragend', ['$event'])
     dragEnd(e) {
-        DomHelper.removeClass(this.el, this.dragOverClass);
+        DomHelper.removeClass(this.el, this.dragClass);
         this.ng2DragDropService.onDragEnd.next();
         this.onDragEnd.emit(e);
         e.stopPropagation();
