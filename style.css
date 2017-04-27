@@ -2,7 +2,7 @@
 /* Draggable*/
 
 .drag-border {
-    border: #ff525b dashed 2px!important;
+    border: #ff525b dashed 2px;
 }
 
 [draggable] {
@@ -28,9 +28,9 @@
 /* Droppable */
 
 .drag-hint-border {
-    border: #3c763d dashed 2px!important;
+    border: #3c763d dashed 2px;
 }
 
 .drag-over-border {
-    border: #fbbc05 dashed 2px!important;
+    border: #fbbc05 dashed 2px;
 }
