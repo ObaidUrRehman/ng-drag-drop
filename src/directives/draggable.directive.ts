@@ -35,7 +35,7 @@ export class Draggable {
     /**
      * CSS class applied on the draggable that is applied when the item is being dragged.
      */
-    @Input() dragClass: string;
+    @Input() dragClass = 'drag-border';
 
     /**
      * The url to image that will be used as custom drag image when the draggable is being dragged.

@@ -32,13 +32,13 @@ export class Droppable implements OnInit, OnDestroy {
     /**
      * CSS class that is applied when a compatible draggable is being dragged over this droppable.
      */
-    @Input() dragOverClass: string;
+    @Input() dragOverClass = 'drag-over-border';
 
     /**
      * CSS class applied on this droppable when a compatible draggable item is being dragged.
      * This can be used to visually show allowed drop zones.
      */
-    @Input() dragHintClass: string;
+    @Input() dragHintClass = 'drag-hint-border';
 
     /**
      * Defines compatible drag drop pairs. Values must match both in draggable and droppable.dropScope.
