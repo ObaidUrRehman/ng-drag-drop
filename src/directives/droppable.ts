@@ -126,8 +126,7 @@ export class Droppable implements OnInit, OnDestroy {
             if (typeof this.ng2DragDropService.scope === "string")
                 allowed = this.dropScope.indexOf(this.ng2DragDropService.scope) > -1;
             else if (this.ng2DragDropService.scope instanceof Array)
-                allowed = this.dropScope.filter(
-                        function (item) {
+                allowed = this.dropScope.filter(item => {
                             return this.ng2DragDropService.scope.indexOf(item) !== -1;
                         }).length > 0;
         }
