@@ -1,6 +1,6 @@
 import { Directive, ElementRef, HostListener, Input, Output, EventEmitter } from '@angular/core';
-import { Ng2DragDropService } from "../services/ng2-drag-drop.service";
-import { Utils } from "../shared/utils";
+import { Ng2DragDropService } from '../services/ng2-drag-drop.service';
+import { DomHelper } from '../shared/dom-helper';
 
 @Directive({
     selector: '[draggable]',
@@ -35,17 +35,17 @@ export class Draggable {
     /**
      * CSS class applied on the draggable that is applied when the item is being dragged.
      */
-    @Input() dragOverClass: string;
+    @Input() dragClass = 'drag-border';
 
     /**
-     * The url to image that will be used as custom drag image when the draggable is being dragged. 
+     * The url to image that will be used as custom drag image when the draggable is being dragged.
      */
     @Input() dragImage: string;
 
     /**
      * Defines if drag is enabled. `true` by default.
      */
-    @Input() dragEnabled: boolean = true;
+    @Input() dragEnabled = true;
 
     /**
      * Event fired when Drag is started
@@ -75,19 +75,20 @@ export class Draggable {
     @HostListener('dragstart', ['$event'])
     dragStart(e) {
         if (this.allowDrag()) {
-            Utils.addClass(this.el, this.dragOverClass);
+            DomHelper.addClass(this.el, this.dragClass);
 
             this.ng2DragDropService.dragData = this.dragData;
             this.ng2DragDropService.scope = this.dragScope;
 
             // Firefox requires setData() to be called otherwise the drag does not work.
             // We don't use setData() to transfer data anymore so this is just a dummy call.
-            if (e.dataTransfer != null)
+            if (e.dataTransfer != null) {
                 e.dataTransfer.setData('text', '');
+            }
 
             // Set dragImage
             if (this.dragImage) {
-                let img: HTMLImageElement = document.createElement("img");
+                let img: HTMLImageElement = document.createElement('img');
                 img.src = this.dragImage;
                 e.dataTransfer.setDragImage(img, 0, 0);
             }
@@ -95,20 +96,19 @@ export class Draggable {
             e.stopPropagation();
             this.onDragStart.emit(e);
             this.ng2DragDropService.onDragStart.next();
-        }
-        else {
+        } else {
             e.preventDefault();
         }
     }
 
     @HostListener('drag', ['$event'])
     drag(e) {
-        this.onDrag.emit(e)
+        this.onDrag.emit(e);
     }
 
     @HostListener('dragend', ['$event'])
     dragEnd(e) {
-        Utils.removeClass(this.el, this.dragOverClass);
+        DomHelper.removeClass(this.el, this.dragClass);
         this.ng2DragDropService.onDragEnd.next();
         this.onDragEnd.emit(e);
         e.stopPropagation();
@@ -121,9 +121,10 @@ export class Draggable {
     }
 
     private allowDrag() {
-        if (this.dragHandle)
-            return Utils.matches(this.mouseOverElement, this.dragHandle) && this.dragEnabled;
-        else
+        if (this.dragHandle) {
+            return DomHelper.matches(this.mouseOverElement, this.dragHandle) && this.dragEnabled;
+        } else {
             return this.dragEnabled;
+        }
     }
 }

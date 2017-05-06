@@ -9,20 +9,20 @@ import {Component} from '@angular/core';
       max-height: 70vh;
     }
 
-    .drag-over-border {
+    .drag-over {
       border: #ff525b dashed 2px;
     }
 
-    .drag-hint-border {
+    .drag-hint {
       border: #ffc100 dashed 2px;
       /*transition: all .2s ease-in-out;*/
       /*transform: scale(1.05);*/
     }
 
     .drag-hint-scale {
-      border: #ffc100 dashed 2px;
+      // border: #ffc100 dashed 2px;
       transition: all .1s ease-in-out;
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
 
     .drag-target-border {
@@ -61,19 +61,19 @@ export class DemoComponent {
     {name: "Apple", type: "fruit"},
     {name: "Orange", type: "fruit"},
     {name: "Mango", type: "fruit"},
-    {name: "Banana", type: "fruit"},
-    {name: "Pear", type: "fruit"}];
+    {name: "Banana", type: "fruit"}];
 
   list1 = [
     {name: 'Toyota'},
     {name: 'Bugati'},
-    {name: 'Suzuki'},
-    {name: 'Honda'},
-    {name: 'BMW'}
+    {name: 'Suzuki'}
+    
   ];
 
   list2 = [
     {name: 'Mercedes'},
+    {name: 'Honda'},
+    {name: 'BMW'}
   ];
 
   deleteItems = [

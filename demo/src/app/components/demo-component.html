@@ -1,29 +1,27 @@
 <div class="row">
 
     <div class="col-sm-3">
-        <div class="panel panel-primary">
-            <div class="panel-heading">Drag Items from here</div>
-            <div class="panel-body scroll-list">
-
-                <ul class="list-group">
-                    <li class="list-group-item drag-handle" [draggable] *ngFor="let item of vegetables"
-                    [dragOverClass]="'drag-over-border'"
-                    [dragData]="item" 
-                    [dragScope]="item.type"
-                    [dragEnabled]="true">
+        <div class="card card-outline-success mb-3">
+            <div class="card-header card-inverse card-success">Draggable Items</div>
+            <div class="card-block scroll-list">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action drag-handle list-group-item-success" [draggable] *ngFor="let item of vegetables"
+                        [dragClass]="'active'" [dragData]="item" [dragScope]="item.type" [dragEnabled]="true">
                         {{item.name}}
-                    </li>
-                </ul>
+                    </a>
+                </div>
+            </div>
+        </div>
 
-                <ul class="list-group">
-                    <p class="text-justify">The following items can only be dragged by their handle.</p>
-                    <li draggable *ngFor="let item of fruits"
-                        [dragOverClass]="'drag-over-border'"
-                        [dragData]="item" class="list-group-item"
-                        [dragScope]="item.type"
-                        [dragHandle]="'.drag-handle'">
+
+        <div class="card card-outline-primary mb-3">
+            <div class="card-header card-inverse card-primary">Draggable Items with Handle</div>
+            <div class="card-block scroll-list">
+                <ul class="list-group text-center">
+                    <li draggable *ngFor="let item of fruits" [dragClass]="'drag-over'" [dragData]="item" class="list-group-item justify-content-between list-group-item-action"
+                        [dragScope]="item.type" [dragHandle]="'.drag-handle'">
                         {{item.name}}
-                        <div class="pull-right"><i class="drag-handle fa fa-bars fa-lg" aria-hidden="true"></i></div>
+                        <i class="drag-handle fa fa-bars fa-lg" aria-hidden="true"></i>
                     </li>
                 </ul>
             </div>
@@ -31,12 +29,12 @@
     </div>
 
     <div class="col-sm-3">
-        <div class="panel panel-info" droppable  [dragOverClass]="'drag-target-border'" [dropScope]="'fruit'"
-             [dragHintClass]="'drag-hint-border'" (onDrop)="onFruitDrop($event)" [dropEnabled]="fruitDropEnabled">
-            <div class="panel-heading">
+        <div class="card card-outline-primary mb-3" droppable [dragOverClass]="'drag-target-border'" [dropScope]="'fruit'" [dragHintClass]="'drag-hint'"
+            (onDrop)="onFruitDrop($event)" [dropEnabled]="fruitDropEnabled">
+            <div class="card-header card-inverse card-primary">
                 Drop Fruits here <input type="checkbox" class="pull-right" title="Enabled" [(ngModel)]="fruitDropEnabled">
             </div>
-            <div class="panel-body scroll-list">
+            <div class="card-block scroll-list">
                 <li *ngFor="let item of droppedFruits" class="list-group-item">{{item.name}}</li>
             </div>
         </div>
@@ -44,20 +42,20 @@
 
 
     <div class="col-sm-3">
-        <div class="panel panel-success" droppable [dragOverClass]="'drag-target-border-green'" [dropScope]="'vegetable'"
-             [dragHintClass]="'drag-hint-border'" (onDrop)="onVegetableDrop($event)">
-            <div class="panel-heading">Drop Vegetables here</div>
-            <div class="panel-body scroll-list">
+        <div class="card card-outline-primary mb-3" droppable [dragOverClass]="'drag-target-border-green'" [dropScope]="'vegetable'"
+            [dragHintClass]="'drag-hint'" (onDrop)="onVegetableDrop($event)">
+            <div class="card-header card-inverse card-primary">Drop Vegetables here</div>
+            <div class="card-block scroll-list">
                 <li *ngFor="let item of droppedVegetables" class="list-group-item">{{item.name}}</li>
             </div>
         </div>
     </div>
 
     <div class="col-sm-3">
-        <div class="panel panel-info" droppable  [dragOverClass]="'drag-target-border'" [dropScope]="['fruit', 'vegetable']"
-             [dragHintClass]="'drag-hint-border'" (onDrop)="onAnyDrop($event)">
-            <div class="panel-heading">Drop Anything here</div>
-            <div class="panel-body scroll-list">
+        <div class="card card-outline-primary mb-3" droppable [dragOverClass]="'drag-target-border'" [dropScope]="['fruit', 'vegetable']"
+            [dragHintClass]="'drag-hint'" (onDrop)="onAnyDrop($event)">
+            <div class="card-header card-inverse card-primary">Drop Anything here</div>
+            <div class="card-block scroll-list">
                 <li *ngFor="let item of droppedItems" class="list-group-item">{{item.name}}</li>
             </div>
         </div>
@@ -70,36 +68,34 @@
 <p>Move Items back and forth from List 1 to List 2 and vice versa.</p>
 
 <div class="row">
-   <div class="col-xs-3">
-      <div class="panel panel-primary" droppable
-      [dragOverClass]="'drag-target-border'" (onDrop)="onList1Drop($event)">
-         <div class="panel-heading">List 1</div>
-         <div class="panel-body scroll-list">
-            <ul class="list-group">
-               <li draggable *ngFor="let item of list1"
-               [dragOverClass]="'drag-over-border'"
-               [dragData]="item" class="list-group-item drag-handle">
-               {{item.name}}
-               </li>
-            </ul>
-         </div>
-      </div>
-   </div>
-
-    <div class = "col-xs-3">
-         <div class="panel panel-primary" droppable
-         [dragOverClass]="'drag-target-border'" (onDrop)="onList2Drop($event)">
-            <div class="panel-heading">List 2</div>
-            <div class="panel-body scroll-list">
-               <ul class="list-group">
-                  <li draggable *ngFor="let item of list2"
-                  [dragOverClass]="'drag-over-border'"
-                  [dragData]="item" class="list-group-item drag-handle">
-                  {{item.name}}
-                  </li>
-               </ul>
+    <div class="col-sm-3">
+        <div class="card card-outline-primary mb-3" droppable [dropScope]="'swap-target-1'" [dragOverClass]="'drag-target-border'"
+            [dragHintClass]="'drag-hint'" (onDrop)="onList1Drop($event)">
+            <div class="card-header card-inverse card-primary">List 1</div>
+            <div class="card-block scroll-list">
+                <ul class="list-group">
+                    <li draggable *ngFor="let item of list1" [dragScope]="'swap-target-2'" [dragClass]="'drag-over'" [dragData]="item"
+                        class="list-group-item drag-handle">
+                        {{item.name}}
+                    </li>
+                </ul>
             </div>
-         </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="card card-outline-primary mb-3" droppable [dropScope]="'swap-target-2'" [dragOverClass]="'drag-target-border'"
+            [dragHintClass]="'drag-hint'" (onDrop)="onList2Drop($event)">
+            <div class="card-header card-inverse card-primary">List 2</div>
+            <div class="card-block scroll-list">
+                <ul class="list-group">
+                    <li draggable *ngFor="let item of list2" [dragScope]="'swap-target-1'" [dragClass]="'drag-over'" [dragData]="item"
+                        class="list-group-item drag-handle">
+                        {{item.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -108,25 +104,59 @@
 <p>Move Items to the bin.</p>
 
 <div class="row">
-   <div class="col-xs-3">
-      <div class="panel panel-primary">
-         <div class="panel-heading">Delete Items</div>
-         <div class="panel-body scroll-list">
-            <ul class="list-group">
-               <li draggable *ngFor="let item of deleteItems"
-               [dragOverClass]="'drag-over-border'" [dragScope]="'delete'"
-               [dragData]="item" class="list-group-item drag-handle">
-               {{item.name}}
-               </li>
-            </ul>
-         </div>
-      </div>
-   </div>
+    <div class="col-sm-3">
+        <div class="card card-outline-primary mb-3">
+            <div class="card-header card-inverse card-primary">Delete Items</div>
+            <div class="card-block scroll-list">
+                <ul class="list-group">
+                    <li draggable *ngFor="let item of deleteItems" [dragClass]="'active'" [dragScope]="'delete'" [dragData]="item" class="list-group-item drag-handle">
+                        {{item.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-    <div class = "col-xs-3">
-        <div class="well" droppable [dragHintClass]="'drag-hint-scale'"
-         [dragOverClass]="'drag-target-border'" [dropScope]="'delete'"
-         (onDrop)="onDeleteDrop($event)">
-         Drop here to delete</div>
+    <div class="col-sm-3">
+
+        <div class="card card-inverse card-primary mb-3 text-center" droppable [dragHintClass]="'drag-hint-scale'" [dragOverClass]="'bg-danger'"
+            [dropScope]="'delete'" (onDrop)="onDeleteDrop($event)">
+            <div class="card-block">
+                <blockquote class="card-blockquote">
+                    <h4 class="card-title"><i class="fa fa-trash" aria-hidden="true"></i> Drop to Delete</h4>
+                    <p class="card-text">Drop Items here to delete</p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h3>Default CSS Demo</h3>
+<p>Demo of built-in Css</p>
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="card card-outline-primary mb-3">
+            <div class="card-header card-inverse card-primary">Delete Items</div>
+            <div class="card-block scroll-list">
+                <ul class="list-group">
+                    <li draggable *ngFor="let item of deleteItems" [dragScope]="'delete'" [dragData]="item" class="list-group-item drag-handle">
+                        {{item.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="card mb-3 text-center" droppable [dropScope]="'delete'" (onDrop)="onDeleteDrop($event)">
+            <div class="card-block">
+                <blockquote class="card-blockquote">
+                    <h4 class="card-title"><i class="fa fa-trash" aria-hidden="true"></i> Drop to Delete</h4>
+                    <p class="card-text">Drop Items here to delete</p>
+                </blockquote>
+            </div>
+        </div>
     </div>
 </div>
