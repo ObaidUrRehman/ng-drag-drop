@@ -39,10 +39,10 @@ System.config({
 You need to import the `Ng2DragDropModule` in the module of your app where you want to use it.
 
 ```js
-import {NgModule} from '@angular/core';
-import {BrowserModule} from '@angular/platform-browser';
-import {DemoComponent} from "./components/demo-component";
-import {Ng2DragDropModule} from "ng2-drag-drop";
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { DemoComponent } from "./components/demo-component";
+import { Ng2DragDropModule } from 'ng2-drag-drop';
 
 
 @NgModule({
