@@ -1,3 +1,17 @@
+<!--<a href="https://www.npmjs.com/package/ng2-drag-drop"><img src="https://img.shields.io/npm/dm/ng2-drag-drop.svg" alt=""></a>-->
+<h2>Agular2 Drag & Drop Demo</h2>
+<iframe src="https://ghbtns.com/github-btn.html?user=ObaidurRehman&repo=ng2-drag-drop&type=star&count=true"
+    frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
+<p>
+    This is a demo of the ng2-drag-drop package for angular2 and beyond.
+</p>
+
+
+
+<h3>Full Demo</h3>
+<p>This is a complete demo that features drop scopes, disable drop & drag handles.</p>
+<hr>
+
 <div class="row">
 
     <div class="col-sm-3">
@@ -12,7 +26,6 @@
                 </div>
             </div>
         </div>
-
 
         <div class="card card-outline-primary mb-3">
             <div class="card-header card-inverse card-primary">Draggable Items with Handle</div>
@@ -66,6 +79,7 @@
 
 <h3>Swap List Demo</h3>
 <p>Move Items back and forth from List 1 to List 2 and vice versa.</p>
+<hr>
 
 <div class="row">
     <div class="col-sm-3">
@@ -74,8 +88,7 @@
             <div class="card-header card-inverse card-primary">List 1</div>
             <div class="card-block scroll-list">
                 <ul class="list-group">
-                    <li draggable *ngFor="let item of list1" [dragScope]="'swap-target-2'" [dragClass]="'drag-over'" [dragData]="item"
-                        class="list-group-item drag-handle">
+                    <li draggable *ngFor="let item of list1" [dragScope]="'swap-target-2'" [dragClass]="'drag-over'" [dragData]="item" class="list-group-item drag-handle">
                         {{item.name}}
                     </li>
                 </ul>
@@ -89,8 +102,7 @@
             <div class="card-header card-inverse card-primary">List 2</div>
             <div class="card-block scroll-list">
                 <ul class="list-group">
-                    <li draggable *ngFor="let item of list2" [dragScope]="'swap-target-1'" [dragClass]="'drag-over'" [dragData]="item"
-                        class="list-group-item drag-handle">
+                    <li draggable *ngFor="let item of list2" [dragScope]="'swap-target-1'" [dragClass]="'drag-over'" [dragData]="item" class="list-group-item drag-handle">
                         {{item.name}}
                     </li>
                 </ul>
@@ -102,6 +114,7 @@
 
 <h3>Delete Demo</h3>
 <p>Move Items to the bin.</p>
+<hr>
 
 <div class="row">
     <div class="col-sm-3">
@@ -134,6 +147,7 @@
 
 <h3>Default CSS Demo</h3>
 <p>Demo of built-in Css</p>
+<hr>
 
 <div class="row">
     <div class="col-sm-3">
@@ -142,6 +156,38 @@
             <div class="card-block scroll-list">
                 <ul class="list-group">
                     <li draggable *ngFor="let item of deleteItems" [dragScope]="'delete'" [dragData]="item" class="list-group-item drag-handle">
+                        {{item.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="card mb-3 text-center" droppable [dropScope]="'delete'" (onDrop)="onDeleteDrop($event)">
+            <div class="card-block">
+                <blockquote class="card-blockquote">
+                    <h4 class="card-title"><i class="fa fa-trash" aria-hidden="true"></i> Drop to Delete</h4>
+                    <p class="card-text">Drop Items here to delete</p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h3>Custom DragHelper Demo</h3>
+<p>Custom drag helper</p>
+<hr>
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="card card-outline-primary mb-3">
+            <div class="card-header card-inverse card-primary">Delete Items</div>
+            <div class="card-block scroll-list">
+                <ul class="list-group">
+                    <li draggable *ngFor="let item of deleteItems" [dragScope]="'delete'" [dragData]="item" [dragImage]="'images/drag-helper.png'"
+                        [dragHelper]="item.name" class="list-group-item drag-handle">
                         {{item.name}}
                     </li>
                 </ul>
