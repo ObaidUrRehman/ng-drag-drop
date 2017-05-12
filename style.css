@@ -5,13 +5,6 @@
     border: #ff525b dashed 2px;
 }
 
-[draggable] {
-    cursor: move; /* fallback if grab cursor is unsupported */
-    cursor: grab;
-    cursor: -moz-grab;
-    cursor: -webkit-grab;
-}
-
 .drag-handle {
     cursor: move; /* fallback if grab cursor is unsupported */
     cursor: grab;

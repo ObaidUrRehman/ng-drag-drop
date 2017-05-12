@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input, Output, EventEmitter } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit, ContentChild } from '@angular/core';
 import { Ng2DragDropService } from '../services/ng2-drag-drop.service';
 import { DomHelper } from '../shared/dom-helper';
 
@@ -11,14 +11,15 @@ import { DomHelper } from '../shared/dom-helper';
 /**
  * Makes an element draggable by adding the draggable html attribute
  */
-export class Draggable {
+export class Draggable implements OnInit {
     /**
      * The data that will be avaliable to the droppable directive on its `onDrop()` event.
      */
     @Input() dragData;
 
     /**
-     * The selector that defines the drag Handle. If defined drag will only be allowed if dragged from the selector element.
+     * The selector that defines the drag Handle.
+     * If defined drag will only be allowed if dragged from the selector element.
      */
     @Input() dragHandle: string;
 
@@ -33,6 +34,12 @@ export class Draggable {
     @Input() dragScope: string | Array<string> = 'default';
 
     /**
+     * The CSS class applied to a draggable element. If a dragHandle is defined then its applied to that handle
+     * element only. By default it is used to change the mouse over pointer.
+     */
+    @Input() dragHandleClass = 'drag-handle';
+
+    /**
      * CSS class applied on the draggable that is applied when the item is being dragged.
      */
     @Input() dragClass = 'drag-border';
@@ -45,7 +52,14 @@ export class Draggable {
     /**
      * Defines if drag is enabled. `true` by default.
      */
-    @Input() dragEnabled = true;
+    @Input() set dragEnabled(value: boolean) {
+        this._dragEnabled = value;
+        this.applyDragHandleClass();
+    };
+
+    get dragEnabled() {
+        return this._dragEnabled;
+    }
 
     /**
      * Event fired when Drag is started
@@ -68,8 +82,18 @@ export class Draggable {
      */
     mouseOverElement: any;
 
+    /**
+     * @private
+     * Backing field for the dragEnabled property
+     */
+    _dragEnabled = true;
+
 
     constructor(protected el: ElementRef, private ng2DragDropService: Ng2DragDropService) {
+    }
+
+    ngOnInit() {
+        this.applyDragHandleClass();
     }
 
     @HostListener('dragstart', ['$event'])
@@ -126,5 +150,23 @@ export class Draggable {
         } else {
             return this.dragEnabled;
         }
+    }
+
+    private applyDragHandleClass() {
+        let dragElement = this.getDragHandleElement();
+        if (this.dragEnabled) {
+            DomHelper.addClass(dragElement, this.dragHandleClass);
+        } else {
+            DomHelper.removeClass(this.el, this.dragHandleClass);
+        }
+    }
+
+    private getDragHandleElement() {
+        let dragElement = this.el;
+        if (this.dragHandle) {
+            dragElement = this.el.nativeElement.querySelector(this.dragHandle);
+        }
+
+        return dragElement;
     }
 }

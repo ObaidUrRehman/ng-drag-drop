@@ -37,9 +37,10 @@ export class DomHelper {
      * @param elementRef
      * @param className
      */
-    public static addClass(elementRef: ElementRef, className: string) {
-        if (elementRef.nativeElement.classList !== undefined && elementRef.nativeElement.classList !== null) {
-            elementRef.nativeElement.classList.add(className);
+    public static addClass(elementRef: ElementRef | any, className: string) {
+        let e = elementRef instanceof ElementRef ? elementRef.nativeElement : elementRef;
+        if (e.classList !== undefined && e.classList !== null) {
+            e.classList.add(className);
         }
     }
 
@@ -48,9 +49,10 @@ export class DomHelper {
      * @param elementRef
      * @param className
      */
-    public static removeClass(elementRef: ElementRef, className: string) {
-        if (elementRef.nativeElement.classList !== undefined && elementRef.nativeElement.classList !== null) {
-            elementRef.nativeElement.classList.remove(className);
+    public static removeClass(elementRef: ElementRef | any, className: string) {
+        let e = elementRef instanceof ElementRef ? elementRef.nativeElement : elementRef;
+        if (e.classList !== undefined && e.classList !== null) {
+            e.classList.remove(className);
         }
     }
 }
