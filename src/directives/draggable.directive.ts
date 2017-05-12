@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit, ContentChild } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Ng2DragDropService } from '../services/ng2-drag-drop.service';
 import { DomHelper } from '../shared/dom-helper';
 
