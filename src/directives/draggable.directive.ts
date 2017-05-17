@@ -47,7 +47,15 @@ export class Draggable implements OnInit {
     /**
      * The url to image that will be used as custom drag image when the draggable is being dragged.
      */
-    @Input() dragImage: string;
+    @Input() set dragImage( value: string) {
+        this._dragImage = value;
+        this.dragImageElement = new Image();
+        this.dragImageElement.src = this.dragImage;
+    }
+
+    get dragImage() {
+        return this._dragImage;
+    }
 
     /**
      * Defines if drag is enabled. `true` by default.
@@ -88,6 +96,17 @@ export class Draggable implements OnInit {
      */
     _dragEnabled = true;
 
+    /**
+     * @private
+     * Backing field for the dragImage property
+     */
+    _dragImage: string;
+
+    /**
+     * @private
+     * Image element for the dragImage
+     */
+    dragImageElement: HTMLImageElement;
 
     constructor(protected el: ElementRef, private ng2DragDropService: Ng2DragDropService) {
     }
@@ -112,9 +131,7 @@ export class Draggable implements OnInit {
 
             // Set dragImage
             if (this.dragImage) {
-                let img: HTMLImageElement = document.createElement('img');
-                img.src = this.dragImage;
-                e.dataTransfer.setDragImage(img, 0, 0);
+                e.dataTransfer.setDragImage(this.dragImageElement, 0, 0);
             }
 
             e.stopPropagation();
