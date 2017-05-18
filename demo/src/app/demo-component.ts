@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'demo-app',
-  templateUrl: 'app/components/demo-component.html',
+  templateUrl: 'app/demo-component.html',
   styles: [`
     div.scroll-list {
       overflow: auto;

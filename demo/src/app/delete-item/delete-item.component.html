@@ -1,0 +1,31 @@
+<h3>Delete Demo</h3>
+<p>Move Items to the bin.</p>
+<hr>
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="card card-outline-primary mb-3">
+            <div class="card-header card-inverse card-primary">Delete Items</div>
+            <div class="card-block scroll-list">
+                <ul class="list-group">
+                    <li draggable *ngFor="let item of deleteItems" [dragClass]="'active'" [dragScope]="'delete'" [dragData]="item" class="list-group-item">
+                        {{item.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+
+        <div class="card card-inverse card-primary mb-3 text-center" droppable [dragHintClass]="'drag-hint-scale'" [dragOverClass]="'bg-danger'"
+            [dropScope]="'delete'" (onDrop)="onDeleteDrop($event)">
+            <div class="card-block">
+                <blockquote class="card-blockquote">
+                    <h4 class="card-title"><i class="fa fa-trash" aria-hidden="true"></i> Drop to Delete</h4>
+                    <p class="card-text">Drop Items here to delete</p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
