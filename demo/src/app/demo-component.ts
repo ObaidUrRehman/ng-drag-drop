@@ -2,27 +2,27 @@ import {Component} from '@angular/core';
 
 @Component({
   selector: 'demo-app',
-  templateUrl: 'app/components/demo-component.html',
+  templateUrl: 'app/demo-component.html',
   styles: [`
     div.scroll-list {
       overflow: auto;
       max-height: 70vh;
     }
 
-    .drag-over-border {
+    .drag-over {
       border: #ff525b dashed 2px;
     }
 
-    .drag-hint-border {
+    .drag-hint {
       border: #ffc100 dashed 2px;
       /*transition: all .2s ease-in-out;*/
       /*transform: scale(1.05);*/
     }
 
     .drag-hint-scale {
-      border: #ffc100 dashed 2px;
+      // border: #ffc100 dashed 2px;
       transition: all .1s ease-in-out;
-      transform: scale(1.2);
+      transform: scale(1.1);
     }
 
     .drag-target-border {
@@ -31,20 +31,6 @@ import {Component} from '@angular/core';
 
     .drag-target-border-green {
       border: #3c763d dashed 2px;
-      
-    }
-    
-    .drag-handle {
-    cursor: move; /* fallback if grab cursor is unsupported */
-    cursor: grab;
-    cursor: -moz-grab;
-    cursor: -webkit-grab;
-    }
-
-    .drag-handle:active { 
-    cursor: grabbing;
-    cursor: -moz-grabbing;
-    cursor: -webkit-grabbing;
     }
   `
   ]
@@ -52,28 +38,27 @@ import {Component} from '@angular/core';
 export class DemoComponent {
 
   vegetables = [
-    {name: "Carrot", type: "vegetable"},
-    {name: "Onion", type: "vegetable"},
-    {name: "Potato", type: "vegetable"},
-    {name: "Capsicum", type: "vegetable"}];
+    {name: 'Carrot', type: 'vegetable'},
+    {name: 'Onion', type: 'vegetable'},
+    {name: 'Potato', type: 'vegetable'},
+    {name: 'Capsicum', type: 'vegetable'}];
 
   fruits = [
-    {name: "Apple", type: "fruit"},
-    {name: "Orange", type: "fruit"},
-    {name: "Mango", type: "fruit"},
-    {name: "Banana", type: "fruit"},
-    {name: "Pear", type: "fruit"}];
+    {name: 'Apple', type: 'fruit'},
+    {name: 'Orange', type: 'fruit'},
+    {name: 'Mango', type: 'fruit'},
+    {name: 'Banana', type: 'fruit'}];
 
   list1 = [
     {name: 'Toyota'},
     {name: 'Bugati'},
-    {name: 'Suzuki'},
-    {name: 'Honda'},
-    {name: 'BMW'}
+    {name: 'Suzuki'}
   ];
 
   list2 = [
     {name: 'Mercedes'},
+    {name: 'Honda'},
+    {name: 'BMW'}
   ];
 
   deleteItems = [
@@ -88,6 +73,7 @@ export class DemoComponent {
   droppedVegetables = [];
   droppedItems = [];
   fruitDropEnabled = true;
+  dragEnabled = true;
 
   onFruitDrop(e: any) {
     this.droppedFruits.push(e.dragData);
@@ -102,10 +88,12 @@ export class DemoComponent {
   onAnyDrop(e: any) {
     this.droppedItems.push(e.dragData);
 
-    if (e.dragData.type === 'vegetable')
+    if (e.dragData.type === 'vegetable') {
       this.removeItem(e.dragData, this.vegetables);
-    else
+    }
+    else {
       this.removeItem(e.dragData, this.fruits);
+    }
   }
 
   onList1Drop(e: any) {

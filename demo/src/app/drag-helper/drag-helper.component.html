@@ -1,0 +1,36 @@
+<h3>Custom Drag Image Demo</h3>
+<p>By default a translucent image is generated from the drag target (for most browsers).
+  A custom image can be used if desired.
+</p>
+<hr>
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="card card-outline-primary mb-3">
+            <div class="card-header card-inverse card-primary">Items</div>
+            <div class="card-block scroll-list">
+                <ul class="list-group">
+                    <li draggable *ngFor="let item of list1" [dragScope]="'drag-img'" [dragData]="item"
+                    [dragImage] = "'../../images/drag-helper.png'" class="list-group-item">
+                        {{item.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="card card-outline-primary mb-3" droppable [dropScope]="'drag-img'"
+             (onDrop)="onDrop($event)">
+            <div class="card-header card-inverse card-primary">Drop here</div>
+            <div class="card-block scroll-list">
+                <ul class="list-group">
+                    <li *ngFor="let item of list2" class="list-group-item">
+                        {{item.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+

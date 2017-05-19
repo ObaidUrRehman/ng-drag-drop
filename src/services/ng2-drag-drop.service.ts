@@ -2,8 +2,8 @@
  * Created by orehman on 2/22/2017.
  */
 
-import {Injectable} from '@angular/core';
-import {Subject} from 'rxjs/Subject';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class Ng2DragDropService {

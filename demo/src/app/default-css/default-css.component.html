@@ -1,0 +1,33 @@
+<h3>Default CSS Demo</h3>
+<p>This is what you get when you use the default CSS included with this package. Ofcourse you can customize this completely. See the documentation for more details.</p>
+<hr>
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="card card-outline-primary mb-3">
+            <div class="card-header card-inverse card-primary">Items</div>
+            <div class="card-block scroll-list">
+                <ul class="list-group">
+                    <li draggable *ngFor="let item of list1" [dragScope]="'default-css'" [dragData]="item" class="list-group-item">
+                        {{item.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="card card-outline-primary mb-3" droppable [dropScope]="'default-css'"
+             (onDrop)="onDrop($event)">
+            <div class="card-header card-inverse card-primary">Drop here</div>
+            <div class="card-block scroll-list">
+                <ul class="list-group">
+                    <li *ngFor="let item of list2" class="list-group-item">
+                        {{item.name}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>

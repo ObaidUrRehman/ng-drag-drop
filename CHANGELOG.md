@@ -1,3 +1,19 @@
+## 2.0.0 (2017-05-19)
+
+Bugfixes:
+- dragOverClass assigned to non valid drop targets, closes
+([#28](https://github.com/ObaidUrRehman/ng2-drag-drop/issues/28))
+- unable to transpile with tsc 2.3.2, node 7.10.0, npm 4.2.0, pull request
+([#51](https://github.com/ObaidUrRehman/ng2-drag-drop/pull/51))
+- fixed issue where the dragImage was not displayed on first drag operation, is appended to DOM and stays there forever.
+
+Enhacements:
+- Added a default set of CSS that can be used out of the box.
+- Added `dragHandleClass` on `draggable` that is applied to either draggable or its handle element (if defined).
+
+__BREAKING CHANGES__
+* `Draggable.dragOverClass` has been renamed to `dragClass`
+
 ## 1.5.1 (2017-04-19)
 
 Bugfixes:

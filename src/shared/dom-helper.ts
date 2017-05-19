@@ -1,11 +1,12 @@
-import {ElementRef} from "@angular/core";
 /**
  * Created by orehman on 2/22/2017.
  */
 
-export class Utils {
+import { ElementRef } from '@angular/core';
+
+export class DomHelper {
     /**
-     * Polyfill for element.matches.
+     * Polyfill for element.matches()
      * See: https://developer.mozilla.org/en/docs/Web/API/Element/matches#Polyfill
      * @param element
      */
@@ -13,7 +14,7 @@ export class Utils {
 
         let proto: any = Element.prototype;
 
-        var func =
+        let func =
             proto['matches'] ||
             proto.matchesSelector ||
             proto.mozMatchesSelector ||
@@ -21,7 +22,7 @@ export class Utils {
             proto.oMatchesSelector ||
             proto.webkitMatchesSelector ||
             function (s) {
-                var matches = (this.document || this.ownerDocument).querySelectorAll(s),
+                let matches = (this.document || this.ownerDocument).querySelectorAll(s),
                     i = matches.length;
                 while (--i >= 0 && matches.item(i) !== this) {
                 }
@@ -36,9 +37,11 @@ export class Utils {
      * @param elementRef
      * @param className
      */
-    public static addClass(elementRef: ElementRef, className: string) {
-        if (elementRef.nativeElement.classList != undefined && elementRef.nativeElement.classList != null)
-            elementRef.nativeElement.classList.add(className);
+    public static addClass(elementRef: ElementRef | any, className: string) {
+        let e = elementRef instanceof ElementRef ? elementRef.nativeElement : elementRef;
+        if (e.classList !== undefined && e.classList !== null) {
+            e.classList.add(className);
+        }
     }
 
     /**
@@ -46,8 +49,10 @@ export class Utils {
      * @param elementRef
      * @param className
      */
-    public static removeClass(elementRef: ElementRef, className: string) {
-        if (elementRef.nativeElement.classList != undefined && elementRef.nativeElement.classList != null)
-            elementRef.nativeElement.classList.remove(className);
+    public static removeClass(elementRef: ElementRef | any, className: string) {
+        let e = elementRef instanceof ElementRef ? elementRef.nativeElement : elementRef;
+        if (e.classList !== undefined && e.classList !== null) {
+            e.classList.remove(className);
+        }
     }
 }

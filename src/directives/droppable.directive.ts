@@ -1,8 +1,8 @@
-import {Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit, OnDestroy} from '@angular/core';
-import {Subscription}   from 'rxjs/Subscription';
-import {DropEvent} from "../shared/drop-event.model";
-import {Ng2DragDropService} from "../services/ng2-drag-drop.service";
-import {Utils} from "../shared/utils";
+import { Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs/Subscription';
+import { DropEvent } from '../shared/drop-event.model';
+import { Ng2DragDropService } from '../services/ng2-drag-drop.service';
+import { DomHelper } from '../shared/dom-helper';
 
 @Directive({
     selector: '[droppable]'
@@ -32,13 +32,13 @@ export class Droppable implements OnInit, OnDestroy {
     /**
      * CSS class that is applied when a compatible draggable is being dragged over this droppable.
      */
-    @Input() dragOverClass: string;
+    @Input() dragOverClass = 'drag-over-border';
 
     /**
      * CSS class applied on this droppable when a compatible draggable item is being dragged.
      * This can be used to visually show allowed drop zones.
      */
-    @Input() dragHintClass: string;
+    @Input() dragHintClass = 'drag-hint-border';
 
     /**
      * Defines compatible drag drop pairs. Values must match both in draggable and droppable.dropScope.
@@ -48,13 +48,13 @@ export class Droppable implements OnInit, OnDestroy {
     /**
      * Defines if drop is enabled. `true` by default.
      */
-    @Input() dropEnabled: boolean = true;
+    @Input() dropEnabled = true;
 
     /**
      * @private
      */
     dragStartSubscription: Subscription;
-    
+
     /**
      * @private
      */
@@ -66,12 +66,12 @@ export class Droppable implements OnInit, OnDestroy {
     ngOnInit() {
         this.dragStartSubscription = this.ng2DragDropService.onDragStart.subscribe(() => {
             if (this.allowDrop()) {
-                Utils.addClass(this.el, this.dragHintClass);
+                DomHelper.addClass(this.el, this.dragHintClass);
             }
         });
 
         this.dragEndSubscription = this.ng2DragDropService.onDragEnd.subscribe(() => {
-            Utils.removeClass(this.el, this.dragHintClass);
+            DomHelper.removeClass(this.el, this.dragHintClass);
         });
     }
 
@@ -90,7 +90,7 @@ export class Droppable implements OnInit, OnDestroy {
     @HostListener('dragover', ['$event'])
     dragOver(e) {
         if (this.allowDrop()) {
-            Utils.addClass(this.el, this.dragOverClass);
+            DomHelper.addClass(this.el, this.dragOverClass);
             e.preventDefault();
             this.onDragOver.emit(e);
         }
@@ -98,14 +98,14 @@ export class Droppable implements OnInit, OnDestroy {
 
     @HostListener('dragleave', ['$event'])
     dragLeave(e) {
-        Utils.removeClass(this.el, this.dragOverClass);
+        DomHelper.removeClass(this.el, this.dragOverClass);
         e.preventDefault();
         this.onDragLeave.emit(e);
     }
 
     @HostListener('drop', ['$event'])
     drop(e) {
-        Utils.removeClass(this.el, this.dragOverClass);
+        DomHelper.removeClass(this.el, this.dragOverClass);
         e.preventDefault();
         e.stopPropagation();
 
@@ -116,21 +116,23 @@ export class Droppable implements OnInit, OnDestroy {
     allowDrop(): boolean {
         let allowed = false;
 
-        if (typeof this.dropScope === "string") {
-            if (typeof this.ng2DragDropService.scope === "string")
+        /* tslint:disable:curly */
+        /* tslint:disable:one-line */
+        if (typeof this.dropScope === 'string') {
+            if (typeof this.ng2DragDropService.scope === 'string')
                 allowed = this.ng2DragDropService.scope === this.dropScope;
             else if (this.ng2DragDropService.scope instanceof Array)
                 allowed = this.ng2DragDropService.scope.indexOf(this.dropScope) > -1;
-        }
-        else if (this.dropScope instanceof Array) {
-            if (typeof this.ng2DragDropService.scope === "string")
+        } else if (this.dropScope instanceof Array) {
+            if (typeof this.ng2DragDropService.scope === 'string')
                 allowed = this.dropScope.indexOf(this.ng2DragDropService.scope) > -1;
             else if (this.ng2DragDropService.scope instanceof Array)
-                allowed = this.dropScope.filter(
-                        function (item) {
-                            return this.ng2DragDropService.scope.indexOf(item) !== -1;
-                        }).length > 0;
+                allowed = this.dropScope.filter(item => {
+                    return this.ng2DragDropService.scope.indexOf(item) !== -1;
+                }).length > 0;
         }
+        /* tslint:enable:curly */
+        /* tslint:disable:one-line */
 
         return allowed && this.dropEnabled;
     }
