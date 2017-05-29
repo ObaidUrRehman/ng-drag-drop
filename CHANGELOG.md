@@ -1,3 +1,8 @@
+## 2.0.1 (2017-05-29)
+Bugfixes:
+- Clear service data on drop end, closes
+([#56](https://github.com/ObaidUrRehman/ng2-drag-drop/issues/56))
+
 ## 2.0.0 (2017-05-19)
 
 Bugfixes:
