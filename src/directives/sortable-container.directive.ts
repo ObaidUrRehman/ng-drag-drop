@@ -1,4 +1,4 @@
-import { Directive, HostListener, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Directive, HostListener, Input, Output, EventEmitter } from '@angular/core';
 import { Ng2SortableService } from '../services/ng2-drag-drop.service';
 
 @Directive({
