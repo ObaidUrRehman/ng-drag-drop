@@ -161,6 +161,33 @@ Drag Handle can be defined for a `draggable` item which will restrict drag of th
 </li>               
 ```
 
+### Using the sortable directive
+before adding sortable directive add the sortable-container directive to its parent
+```js
+import {Component} from '@angular/core';
+
+@Component({
+    selector: 'app',
+    template: `
+<h3>Using the sortable directive</h3>
+<div sortable-container [sortableItems]="items">
+    <li *ngFor="let item of items; let i = index" sortable
+        [sortIndex]="i">
+        {{item.name}}
+    </li>
+</div>
+`
+})
+export class AppComponent {
+    items = [
+            {name: "Apple", type: "fruit"},
+            {name: "Carrot", type: "vegetable"},
+            {name: "Orange", type: "fruit"}];
+            
+    constructor() { }
+}             
+```
+
 ### Drag Helper Image
 By default when an element is dragged, a translucent image is generated from the drag target. This image is generated automatically and varies with browser. A custom image can be used if desired. Pass the url of the image to `[dragImage]` on the `draggable` directive.
 
