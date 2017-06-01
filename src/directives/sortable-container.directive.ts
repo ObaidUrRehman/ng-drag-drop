@@ -1,9 +1,8 @@
-import { Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Directive, HostListener, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Ng2SortableService } from '../services/ng2-drag-drop.service';
-import { DomHelper} from '../shared/dom-helper';
 
 @Directive({
-    "selector": '[sortable-container]'
+    'selector': '[sortable-container]'
 })
 export class SortableContainer {
     @Input() sortableItems: Array<any>;
@@ -39,22 +38,22 @@ export class SortableContainer {
         if (this.sortableService.sortableItems.length) {
             let item = this.sortableService.dragItem;
 
-            //If item does not exist. Mostly used for swap list
+            // If item does not exist. Mostly used for swap list
             if (item && this.sortableItems.indexOf(item) === -1) {
 
-                if(this.deleteOnSwap) {
-                    //Remove from previous list
+                if (this.deleteOnSwap) {
+                    // Remove from previous list
                     let previousListIndex = this.sortableService.sortableItems.indexOf(item);
                     this.sortableService.sortableItems.splice(previousListIndex, 1);
                 }
 
-                //Add in current list
+                // Add in current list
                 this.sortableItems.splice(0, 0, item);
 
-                //Update sort index where the item is added.
+                // Update sort index where the item is added.
                 this.sortableService.sortIndex = 0;
 
-                //Swapped Item is emitted back
+                // Swapped Item is emitted back
                 this.onSwap.emit(item);
             }
         }

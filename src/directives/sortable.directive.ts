@@ -15,7 +15,7 @@ export class Sortable implements OnInit {
     @Input() sortIndex;
 
     @Input() dragItem: any;
-    
+
     /**
      * The selector that defines the drag Handle.
      * If defined drag will only be allowed if dragged from the selector element.
@@ -119,16 +119,16 @@ export class Sortable implements OnInit {
 
     @HostListener('dragenter', ['$event'])
     dragenter(e) {
-        if (this.sortIndex != this.ng2SortableService.sortIndex) {
-            let sortItem = this.ng2SortableService.sortableItems[this.ng2SortableService.sortIndex]
-            //Remove item
-            let previousIndex = this.ng2SortableService.sortableItems.indexOf(this.ng2SortableService.dragItem)
-            this.ng2SortableService.sortableItems.splice(previousIndex, 1)
+        if (this.sortIndex !== this.ng2SortableService.sortIndex) {
+            let sortItem = this.ng2SortableService.sortableItems[this.ng2SortableService.sortIndex];
+            // Remove item
+            let previousIndex = this.ng2SortableService.sortableItems.indexOf(this.ng2SortableService.dragItem);
+            this.ng2SortableService.sortableItems.splice(previousIndex, 1);
 
-            //Add item
+            // Add item
             this.ng2SortableService.sortableItems.splice(this.sortIndex, 0, sortItem);
 
-            //Update index
+            // Update index
             this.ng2SortableService.sortIndex = this.sortIndex;
         }
         e.preventDefault();
