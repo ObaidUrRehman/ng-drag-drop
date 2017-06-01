@@ -1,0 +1,64 @@
+import { Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Ng2SortableService } from '../services/ng2-drag-drop.service';
+import { DomHelper} from '../shared/dom-helper';
+
+@Directive({
+    "selector": '[sortable-container]'
+})
+export class SortableContainer {
+    @Input() sortableItems: Array<any>;
+
+    @Input() deleteOnSwap: boolean = true;
+
+    /**
+     * Event fired when item is dragged to another list
+     */
+    @Output() onSwap: EventEmitter<any> = new EventEmitter();
+
+    constructor(private sortableService: Ng2SortableService) {
+
+    }
+
+    @HostListener('dragleave', ['$event'])
+    dragLeave(e) {
+        e.preventDefault();
+    }
+
+    @HostListener('dragover', ['$event'])
+    dragOver(e) {
+        e.preventDefault();
+    }
+
+    @HostListener('drop', ['$event'])
+    drop(e) {
+        this.sortableService.sortableItems = [];
+    }
+
+    @HostListener('dragenter', ['$event'])
+    dragEnter(e) {
+        if (this.sortableService.sortableItems.length) {
+            let item = this.sortableService.dragItem;
+
+            //If item does not exist. Mostly used for swap list
+            if (item && this.sortableItems.indexOf(item) === -1) {
+
+                if(this.deleteOnSwap) {
+                    //Remove from previous list
+                    let previousListIndex = this.sortableService.sortableItems.indexOf(item);
+                    this.sortableService.sortableItems.splice(previousListIndex, 1);
+                }
+
+                //Add in current list
+                this.sortableItems.splice(0, 0, item);
+
+                //Update sort index where the item is added.
+                this.sortableService.sortIndex = 0;
+
+                //Swapped Item is emitted back
+                this.onSwap.emit(item);
+            }
+        }
+
+        this.sortableService.sortableItems = this.sortableItems;
+    }
+}
