@@ -310,6 +310,39 @@ For more information on Drag DOM Events: [Drag Event](https://developer.mozilla.
 | `onDragLeave`    | e: DOM event   | Event fired when a dragged element leaves a valid drop target. |
 | `onDrop`    | e: `DropEvent`   | Event fired when an element is dropped on a valid drop target. |
 
+
+### Sortable directive
+
+### Attributes
+| Name   | Type      |Default Value |Description |
+|:-------|:----------|:-------------|:-----------|
+| `dragData`    |   `any` | `null` | The data that will be sorted |
+| `draghandle` | `string` | `null` | The selector that defines the drag Handle. If defined drag will only be allowed if dragged from the selector element. |
+| `sortIndex` | `number` |  | index of data in the array |
+
+### Events
+
+| Name   | Parameters  |Description |
+|:-------|:------------|:-----------|
+| `onDragStart`  | e: DOM event   | Event fired when Drag is started  |
+| `onDrag`       | e: DOM event   | Event fired while the element is being dragged |
+| `onDragEnd`    | e: DOM event   | Event fired when dragged ends |
+
+
+### Sortable Container directive
+
+### Attributes
+| Name   | Type      |Default Value |Description |
+|:-------|:----------|:-------------|:-----------|
+| `sortableItems` |    `Array<any>` |   | Collection on which sortable is to be applied |
+| `deleteOnSwap` | `boolean` | `true` | Delete from source when dropped into swap list |
+
+### Events
+
+| Name   | Parameters  |Description |
+|:-------|:------------|:-----------|
+| `onSwap`  | item: Swapped Item   | Event fired when items are swapped in another list|
+
 # License
 
 MIT
