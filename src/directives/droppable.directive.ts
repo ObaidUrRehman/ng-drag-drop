@@ -111,6 +111,8 @@ export class Droppable implements OnInit, OnDestroy {
 
         this.ng2DragDropService.onDragEnd.next();
         this.onDrop.emit(new DropEvent(e, this.ng2DragDropService.dragData));
+        this.ng2DragDropService.dragData = null;
+        this.ng2DragDropService.scope = null;
     }
 
     allowDrop(): boolean {
