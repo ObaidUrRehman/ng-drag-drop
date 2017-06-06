@@ -21,11 +21,18 @@
 /* Droppable */
 
 .drag-hint-border {
-    border: #3c763d dashed 2px;
+    border: #3c763d dashed 1px;
 }
 
 .drag-over-border {
-    border: #fbbc05 dashed 2px;
+    border: #fbbc05 dashed 1px;
+}
+
+/* Sortable */
+
+.drag-over-collapse {
+    transition: all .2s ease-in-out;
+    transform: scale(1.05);
 }
 
 .drag-transit {
