@@ -11,7 +11,8 @@
     "transpile": "ngc",
     "build": "npm run transpile",
     "prepublish": "npm run build",
-    "lint": "tslint ./src/**/*.ts -t verbose"
+    "lint": "tslint ./src/**/*.ts -t verbose",
+    "dev": "concurrently \"npm start\" \"cd demo && npm start\""
   },
   "repository": {
     "type": "git",
