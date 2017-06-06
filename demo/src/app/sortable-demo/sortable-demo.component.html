@@ -11,7 +11,9 @@
             <div class="card-block scroll-list">
                 <div class="list-group" sortable-container [sortableItems]="vegetables">
                     <li class="list-group-item list-group-item-action list-group-item-success"
-                        *ngFor="let item of vegetables; let i = index" sortable
+                        *ngFor="let item of vegetables; let i = index"
+                        sortable
+                        [dragItem]="item"
                         [sortIndex]="i">
                         {{item.name}}
                     </li>
@@ -29,6 +31,7 @@
                     <li class="list-group-item list-group-item-action list-group-item-success"
                         *ngFor="let item of fruits; let i = index"
                         sortable
+                        [dragItem]="item"
                         [sortIndex]="i"
                         [dragHandle]="'.fa-arrows'">
                         <i class="fa fa-arrows" aria-hidden="true"></i>
