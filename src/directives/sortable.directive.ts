@@ -1,6 +1,6 @@
 import { Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Ng2SortableService } from '../services/ng2-drag-drop.service';
-import { DomHelper} from '../shared/dom-helper';
+import { DomHelper } from '../shared/dom-helper';
 
 @Directive({
     selector: '[sortable]',
@@ -14,6 +14,9 @@ export class Sortable implements OnInit {
      */
     @Input() sortIndex;
 
+    /**
+     * The drag item.
+     */
     @Input() dragItem: any;
 
     /**
@@ -26,6 +29,11 @@ export class Sortable implements OnInit {
      * CSS class applied on the draggable that is applied when the item is being dragged.
      */
     @Input() dragClass = 'drag-border';
+
+    /**
+     * CSS class that is applied when an item is being dragged over this sortable.
+     */
+    @Input() dragOverClass = 'drag-over-collapse';
 
     /**
      * The CSS class applied to a draggable element. If a dragHandle is defined then its applied to that handle
@@ -85,7 +93,7 @@ export class Sortable implements OnInit {
     dragImageElement: HTMLImageElement;
 
     constructor(protected el: ElementRef,
-                private ng2SortableService: Ng2SortableService) {
+        private ng2SortableService: Ng2SortableService) {
     }
 
     ngOnInit() {
@@ -96,15 +104,14 @@ export class Sortable implements OnInit {
     dragStart(e) {
         if (this.allowDrag()) {
             DomHelper.addClass(this.el, this.dragClass);
-
             this.ng2SortableService.sortIndex = this.sortIndex;
             this.ng2SortableService.dragItem = this.dragItem;
+
             // Firefox requires setData() to be called otherwise the drag does not work.
             // We don't use setData() to transfer data anymore so this is just a dummy call.
             if (e.dataTransfer != null) {
                 e.dataTransfer.setData('text', '');
             }
-
             e.stopPropagation();
             this.onDragStart.emit(e);
         } else {
@@ -132,11 +139,20 @@ export class Sortable implements OnInit {
             this.ng2SortableService.sortIndex = this.sortIndex;
         }
         e.preventDefault();
+
+        DomHelper.addClass(this.el, this.dragOverClass);
+    }
+
+    @HostListener('dragleave', ['$event'])
+    dragLeave(e) {
+        DomHelper.removeClass(this.el, this.dragOverClass);
+        e.preventDefault();
     }
 
     @HostListener('dragend', ['$event'])
     dragEnd(e) {
         DomHelper.removeClass(this.el, this.dragClass);
+        DomHelper.removeClass(this.el, this.dragOverClass);
         this.ng2SortableService.sortableItems = [];
         this.onDragEnd.emit(e);
         e.stopPropagation();
