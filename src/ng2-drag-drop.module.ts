@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 import { Draggable } from './directives/draggable.directive';
 import { Droppable } from './directives/droppable.directive';
 import { Ng2DragDropService } from './services/ng2-drag-drop.service';
@@ -13,10 +13,13 @@ import { Ng2DragDropService } from './services/ng2-drag-drop.service';
   exports: [
     Draggable,
     Droppable
-  ],
-  providers: [
-    Ng2DragDropService
-  ],
+  ]
 })
 export class Ng2DragDropModule {
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: Ng2DragDropModule,
+      providers: [Ng2DragDropService]
+    }
+  }
 }
