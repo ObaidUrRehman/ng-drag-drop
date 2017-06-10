@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {DropEvent} from 'ng2-drag-drop';
 
 @Component({
   selector: 'delete-item',
@@ -27,7 +28,7 @@ export class DeleteItemComponent {
     {name: 'Backbone'}
   ];
 
-  onDeleteDrop(e: any) {
+  onDeleteDrop(e: DropEvent) {
     this.removeItem(e.dragData, this.deleteItems);
   }
 

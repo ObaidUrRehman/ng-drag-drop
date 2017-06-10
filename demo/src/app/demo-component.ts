@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {DropEvent} from 'ng2-drag-drop';
 
 @Component({
   selector: 'demo-app',
@@ -75,17 +76,17 @@ export class DemoComponent {
   fruitDropEnabled = true;
   dragEnabled = true;
 
-  onFruitDrop(e: any) {
+  onFruitDrop(e: DropEvent) {
     this.droppedFruits.push(e.dragData);
     this.removeItem(e.dragData, this.fruits);
   }
 
-  onVegetableDrop(e: any) {
+  onVegetableDrop(e: DropEvent) {
     this.droppedVegetables.push(e.dragData);
     this.removeItem(e.dragData, this.vegetables);
   }
 
-  onAnyDrop(e: any) {
+  onAnyDrop(e: DropEvent) {
     this.droppedItems.push(e.dragData);
 
     if (e.dragData.type === 'vegetable') {
@@ -96,17 +97,17 @@ export class DemoComponent {
     }
   }
 
-  onList1Drop(e: any) {
+  onList1Drop(e: DropEvent) {
     this.list1.push(e.dragData);
     this.removeItem(e.dragData, this.list2)
   }
 
-  onList2Drop(e: any) {
+  onList2Drop(e: DropEvent) {
     this.list2.push(e.dragData);
     this.removeItem(e.dragData, this.list1)
   }
 
-  onDeleteDrop(e: any) {
+  onDeleteDrop(e: DropEvent) {
     this.removeItem(e.dragData, this.deleteItems);
   }
 
