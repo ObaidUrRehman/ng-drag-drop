@@ -20,6 +20,6 @@ export class Ng2DragDropModule {
     return {
       ngModule: Ng2DragDropModule,
       providers: [Ng2DragDropService]
-    }
+    };
   }
 }
