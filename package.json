@@ -61,6 +61,6 @@
     "core-js": "^2.4.1",
     "rxjs": "5.0.1",
     "zone.js": "^0.8.4",
-    "@types/core-js": "0.9.35"
+    "@types/core-js": "0.9.42"
   }
 }
