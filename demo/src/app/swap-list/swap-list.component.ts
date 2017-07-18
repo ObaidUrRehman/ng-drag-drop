@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {DropEvent} from 'ng2-drag-drop';
 
 @Component({
   selector: 'swap-list',
@@ -39,12 +40,12 @@ export class SwapListComponent {
   ];
 
 
-  onList1Drop(e: any) {
+  onList1Drop(e: DropEvent) {
     this.list1.push(e.dragData);
     this.removeItem(e.dragData, this.list2)
   }
 
-  onList2Drop(e: any) {
+  onList2Drop(e: DropEvent) {
     this.list2.push(e.dragData);
     this.removeItem(e.dragData, this.list1)
   }

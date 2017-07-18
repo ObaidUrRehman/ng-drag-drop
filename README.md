@@ -233,7 +233,7 @@ For more information on Drag DOM Events: [Drag Event](https://developer.mozilla.
 | `onDragEnter`  | e: DOM event   | Event fired when Drag dragged element enters a valid drop target.  |
 | `onDragOver`       | e: DOM event   | Event fired when an element is being dragged over a valid drop target. |
 | `onDragLeave`    | e: DOM event   | Event fired when a dragged element leaves a valid drop target. |
-| `onDrop`    | e: `DropEventModel`   | Event fired when an element is dropped on a valid drop target. |
+| `onDrop`    | e: `DropEvent`   | Event fired when an element is dropped on a valid drop target. |
 
 # License
 

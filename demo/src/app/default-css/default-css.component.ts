@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {DropEvent} from 'ng2-drag-drop';
 
 @Component({
   selector: 'default-css',
@@ -16,7 +17,7 @@ export class DefaultCssComponent {
 
   list2 = [];
 
-  onDrop(e: any) {
+  onDrop(e: DropEvent) {
     this.list2.push(e.dragData);
     this.removeItem(e.dragData, this.list1)
   }
