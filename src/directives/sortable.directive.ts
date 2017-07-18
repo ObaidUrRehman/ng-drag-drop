@@ -15,9 +15,9 @@ export class Sortable implements OnInit {
     @Input() sortIndex;
 
     /**
-     * The drag item.
+     * The drag item that can be sorted
      */
-    @Input() dragItem: any;
+    @Input() sortItem: any;
 
     /**
      * The selector that defines the drag Handle.
@@ -33,7 +33,7 @@ export class Sortable implements OnInit {
     /**
      * CSS class that is applied when an item is being dragged over this sortable.
      */
-    @Input() dragOverClass = 'drag-over-collapse';
+    @Input() dragOverClass = 'drag-over-expand';
 
     /**
      * The CSS class applied to a draggable element. If a dragHandle is defined then its applied to that handle
@@ -92,8 +92,7 @@ export class Sortable implements OnInit {
      */
     dragImageElement: HTMLImageElement;
 
-    constructor(protected el: ElementRef,
-        private ng2SortableService: Ng2SortableService) {
+    constructor(protected el: ElementRef, private ng2SortableService: Ng2SortableService) {
     }
 
     ngOnInit() {
@@ -105,7 +104,7 @@ export class Sortable implements OnInit {
         if (this.allowDrag()) {
             DomHelper.addClass(this.el, this.dragClass);
             this.ng2SortableService.sortIndex = this.sortIndex;
-            this.ng2SortableService.dragItem = this.dragItem;
+            this.ng2SortableService.dragItem = this.sortItem;
 
             // Firefox requires setData() to be called otherwise the drag does not work.
             // We don't use setData() to transfer data anymore so this is just a dummy call.
@@ -117,6 +116,8 @@ export class Sortable implements OnInit {
         } else {
             e.preventDefault();
         }
+
+        console.log('DragStart', 'Directive');
     }
 
     @HostListener('drag', ['$event'])
@@ -140,7 +141,8 @@ export class Sortable implements OnInit {
         }
         e.preventDefault();
 
-        DomHelper.addClass(this.el, this.dragOverClass);
+        // DomHelper.addClass(this.el, this.dragOverClass);
+        console.log('DragEnter', 'Directive');
     }
 
     @HostListener('dragleave', ['$event'])

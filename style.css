@@ -30,7 +30,7 @@
 
 /* Sortable */
 
-.drag-over-collapse {
+.drag-over-expand {
     transition: all .2s ease-in-out;
     transform: scale(1.05);
 }
