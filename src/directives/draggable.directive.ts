@@ -1,12 +1,9 @@
-import { Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit, HostBinding } from '@angular/core';
 import { Ng2DragDropService } from '../services/ng2-drag-drop.service';
 import { DomHelper } from '../shared/dom-helper';
 
 @Directive({
-    selector: '[draggable]',
-    host: {
-        '[draggable]': 'true'
-    }
+    selector: '[draggable]'
 })
 /**
  * Makes an element draggable by adding the draggable html attribute
@@ -60,6 +57,7 @@ export class Draggable implements OnInit {
     /**
      * Defines if drag is enabled. `true` by default.
      */
+    @HostBinding('draggable')
     @Input() set dragEnabled(value: boolean) {
         this._dragEnabled = value;
         this.applyDragHandleClass();
