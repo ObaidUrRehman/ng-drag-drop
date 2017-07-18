@@ -55,7 +55,10 @@ import { Ng2DragDropModule } from 'ng2-drag-drop';
 
 
 @NgModule({
-  imports: [BrowserModule, Ng2DragDropModule],
+  imports: [
+      BrowserModule, 
+      Ng2DragDropModule.forRoot()
+  ],
   declarations: [DemoComponent],
   bootstrap: [DemoComponent]
 })

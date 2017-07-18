@@ -13,7 +13,7 @@ import { Ng2DragDropModule } from 'ng2-drag-drop';
 
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, Ng2DragDropModule],
+  imports: [BrowserModule, FormsModule, Ng2DragDropModule.forRoot()],
   declarations: [DemoComponent,
   CompleteDemoComponent,
   SwapListComponent,
