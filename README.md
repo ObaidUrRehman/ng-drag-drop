@@ -192,6 +192,23 @@ __Droppable Directive__
    <p>Drop items here</p>
  </div>               
  ```
+ # Limitations
+This library uses [Native Html5 drag & drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API) to accomplish what it does. Because of this, certain aspects are not customizable and some UI behaviour is browser specific. 
+
+So if you were to see the demo under Edge or Chrome/Firefox you'll see that these browsers show a different behaviour when an Item is being dragged. Simlarly Edge does not let you set a custom dragImage while others do. Another major issues is that we can't control the opacity of the ghost element of item being dragged.
+
+To overcome these issues we'll need to implement our own drag drop functionality instead of relying on the Native Html API which at this point in time, is beyond the scope of this component. Libraries like [Dragula](http://valor-software.com/ng2-dragula/), [JQuery Draggable](https://jqueryui.com/draggable/), [Interact.js](http://interactjs.io/) to name a few, can provide you with alternatives. 
+
+# Development
+To start the dev flow on your system, follow these steps:
+
+1. `npm install` on the root of this repo.
+2. `npm install` in the demo folder. This is where the demo app resides. Sort of a test & play yard for ng2-drag-drop package.
+3. Next you need to sym-link your package with the demo folder so your changes to the package are reflected in the demo app. Please remember the demo and the package are seperate apps & the demo app does not get published to npm. To link run `npm link` on the root of the repo followed by `npm link ng2-drag-drop` in demo folder. You can read more about `npm link` [here](https://docs.npmjs.com/cli/link).
+4. Finally run `npm run dev` at the root. This will open up the demo app in browser.
+5. Now you can make changes to the actual component or the demo app and debug. Please note that changing the code of demo app will autoreload the browser but you'll need to manually refresh the page if you change the component code.
+
+__Note:__ The steps are a bit involved at this time and will be simplified to an npm script in later releases.
 
 # API Doc
 ### Draggable directive
@@ -237,13 +254,6 @@ For more information on Drag DOM Events: [Drag Event](https://developer.mozilla.
 | `onDragOver`       | e: DOM event   | Event fired when an element is being dragged over a valid drop target. |
 | `onDragLeave`    | e: DOM event   | Event fired when a dragged element leaves a valid drop target. |
 | `onDrop`    | e: `DropEvent`   | Event fired when an element is dropped on a valid drop target. |
-
-# Limitations
-This library uses [Native Html5 drag & drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API) to accomplish what it does. Because of this, certain aspects are not customizable and some UI behaviour is browser specific. 
-
-So if you were to see the demo under Edge or Chrome/Firefox you'll see that these browsers show a different behaviour when an Item is being dragged. Simlarly Edge does not let you set a custom dragImage while others do. Another major issues is that we can't control the opacity of the ghost element of item being dragged.
-
-To overcome these issues we'll need to implement our own drag drop functionality instead of relying on the Native Html API which at this point in time, is beyond the scope of this component. Libraries like [Dragula](http://valor-software.com/ng2-dragula/), [JQuery Draggable](https://jqueryui.com/draggable/), [Interact.js](http://interactjs.io/) to name a few, can provide you with alternatives. 
 
 # License
 
