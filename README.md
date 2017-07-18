@@ -176,7 +176,7 @@ By default when an element is dragged, a translucent image is generated from the
 __Compatibility:__ This only works on Chrome & Firefox. Not supported on Edge.
 
 ### Adding visual cues
-Both the `draggable` & `droppable` directives take a bunch of inputs that let you apply class on various events. Here is the list:
+Both the `draggable` & `droppable` directives take a bunch of inputs that let you apply class on various events. You can find the list below. Another thing you can do is clone the `style.css` that comes with this package and customize it as per your requirement.
 
 __Draggable Directive__
 1. [dragHandleClass](#draggable-directive)
@@ -237,6 +237,13 @@ For more information on Drag DOM Events: [Drag Event](https://developer.mozilla.
 | `onDragOver`       | e: DOM event   | Event fired when an element is being dragged over a valid drop target. |
 | `onDragLeave`    | e: DOM event   | Event fired when a dragged element leaves a valid drop target. |
 | `onDrop`    | e: `DropEvent`   | Event fired when an element is dropped on a valid drop target. |
+
+# Limitations
+This library uses [Native Html5 drag & drop API](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API) to accomplish what it does. Because of this, certain aspects are not customizable and some UI behaviour is browser specific. 
+
+So if you were to see the demo under Edge or Chrome/Firefox you'll see that these browsers show a different behaviour when an Item is being dragged. Simlarly Edge does not let you set a custom dragImage while others do. Another major issues is that we can't control the opacity of the ghost element of item being dragged.
+
+To overcome these issues we'll need to implement our own drag drop functionality instead of relying on the Native Html API which at this point in time, is beyond the scope of this component. Libraries like [Dragula](http://valor-software.com/ng2-dragula/), [JQuery Draggable](https://jqueryui.com/draggable/), [Interact.js](http://interactjs.io/) to name a few, can provide you with alternatives. 
 
 # License
 
