@@ -5,9 +5,15 @@ import { Ng2SortableService } from '../services/ng-drag-drop.service';
     'selector': '[sortable-container]'
 })
 export class SortableContainer {
+    /**
+     * The items that can be sorted
+     */
     @Input() sortableItems: Array<any>;
 
-    @Input() deleteOnSwap: boolean = true;
+    /**
+     * Delete items on swap
+     */
+    @Input() deleteOnSwap = true;
 
     /**
      * Event fired when item is dragged to another list
@@ -59,5 +65,6 @@ export class SortableContainer {
         }
 
         this.sortableService.sortableItems = this.sortableItems;
+        console.log('DragEnter', 'Container');
     }
 }
