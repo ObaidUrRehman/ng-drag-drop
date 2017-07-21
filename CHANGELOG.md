@@ -1,3 +1,9 @@
+## 2.5.0 (2017-07-18)
+Bugfixes:
+- Set draggble property on the `draggable` directive via `HostBinding()`. Resolves ([#65](https://github.com/ObaidUrRehman/ng2-drag-drop/issues/65))
+- Use DropEvent for Type Checking, pull request
+([#63](https://github.com/ObaidUrRehman/ng2-drag-drop/pull/63))
+- Droppable not working between different components, closes ([#50](https://github.com/ObaidUrRehman/ng2-drag-drop/issues/50)) via pull request ([#61](https://github.com/ObaidUrRehman/ng2-drag-drop/pull/61))
 ## 2.0.1 (2017-05-29)
 Bugfixes:
 - Clear service data on drop end, closes
