@@ -75,6 +75,6 @@ export class DomHelper {
             return e;
         }
 
-        return null
+        return null;
     }
 }
