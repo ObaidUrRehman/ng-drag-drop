@@ -1,4 +1,6 @@
 # Angular Drag & Drop (v2 and beyond)
+
+[![Join the chat at https://gitter.im/ngx-drag-drop/Lobby](https://badges.gitter.im/ngx-drag-drop/Lobby.svg)](https://gitter.im/ngx-drag-drop/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![npm version](https://img.shields.io/npm/v/ng2-drag-drop.svg)](https://www.npmjs.com/package/ng2-drag-drop) [![npm downloads](https://img.shields.io/npm/dm/ng2-drag-drop.svg)](https://www.npmjs.com/package/ng2-drag-drop) [![Devdependency Status](https://david-dm.org/ObaidUrRehman/ng2-drag-drop/dev-status.svg)](https://david-dm.org/ObaidUrRehman/ng2-drag-drop#info=devDependencies) [![Build Status](https://travis-ci.org/ObaidUrRehman/ng2-drag-drop.svg?branch=master)](https://travis-ci.org/ObaidUrRehman/ng2-drag-drop) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f14c9c63579044e290d7d5cf9a9cda52)](https://www.codacy.com/app/orehman/ng2-drag-drop?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ObaidUrRehman/ng2-drag-drop&amp;utm_campaign=Badge_Grade)
 
 Drag & Drop for Angular 2 and beyond, based on HTML5 with no external dependencies. Provides `draggable` & `droppable` directives. Features:
