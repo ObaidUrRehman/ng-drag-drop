@@ -1,18 +1,28 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { Draggable } from './directives/draggable.directive';
 import { Droppable } from './directives/droppable.directive';
-import { Ng2DragDropService } from './services/ng2-drag-drop.service';
+import { Sortable } from './directives/sortable.directive';
+import { SortableContainer } from './directives/sortable-container.directive';
+import { Ng2DragDropService, Ng2SortableService } from './services/ng2-drag-drop.service';
 
 
 @NgModule({
   imports: [],
   declarations: [
     Draggable,
-    Droppable
+    Droppable,
+    Sortable,
+    SortableContainer
   ],
   exports: [
     Draggable,
-    Droppable
+    Droppable,
+    Sortable,
+    SortableContainer
+  ],
+  providers: [
+    Ng2DragDropService,
+    Ng2SortableService
   ]
 })
 export class Ng2DragDropModule {

@@ -8,6 +8,7 @@ import { DefaultCssComponent } from './default-css/default-css.component';
 import { DeleteItemComponent } from './delete-item/delete-item.component';
 import { SwapListComponent } from './swap-list/swap-list.component';
 import { CompleteDemoComponent } from './complete-demo/complete-demo.component';
+import { SortableDemoComponent } from './sortable-demo/sortable-demo.component';
 
 import { Ng2DragDropModule } from 'ng2-drag-drop';
 
@@ -19,7 +20,8 @@ import { Ng2DragDropModule } from 'ng2-drag-drop';
   SwapListComponent,
   DeleteItemComponent,
   DefaultCssComponent,
-  DragHelperComponent],
+  DragHelperComponent,
+  SortableDemoComponent],
   bootstrap: [DemoComponent],
   providers: []
 })

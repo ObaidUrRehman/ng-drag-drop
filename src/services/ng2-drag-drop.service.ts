@@ -15,3 +15,9 @@ export class Ng2DragDropService {
     constructor() {
     }
 }
+@Injectable()
+export class Ng2SortableService {
+    sortableItems: Array<any> = [];
+    sortIndex: number;
+    dragItem;
+}
