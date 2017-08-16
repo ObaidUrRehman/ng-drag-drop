@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { DropScopeFunctionDemoComponent } from "./drop-scope-function-demo/drop-scope-function.component";
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
@@ -19,7 +20,8 @@ import { Ng2DragDropModule } from 'ng2-drag-drop';
   SwapListComponent,
   DeleteItemComponent,
   DefaultCssComponent,
-  DragHelperComponent],
+  DragHelperComponent,
+  DropScopeFunctionDemoComponent],
   bootstrap: [DemoComponent],
   providers: []
 })
