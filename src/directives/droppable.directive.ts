@@ -43,7 +43,7 @@ export class Droppable implements OnInit, OnDestroy {
     /**
      * Defines compatible drag drop pairs. Values must match both in draggable and droppable.dropScope.
      */
-    @Input() dropScope: string | Array<string> = 'default';
+    @Input() dropScope: string | Array<string> | Function  = 'default';
 
     /**
      * Defines if drop is enabled. `true` by default.
@@ -132,7 +132,10 @@ export class Droppable implements OnInit, OnDestroy {
                 allowed = this.dropScope.filter(item => {
                     return this.ng2DragDropService.scope.indexOf(item) !== -1;
                 }).length > 0;
+        } else if (typeof this.dropScope === 'function') {
+            allowed = this.dropScope(this.ng2DragDropService.dragData);
         }
+
         /* tslint:enable:curly */
         /* tslint:disable:one-line */
 
