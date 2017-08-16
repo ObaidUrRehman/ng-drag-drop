@@ -89,7 +89,7 @@ Similarly use the `droppable` directive on an element where you want to drop `dr
 
 ### Restrict Drop based on Scopes
 You can use the `dragScope` & `dropScope` property on `draggable` and `droppable` respectively to restrict user from dropping a `draggable` element into a `droppable`.
- The Scope properties can either be string or an Array of string (to indicate multiple scope). The scopes must match in both to indicate compatible drag-drop zones.
+ The Scope properties can be string, an Array of string (to indicate multiple scope) or a function. The scopes must match in both to indicate compatible drag-drop zones.
  
  In the following example, only the `draggable` with the `drink` dropScope can be dropped on the first `droppable` and both `drink` and `meal` can be dropped in the second one.
  
@@ -112,6 +112,28 @@ You can use the `dragScope` & `dropScope` property on `draggable` and `droppable
   <p>Both Meal and Drinks can be dropped in the above container</p>
 </div>               
 ```
+### Drop Scope as Functions
+
+The `DropScope` of the `droppable` can be a function whose return value will determine if drop is allowed.
+This can be useful to implement complex logic that is otherwise not possible with string or array of string.
+
+```html
+<div droppable [dropScope]="dropAllowed" [dragOverClass]="'drag-target-border'">
+  <p>Only those items are droppable for which the `isDropAllowed()` function returns true</p>
+</div>
+```
+Here is how the function is defined in the component:
+```js
+export class MyComponent {
+  val = 500;
+  isDropAllowed = (dragData: any) => {
+    return dragData > this.val;
+  }
+}
+```
+Notice how the function is defined as an [Arrow Function](https://www.typescriptlang.org/docs/handbook/functions.html). You need to do this so the
+lexical scope of `this` is preserved. You also get the `dragData` in the parameter so you can compare it with whatever you want.
+
   
 ### Transfer Data via Drag Drop
 You can transfer data from the `draggable` to the `droppable` via the `dragData` property on the `draggable` directive. 
