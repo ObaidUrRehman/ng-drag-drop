@@ -1,3 +1,11 @@
+## 2.6.0 (2017-08-17)
+
+Enhacements:
+- DropScope can now be function, closes
+([#79](https://github.com/ObaidUrRehman/ng2-drag-drop/issues/79))
+- Use use `prepublishOnly` instead of `prepublish` script in `package.json`, closes
+([#78](https://github.com/ObaidUrRehman/ng2-drag-drop/issues/78))
+
 ## 2.5.0 (2017-07-18)
 Bugfixes:
 - Set draggble property on the `draggable` directive via `HostBinding()`. Resolves ([#65](https://github.com/ObaidUrRehman/ng2-drag-drop/issues/65))
