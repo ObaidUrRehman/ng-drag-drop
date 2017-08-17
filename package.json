@@ -10,7 +10,7 @@
     "start": "tsc -w",
     "transpile": "ngc",
     "build": "npm run transpile",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "lint": "tslint ./src/**/*.ts -t verbose",
     "dev": "concurrently \"npm start\" \"cd demo && npm start\""
   },
