@@ -2218,9 +2218,9 @@ rx@4.1.0:
   version "4.1.0"
   resolved "http://code.anyong.com.tw:4873/rx/-/rx-4.1.0.tgz#a5f13ff79ef3b740fe30aa803fb09f98805d4782"
 
-rxjs@5.0.1:
-  version "5.0.1"
-  resolved "http://code.anyong.com.tw:4873/rxjs/-/rxjs-5.0.1.tgz#3a69bdf9f0ca0a986303370d4708f72bdfac8356"
+rxjs@5.4.2:
+  version "5.4.2"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.4.2.tgz#2a3236fcbf03df57bae06fd6972fd99e5c08fcf7"
   dependencies:
     symbol-observable "^1.0.1"
 
@@ -2891,6 +2891,6 @@ yeast@0.1.2:
   version "0.1.2"
   resolved "http://code.anyong.com.tw:4873/yeast/-/yeast-0.1.2.tgz#008e06d8094320c372dbc2f8ed76a0ca6c8ac419"
 
-zone.js@^0.8.4:
-  version "0.8.11"
-  resolved "http://code.anyong.com.tw:4873/zone.js/-/zone.js-0.8.11.tgz#742befb17fbc49a571712b8c7d87e58ca26fd886"
+zone.js@^0.8.14:
+  version "0.8.17"
+  resolved "https://registry.yarnpkg.com/zone.js/-/zone.js-0.8.17.tgz#4c5e5185a857da8da793daf3919371c5a36b2a0b"
