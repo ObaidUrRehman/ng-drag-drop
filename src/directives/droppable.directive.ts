@@ -87,10 +87,6 @@ export class Droppable implements OnInit, OnDestroy {
         }
     }
 
-    ngOnChanges() {
-        
-    }
-
     ngOnDestroy() {
         this.unsubscribeService();
     }
