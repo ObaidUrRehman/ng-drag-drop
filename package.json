@@ -60,8 +60,8 @@
     "tslint": "^5.0.0",
     "typescript": "^2.0.0",
     "core-js": "^2.4.1",
-    "rxjs": "5.0.1",
-    "zone.js": "^0.8.4",
+    "rxjs": "5.4.2",
+    "zone.js": "^0.8.14",
     "@types/core-js": "0.9.35"
   }
 }

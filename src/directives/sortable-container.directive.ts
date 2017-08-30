@@ -41,7 +41,7 @@ export class SortableContainer {
 
     @HostListener('dragenter', ['$event'])
     dragEnter(e) {
-        if (this.sortableService.sortableItems.length) {
+        if (this.sortableService.sortableItems.length && this.sortableService.dragItem) {
             let item = this.sortableService.dragItem;
 
             // If item does not exist. Mostly used for swap list
@@ -58,6 +58,8 @@ export class SortableContainer {
 
                 // Update sort index where the item is added.
                 this.sortableService.sortIndex = 0;
+                this.sortableService.sortableItems = [];
+                this.sortableService.dragItem = null;
 
                 // Swapped Item is emitted back
                 this.onSwap.emit(item);
@@ -65,6 +67,5 @@ export class SortableContainer {
         }
 
         this.sortableService.sortableItems = this.sortableItems;
-        console.log('DragEnter', 'Container');
     }
 }
