@@ -48,7 +48,19 @@ export class Droppable implements OnInit, OnDestroy {
     /**
      * Defines if drop is enabled. `true` by default.
      */
-    @Input() dropEnabled = true;
+    @Input() set dropEnabled(value: boolean) {
+        this._dropEnabled = value;
+
+        if (this._dropEnabled === true) {
+            this.subscribeService();
+        } else {
+            this.unsubscribeService();
+        }
+    };
+
+    get dropEnabled() {
+        return this._dropEnabled;
+    }
 
     /**
      * @private
@@ -60,24 +72,27 @@ export class Droppable implements OnInit, OnDestroy {
      */
     dragEndSubscription: Subscription;
 
+    /**
+     * @private
+     * Backing field for the dropEnabled property
+     */
+    _dropEnabled = true;
+
     constructor(protected el: ElementRef, private ng2DragDropService: Ng2DragDropService) {
     }
 
     ngOnInit() {
-        this.dragStartSubscription = this.ng2DragDropService.onDragStart.subscribe(() => {
-            if (this.allowDrop()) {
-                DomHelper.addClass(this.el, this.dragHintClass);
-            }
-        });
+        if (this.dropEnabled === true) {
+            this.subscribeService();
+        }
+    }
 
-        this.dragEndSubscription = this.ng2DragDropService.onDragEnd.subscribe(() => {
-            DomHelper.removeClass(this.el, this.dragHintClass);
-        });
+    ngOnChanges() {
+        
     }
 
     ngOnDestroy() {
-        this.dragStartSubscription.unsubscribe();
-        this.dragEndSubscription.unsubscribe();
+        this.unsubscribeService();
     }
 
     @HostListener('dragenter', ['$event'])
@@ -140,5 +155,26 @@ export class Droppable implements OnInit, OnDestroy {
         /* tslint:disable:one-line */
 
         return allowed && this.dropEnabled;
+    }
+
+    subscribeService() {
+        this.dragStartSubscription = this.ng2DragDropService.onDragStart.subscribe(() => {
+            if (this.allowDrop()) {
+                DomHelper.addClass(this.el, this.dragHintClass);
+            }
+        });
+
+        this.dragEndSubscription = this.ng2DragDropService.onDragEnd.subscribe(() => {
+            DomHelper.removeClass(this.el, this.dragHintClass);
+        });
+    }
+
+    unsubscribeService() {
+        if (this.dragStartSubscription) {
+            this.dragStartSubscription.unsubscribe();
+        }
+        if (this.dragEndSubscription) {
+            this.dragEndSubscription.unsubscribe();
+        }
     }
 }
