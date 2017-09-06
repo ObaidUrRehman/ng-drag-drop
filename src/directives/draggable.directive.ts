@@ -86,7 +86,7 @@ export class Draggable implements OnInit, OnDestroy {
      * @private
      * Keeps track of mouse over element that is used to determine drag handles
      */
-    mouseOverElement: any;
+    mouseDownElement: any;
 
     /**
      * @private
@@ -171,14 +171,14 @@ export class Draggable implements OnInit, OnDestroy {
         e.preventDefault();
     }
 
-    @HostListener('mouseover', ['$event'])
-    mouseover(e) {
-        this.mouseOverElement = e.target;
+    @HostListener('mousedown', ['$event'])
+    mousedown(e) {
+        this.mouseDownElement = e.target;
     }
 
     private allowDrag() {
         if (this.dragHandle) {
-            return DomHelper.matches(this.mouseOverElement, this.dragHandle) && this.dragEnabled;
+            return DomHelper.matches(this.mouseDownElement, this.dragHandle) && this.dragEnabled;
         } else {
             return this.dragEnabled;
         }
