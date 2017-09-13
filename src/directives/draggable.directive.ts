@@ -125,8 +125,8 @@ export class Draggable implements OnInit {
             // This is a kludgy approach to apply CSS to the drag helper element when an image is being dragged. 
             DomHelper.addClass(this.el, this.dragTransitClass);
             setTimeout(() => {
-                DomHelper.addClass(this.el, this.dragClass);  
-                DomHelper.removeClass(this.el, this.dragTransitClass);                  
+                DomHelper.addClass(this.el, this.dragClass);
+                DomHelper.removeClass(this.el, this.dragTransitClass);
             }, 10);
 
             this.ng2DragDropService.dragData = this.dragData;
