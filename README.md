@@ -12,6 +12,15 @@ Drag & Drop for Angular 2 and beyond, based on HTML5 with no external dependenci
 
 ![Demo](https://raw.githubusercontent.com/ObaidUrRehman/ng2-drag-drop/master/drag-drop.gif)
 
+# Content
+
+1. [Demo](#demo)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Limitations](#limitations)
+5. [Development](#Development)
+6. [API Doc](#api-doc)
+
 # Demo
 
 Check out the [Plunker demo](http://plnkr.co/edit/2bjGgzWnbFrciEiCKLew?p=preview).
@@ -205,6 +214,7 @@ Both the `draggable` & `droppable` directives take a bunch of inputs that let yo
 __Draggable Directive__
 1. [dragHandleClass](#draggable-directive)
 2. [dragClass](#draggable-directive)
+3. [dragTransitClass](#draggable-directive)
 
 __Droppable Directive__
 1. [dragOverClass](#droppable-directive)
@@ -244,6 +254,7 @@ __Note:__ The steps are a bit involved at this time and will be simplified to an
 | `dragData`    |   `any` | `null` | The data that will be avaliable to the droppable directive on its `onDrop()` event. |
 | `dragScope`   |    `string | Array<string>` | `'default'`   |  Defines compatible drag drop pairs. Values must match with `droppable.dropScope`. |
 | `dragClass` (previously `dragOverClass`) | `string` | `'drag-border'` | CSS class applied on the draggable that is applied when the item is being dragged. |
+| `dragTransitClass` | `string` | `'drag-transit'` | CSS class applied on the drag helper translucent element clone. |
 | `dragHandleClass`  | `string` | `'drag-handle'` | The CSS class applied to a draggable element. If a dragHandle is defined then its applied to that handle element only. By default it is used to change the mouse over pointer. |
 | `draghandle` | `string` | `null` | The selector that defines the drag Handle. If defined drag will only be allowed if dragged from the selector element. |
 | `dragImage` | `string` | `null` | The url to image that will be used as custom drag image when the draggable is being dragged. |

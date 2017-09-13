@@ -37,9 +37,14 @@ export class Draggable implements OnInit {
     @Input() dragHandleClass = 'drag-handle';
 
     /**
-     * CSS class applied on the draggable that is applied when the item is being dragged.
+     * CSS class applied on the source draggable element while being dragged.
      */
     @Input() dragClass = 'drag-border';
+
+    /**
+     * CSS class applied on the drag ghost when being dragged.
+     */
+    @Input() dragTransitClass = 'drag-transit';
 
     /**
      * The url to image that will be used as custom drag image when the draggable is being dragged.
@@ -116,7 +121,13 @@ export class Draggable implements OnInit {
     @HostListener('dragstart', ['$event'])
     dragStart(e) {
         if (this.allowDrag()) {
-            DomHelper.addClass(this.el, this.dragClass);
+
+            // This is a kludgy approach to apply CSS to the drag helper element when an image is being dragged. 
+            DomHelper.addClass(this.el, this.dragTransitClass);
+            setTimeout(() => {
+                DomHelper.addClass(this.el, this.dragClass);  
+                DomHelper.removeClass(this.el, this.dragTransitClass);                  
+            }, 10);
 
             this.ng2DragDropService.dragData = this.dragData;
             this.ng2DragDropService.scope = this.dragScope;

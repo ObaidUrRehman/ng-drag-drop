@@ -27,3 +27,7 @@
 .drag-over-border {
     border: #fbbc05 dashed 2px;
 }
+
+.drag-transit {
+    border: #3500FF dashed 2px;
+}
