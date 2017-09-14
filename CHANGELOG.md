@@ -1,4 +1,12 @@
 ## 2.7.0 (2017-09-13)
+Bugfixes:
+- Fixed AOT Compilation, closes
+([#95](https://github.com/ObaidUrRehman/ng2-drag-drop/issues/95))
+
+## 2.7.0 (2017-09-13)
+Note:
+This version is broken and does not compile under AOT, use 2.8.0 instead.
+
 Enhacements:
 - Added `dragTransit` class, closes
 ([#87](https://github.com/ObaidUrRehman/ng2-drag-drop/issues/87))
