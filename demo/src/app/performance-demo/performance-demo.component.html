@@ -1,0 +1,40 @@
+<h3>Performance Test</h3>
+<p>This is test of how the component behaves when losts of draggables & droppables</p>
+<hr>
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="card card-outline-primary mb-3" droppable [dropScope]="'swap-target-1'" [dragOverClass]="'drag-target-border'"
+            [dragHintClass]="'drag-hint'" (onDrop)="onList1Drop($event)">
+            <div class="card-header card-inverse card-primary">List 1</div>
+            <div class="card-block scroll-list">
+                <ul class="list-group">
+                    <li draggable *ngFor="let item of list1" [dragScope]="'swap-target-2'" [dragClass]="'drag-over'" [dragData]="item" class="list-group-item ">
+                        <!-- {{item.name}} -->
+                        <ng-template [ngTemplateOutlet]="itemTemplate" [ngOutletContext]="{item: item}"></ng-template>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-sm-3">
+        <div class="card card-outline-primary mb-3" droppable [dropScope]="'swap-target-2'" [dragOverClass]="'drag-target-border'"
+            [dragHintClass]="'drag-hint'" (onDrop)="onList2Drop($event)">
+            <div class="card-header card-inverse card-primary">List 2</div>
+            <div class="card-block scroll-list">
+                <ul class="list-group">
+                    <li draggable *ngFor="let item of list2" [dragScope]="'swap-target-1'" [dragClass]="'drag-over'" [dragData]="item" class="list-group-item">
+                        <!-- {{item.name}} -->
+                        <ng-template [ngTemplateOutlet]="itemTemplate" [ngOutletContext]="{item: item}"></ng-template>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #itemTemplate let-item="item">
+    {{item.name}}
+  </ng-template>
