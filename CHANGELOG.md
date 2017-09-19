@@ -1,7 +1,12 @@
-## 2.9.0 (2017-09-19)
+## 2.9.2 (2017-09-19)
+- This is actually version 2.9.0. See the note below.
+
+## 2.9.0, 2.9.1 (2017-09-19)
+__Note:__ These versions are skipped because npm failed to execute `prepublishonly` task before publishing.
 Enhacements:
 - Performance Improvement, closes ([#86](https://github.com/ObaidUrRehman/ng2-drag-drop/issues/86)) via 
 Pull Request ([#94](https://github.com/ObaidUrRehman/ng2-drag-drop/pull/94))
+
 ## 2.8.0 (2017-09-14)
 Bugfixes:
 - Fixed AOT Compilation, closes
