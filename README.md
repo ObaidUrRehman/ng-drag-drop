@@ -143,6 +143,18 @@ export class MyComponent {
 Notice how the function is defined as an [Arrow Function](https://www.typescriptlang.org/docs/handbook/functions.html). You need to do this so the
 lexical scope of `this` is preserved. You also get the `dragData` in the parameter so you can compare it with whatever you want.
 
+If `DropScope` is a function, it can also return an `Observable`, which needs to later resolve to `true` or `false`. This can help in cases when
+you need to check asynchronously(eg: via http) whether the drop is allowed.
+
+```js
+export class MyComponent {
+  val = 500;
+  isDropAllowed = (dragData: any) => {
+    // Resolves to true or false after 1 second
+    return Observable.of(dragData > this.val).delay(1000);
+  }
+}
+```
   
 ### Transfer Data via Drag Drop
 You can transfer data from the `draggable` to the `droppable` via the `dragData` property on the `draggable` directive. 
