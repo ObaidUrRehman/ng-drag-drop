@@ -3,6 +3,9 @@ import { Subscription } from 'rxjs/Subscription';
 import { DropEvent } from '../shared/drop-event.model';
 import { Ng2DragDropService } from '../services/ng2-drag-drop.service';
 import { DomHelper } from '../shared/dom-helper';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
 
 @Directive({
     selector: '[droppable]'
@@ -80,6 +83,21 @@ export class Droppable implements OnInit, OnDestroy {
 
     /**
      * @private
+     * Field for tracking drag state. Helps when
+     * drag stop event occurs before the allowDrop()
+     * can be calculated (async).
+     */
+    _isDragActive = false;
+
+    /**
+     * @private
+     * Field for tracking if service is subscribed.
+     * Avoids creating multiple subscriptions of service.
+     */
+    _isServiceActive = false;
+
+    /**
+     * @private
      * Function for unbinding the drag enter listener
      */
     unbindDragEnterListener: Function;
@@ -117,8 +135,8 @@ export class Droppable implements OnInit, OnDestroy {
         this.onDragEnter.emit(e);
     }
 
-    dragOver(e) {
-        if (this.allowDrop()) {
+    dragOver(e, result) {
+        if (result) {
             DomHelper.addClass(this.el, this.dragOverClass);
             e.preventDefault();
             this.onDragOver.emit(e);
@@ -143,8 +161,8 @@ export class Droppable implements OnInit, OnDestroy {
         this.ng2DragDropService.scope = null;
     }
 
-    allowDrop(): boolean {
-        let allowed = false;
+    allowDrop(): Observable<boolean> {
+        let allowed: boolean | Observable<boolean> = false;
 
         /* tslint:disable:curly */
         /* tslint:disable:one-line */
@@ -162,40 +180,52 @@ export class Droppable implements OnInit, OnDestroy {
                 }).length > 0;
         } else if (typeof this.dropScope === 'function') {
             allowed = this.dropScope(this.ng2DragDropService.dragData);
+            if (allowed instanceof Observable) {
+                return allowed.map(result => result && this.dropEnabled);
+            }
         }
 
         /* tslint:enable:curly */
         /* tslint:disable:one-line */
 
-        return allowed && this.dropEnabled;
+        return Observable.of(allowed && this.dropEnabled);
     }
 
     subscribeService() {
+        if (this._isServiceActive === true) {
+            return;
+        }
+        this._isServiceActive = true;
         this.dragStartSubscription = this.ng2DragDropService.onDragStart.subscribe(() => {
-            if (this.allowDrop()) {
-                DomHelper.addClass(this.el, this.dragHintClass);
+            this._isDragActive = true;
+            this.allowDrop().subscribe(result => {
+                if (result && this._isDragActive) {
+                    DomHelper.addClass(this.el, this.dragHintClass);
 
-                this.zone.runOutsideAngular(() => {
-                    this.unbindDragEnterListener = this.renderer.listen(this.el.nativeElement, 'dragenter', (dragEvent) => {
-                        this.dragEnter(dragEvent);
+                    this.zone.runOutsideAngular(() => {
+                        this.unbindDragEnterListener = this.renderer.listen(this.el.nativeElement, 'dragenter', (dragEvent) => {
+                            this.dragEnter(dragEvent);
+                        });
+                        this.unbindDragOverListener = this.renderer.listen(this.el.nativeElement, 'dragover', (dragEvent) => {
+                            this.dragOver(dragEvent, result);
+                        });
+                        this.unbindDragLeaveListener = this.renderer.listen(this.el.nativeElement, 'dragleave', (dragEvent) => {
+                            this.dragLeave(dragEvent);
+                        });
                     });
-                    this.unbindDragOverListener = this.renderer.listen(this.el.nativeElement, 'dragover', (dragEvent) => {
-                        this.dragOver(dragEvent);
-                    });
-                    this.unbindDragLeaveListener = this.renderer.listen(this.el.nativeElement, 'dragleave', (dragEvent) => {
-                        this.dragLeave(dragEvent);
-                    });
-                });
-            }
+                }
+            });
         });
 
         this.dragEndSubscription = this.ng2DragDropService.onDragEnd.subscribe(() => {
+            this._isDragActive = false;
             DomHelper.removeClass(this.el, this.dragHintClass);
             this.unbindDragListeners();
         });
     }
 
     unsubscribeService() {
+        this._isServiceActive = false;
         if (this.dragStartSubscription) {
             this.dragStartSubscription.unsubscribe();
         }
