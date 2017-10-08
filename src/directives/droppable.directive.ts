@@ -209,10 +209,10 @@ export class Droppable implements OnInit, OnDestroy {
             this.unbindDragEnterListener();
         }
         if (this.unbindDragOverListener) {
-            this.unbindDragEnterListener();
+            this.unbindDragOverListener();
         }
         if (this.unbindDragLeaveListener) {
-            this.unbindDragEnterListener();
+            this.unbindDragLeaveListener();
         }
     }
 }
