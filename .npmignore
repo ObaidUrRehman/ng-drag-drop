@@ -62,3 +62,10 @@ _test-output
 systemconfig.js
 *.gif
 .editorconfig
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+*.tgz
+.github
+
+
+
