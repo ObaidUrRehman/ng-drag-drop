@@ -1,6 +1,6 @@
 {
   "name": "ng2-drag-drop",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Drag & Drop for Angular2 and beyond - based on HTML5 with no external dependencies.",
   "main": "index.js",
   "typings": "index.d.ts",
