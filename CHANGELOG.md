@@ -1,4 +1,4 @@
-## 3.0.0 (2017-10-19)
+## 3.0.1 (2017-10-19)
 - Add support for async dropScope function, closes
 ([#97](https://github.com/ObaidUrRehman/ng2-drag-drop/issues/97)) via Pull Request ([#98](https://github.com/ObaidUrRehman/ng2-drag-drop/pull/98))
 - Fix null draghandler, closes
