@@ -144,7 +144,7 @@ Notice how the function is defined as an [Arrow Function](https://www.typescript
 lexical scope of `this` is preserved. You also get the `dragData` in the parameter so you can compare it with whatever you want.
 
 If `DropScope` is a function, it can also return an `Observable`, which needs to later resolve to `true` or `false`. This can help in cases when
-you need to check asynchronously(eg: via http) whether the drop is allowed.
+you need to check asynchronously (eg: via http) whether the drop is allowed.
 
 ```js
 export class MyComponent {
@@ -221,6 +221,8 @@ By default when an element is dragged, a translucent image is generated from the
 __Compatibility:__ This only works on Chrome & Firefox. Not supported on Edge.
 
 ### Adding visual cues
+![Demo](https://raw.githubusercontent.com/ObaidUrRehman/ng2-drag-drop/master/ui-cue.gif)
+
 Both the `draggable` & `droppable` directives take a bunch of inputs that let you apply class on various events. You can find the list below. Another thing you can do is clone the `style.css` that comes with this package and customize it as per your requirement.
 
 __Draggable Directive__
