@@ -49,7 +49,7 @@ export class Draggable implements OnInit, OnDestroy {
     /**
      * The url to image that will be used as custom drag image when the draggable is being dragged.
      */
-    @Input() set dragImage( value: string) {
+    @Input() set dragImage(value: string) {
         this._dragImage = value;
         this.dragImageElement = new Image();
         this.dragImageElement.src = this.dragImage;
@@ -197,6 +197,11 @@ export class Draggable implements OnInit, OnDestroy {
 
     private applyDragHandleClass() {
         let dragElement = this.getDragHandleElement();
+
+        if (!dragElement) {
+            return;
+        }
+
         if (this.dragEnabled) {
             DomHelper.addClass(dragElement, this.dragHandleClass);
         } else {
