@@ -1,3 +1,5 @@
+## 3.0.2 (2017-10-23)
+- Package `ng2-drag-drop` deprecated. This is the final release. Renamed to `ng-drag-drop`.
 ## 3.0.1 (2017-10-19)
 - Add support for async dropScope function, closes
 ([#97](https://github.com/ObaidUrRehman/ng2-drag-drop/issues/97)) via Pull Request ([#98](https://github.com/ObaidUrRehman/ng2-drag-drop/pull/98))
