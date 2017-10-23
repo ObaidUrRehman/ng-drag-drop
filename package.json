@@ -1,7 +1,7 @@
 {
-  "name": "ng2-drag-drop",
+  "name": "ng-drag-drop",
   "version": "3.0.2",
-  "description": "Drag & Drop for Angular2 and beyond - based on HTML5 with no external dependencies.",
+  "description": "Drag & Drop for Angular - based on HTML5 with no external dependencies.",
   "main": "index.js",
   "typings": "index.d.ts",
   "scripts": {
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ObaidUrRehman/ng2-drag-drop.git"
+    "url": "git+https://github.com/ObaidUrRehman/ng-drag-drop.git"
   },
   "keywords": [
     "Angular2",
@@ -29,39 +29,39 @@
   "author": "Obaid ur Rehman <obaid.urrehman@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ObaidUrRehman/ng2-drag-drop/issues"
+    "url": "https://github.com/ObaidUrRehman/ng-drag-drop/issues"
   },
-  "homepage": "https://github.com/ObaidUrRehman/ng2-drag-drop#readme",
+  "homepage": "https://github.com/ObaidUrRehman/ng-drag-drop#readme",
   "peerDependencies": {
-    "@angular/common": "^4.0.0 || ^2.0.0",
-    "@angular/core": "^4.0.0 || ^2.0.0"
+    "@angular/common": ">=4.3.0",
+    "@angular/core": ">=4.3.0"
   },
   "devDependencies": {
-    "@angular/common": "^4.0.0",
-    "@angular/compiler": "^4.0.0",
-    "@angular/core": "^4.0.0",
-    "@angular/platform-browser": "^4.0.0",
-    "@angular/platform-browser-dynamic": "^4.0.0",
-    "@angular/compiler-cli": "^4.0.0",
+    "@angular/common": "^4.4.6",
+    "@angular/compiler": "^4.4.6",
+    "@angular/core": "^4.4.6",
+    "@angular/platform-browser": "^4.4.6",
+    "@angular/platform-browser-dynamic": "^4.4.6",
+    "@angular/compiler-cli": "^4.4.6",
     "canonical-path": "0.0.2",
-    "concurrently": "^3.4.0",
+    "concurrently": "^3.5.0",
     "http-server": "^0.10.0",
-    "jasmine-core": "~2.6.0",
+    "jasmine-core": "~2.8.0",
     "karma": "^1.3.0",
     "karma-chrome-launcher": "^2.0.0",
     "karma-cli": "^1.0.1",
     "karma-htmlfile-reporter": "^0.3.4",
     "karma-jasmine": "^1.0.2",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "lite-server": "^2.2.2",
-    "lodash": "^4.16.4",
+    "lite-server": "^2.3.0",
+    "lodash": "^4.17.4",
     "protractor": "~5.1.1",
-    "rimraf": "^2.5.4",
-    "tslint": "^5.0.0",
-    "typescript": "^2.0.0",
-    "core-js": "^2.4.1",
-    "rxjs": "5.4.3",
-    "zone.js": "^0.8.4",
-    "@types/core-js": "0.9.35"
+    "rimraf": "^2.6.2",
+    "tslint": "^5.8.0",
+    "typescript": "^2.4.2",
+    "core-js": "^2.5.1",
+    "rxjs": "5.5.0",
+    "zone.js": "^0.8.18",
+    "@types/core-js": "0.9.43"
   }
 }
