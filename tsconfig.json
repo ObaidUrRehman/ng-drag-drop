@@ -9,13 +9,17 @@
     "declaration": true,
     "moduleResolution": "node",   
     "removeComments": false,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "skipLibCheck": true
   },
   "typeRoots": [
     "./node_modules/@types"
   ],
   "lib": [
-    "es2015"
+    "es6",
+    "es2015",
+    "es2015.iterable", 
+    "dom"
   ],
   "files": [
     "index.ts"
