@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
 
 @Injectable()
-export class Ng2DragDropService {
+export class NgDragDropService {
     dragData: any;
     scope: string | Array<string>;
     onDragStart = new Subject<any>();

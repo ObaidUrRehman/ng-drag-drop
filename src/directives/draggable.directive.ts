@@ -1,5 +1,5 @@
 import { Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit, HostBinding, Renderer, NgZone, OnDestroy } from '@angular/core';
-import { Ng2DragDropService } from '../services/ng2-drag-drop.service';
+import { NgDragDropService } from '../services/ng-drag-drop.service';
 import { DomHelper } from '../shared/dom-helper';
 
 @Directive({

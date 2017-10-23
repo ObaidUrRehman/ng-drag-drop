@@ -1,7 +1,7 @@
 import { Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit, OnDestroy, Renderer, NgZone } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { DropEvent } from '../shared/drop-event.model';
-import { Ng2DragDropService } from '../services/ng2-drag-drop.service';
+import { NgDragDropService } from '../services/ng-drag-drop.service';
 import { DomHelper } from '../shared/dom-helper';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
