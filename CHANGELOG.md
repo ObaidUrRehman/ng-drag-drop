@@ -1,3 +1,7 @@
+## 4.0.0 (2017-10-24)
+- Package renamed to `ng-drag-drop`
+- Module renamed from `Ng2DragDropModule` to `NgDragDropModule`
+- Package no longer compatible with Angular 2.0. Peer dependency is now angular >= 4.3.0 
 ## 3.0.2 (2017-10-23)
 - Package `ng2-drag-drop` deprecated. This is the final release. Renamed to `ng-drag-drop`.
 ## 3.0.1 (2017-10-19)
