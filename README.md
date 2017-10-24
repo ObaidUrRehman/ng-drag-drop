@@ -10,7 +10,7 @@ Drag & Drop for [Angular](http://angular.io), based on HTML5 with no external de
 * Add custom drag Helper Image
 * Ability to add custom visual cue styles.
 
-![Demo](https://raw.githubusercontent.com/ObaidUrRehman/ng2-drag-drop/master/drag-drop.gif)
+![Demo](https://raw.githubusercontent.com/ObaidUrRehman/ng-drag-drop/master/drag-drop.gif)
 
 # Content
 
@@ -43,20 +43,20 @@ Import `style.css` into your index.html. It has a set of default styles that wil
 ```
 
 ### Update SystemJS config
-If you use SystemJS as your module loader then you will need to update the config to load the `ng2-drag-drop` module.
+If you use SystemJS as your module loader then you will need to update the config to load the `ng-drag-drop` module.
 ```js
 System.config({
     map: {
-        'ng2-drag-drop': 'node_modules/ng2-drag-drop'
+        'ng-drag-drop': 'node_modules/ng-drag-drop'
     },
     packages: {
-        'ng2-drag-drop':  { main: 'index.js',  defaultExtension: 'js' },
+        'ng-drag-drop':  { main: 'index.js',  defaultExtension: 'js' },
     }
 });
 ```
-### Import `Ng2DragDropModule`
+### Import `NgDragDropModule`
 
-You need to import the `Ng2DragDropModule` in the module of your app where you want to use it.
+You need to import the `NgDragDropModule` in the module of your app where you want to use it.
 
 ```js
 import { NgModule } from '@angular/core';
@@ -221,7 +221,7 @@ By default when an element is dragged, a translucent image is generated from the
 __Compatibility:__ This only works on Chrome & Firefox. Not supported on Edge.
 
 ### Adding visual cues
-![Demo](https://raw.githubusercontent.com/ObaidUrRehman/ng2-drag-drop/master/ui-cue.gif)
+![Demo](https://raw.githubusercontent.com/ObaidUrRehman/ng-drag-drop/master/ui-cue.gif)
 
 Both the `draggable` & `droppable` directives take a bunch of inputs that let you apply class on various events. You can find the list below. Another thing you can do is clone the `style.css` that comes with this package and customize it as per your requirement.
 
