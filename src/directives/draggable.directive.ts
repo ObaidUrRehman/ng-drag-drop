@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit, HostBinding, Renderer, NgZone, OnDestroy } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit, HostBinding, Renderer2, NgZone, OnDestroy } from '@angular/core';
 import { NgDragDropService } from '../services/ng-drag-drop.service';
 import { DomHelper } from '../shared/dom-helper';
 
@@ -117,7 +117,7 @@ export class Draggable implements OnInit, OnDestroy {
      */
     unbindDragListener: Function;
 
-    constructor(protected el: ElementRef, private renderer: Renderer,
+    constructor(protected el: ElementRef, private renderer: Renderer2,
         private ng2DragDropService: NgDragDropService, private zone: NgZone) {
     }
 

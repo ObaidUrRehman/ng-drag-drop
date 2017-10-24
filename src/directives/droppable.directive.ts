@@ -1,4 +1,4 @@
-import { Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit, OnDestroy, Renderer, NgZone } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit, OnDestroy, Renderer2, NgZone } from '@angular/core';
 import { Subscription } from 'rxjs/Subscription';
 import { DropEvent } from '../shared/drop-event.model';
 import { NgDragDropService } from '../services/ng-drag-drop.service';
@@ -114,7 +114,7 @@ export class Droppable implements OnInit, OnDestroy {
      */
     unbindDragLeaveListener: Function;
 
-    constructor(protected el: ElementRef, private renderer: Renderer,
+    constructor(protected el: ElementRef, private renderer: Renderer2,
         private ng2DragDropService: NgDragDropService, private zone: NgZone) {
     }
 
