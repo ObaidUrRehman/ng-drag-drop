@@ -1,14 +1,9 @@
-# Angular Drag & Drop (v2 and beyond)
+# Angular Drag & Drop
 
 [![Join the chat at https://join.slack.com/t/ng-drag-drop/shared_invite/MjM5ODY5MDUyODY1LTE1MDUyOTk0OTMtNjFhZmJiOTE2Zg](https://img.shields.io/badge/chat-on_slack-ff69b4.svg)](https://join.slack.com/t/ng-drag-drop/shared_invite/MjM5ODY5MDUyODY1LTE1MDUyOTk0OTMtNjFhZmJiOTE2Zg)
-[![npm version](https://img.shields.io/npm/v/ng2-drag-drop.svg)](https://www.npmjs.com/package/ng2-drag-drop) [![npm downloads](https://img.shields.io/npm/dm/ng2-drag-drop.svg)](https://www.npmjs.com/package/ng2-drag-drop) [![Devdependency Status](https://david-dm.org/ObaidUrRehman/ng2-drag-drop/dev-status.svg)](https://david-dm.org/ObaidUrRehman/ng2-drag-drop#info=devDependencies) [![Build Status](https://travis-ci.org/ObaidUrRehman/ng2-drag-drop.svg?branch=master)](https://travis-ci.org/ObaidUrRehman/ng2-drag-drop) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f14c9c63579044e290d7d5cf9a9cda52)](https://www.codacy.com/app/orehman/ng2-drag-drop?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ObaidUrRehman/ng2-drag-drop&amp;utm_campaign=Badge_Grade)
+[![npm version](https://img.shields.io/npm/v/ng-drag-drop.svg)](https://www.npmjs.com/package/ng-drag-drop) [![npm downloads](https://img.shields.io/npm/dm/ng-drag-drop.svg)](https://www.npmjs.com/package/ng-drag-drop) [![Devdependency Status](https://david-dm.org/ObaidUrRehman/ng-drag-drop/dev-status.svg)](https://david-dm.org/ObaidUrRehman/ng-drag-drop#info=devDependencies) [![Build Status](https://travis-ci.org/ObaidUrRehman/ng-drag-drop.svg?branch=master)](https://travis-ci.org/ObaidUrRehman/ng-drag-drop) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/f14c9c63579044e290d7d5cf9a9cda52)](https://www.codacy.com/app/orehman/ng-drag-drop?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ObaidUrRehman/ng-drag-drop&amp;utm_campaign=Badge_Grade)
 
-## This package has been renamed to ng-drag-drop.
-:warning: **Please stop using this package and use [ng-drag-drop](https://www.npmjs.com/package/ng-drag-drop) instead. This version is no longer updated.**
-***
-
-
-Drag & Drop for Angular 2 and beyond, based on HTML5 with no external dependencies. Provides `draggable` & `droppable` directives. Features:
+Drag & Drop for [Angular](http://angular.io), based on HTML5 with no external dependencies. Provides `draggable` & `droppable` directives. Features:
 * Transfer data from `draggable` to `droppable`.
 * Restrict drop based on drag-drop scopes.
 * Restrict drag to happen from either drag handles or the entire element.
@@ -23,7 +18,7 @@ Drag & Drop for Angular 2 and beyond, based on HTML5 with no external dependenci
 2. [Installation](#installation)
 3. [Usage](#usage)
 4. [Limitations](#limitations)
-5. [Development](#Development)
+5. [Development](#development)
 6. [API Doc](#api-doc)
 
 # Demo
@@ -31,11 +26,11 @@ Drag & Drop for Angular 2 and beyond, based on HTML5 with no external dependenci
 Check out the [Plunker demo](http://plnkr.co/edit/2bjGgzWnbFrciEiCKLew?p=preview).
 
 
-The [demo folder](https://github.com/ObaidUrRehman/ng2-drag-drop/tree/master/demo) of the repository contains the same demo as Plunkr that uses SystemJS. To run that demo do an `npm install` in that folder followed by `npm start` to serve the demo app.
+The [demo folder](https://github.com/ObaidUrRehman/ng-drag-drop/tree/master/demo) of the repository contains the same demo as Plunkr that uses SystemJS. To run that demo do an `npm install` in that folder followed by `npm start` to serve the demo app.
 
 # Installation
 ```js
-npm install ng2-drag-drop --save
+npm install ng-drag-drop --save
 ```
 
 # Usage
@@ -44,7 +39,7 @@ npm install ng2-drag-drop --save
 Import `style.css` into your index.html. It has a set of default styles that will be applied upon drag operations. This is totally optional and you can modify the styles as per your need. See the [Adding visual cues](#adding-visual-cues) Section.
 
 ```html
-<link rel="stylesheet" href="node_modules/ng2-drag-drop/style.css">
+<link rel="stylesheet" href="node_modules/ng-drag-drop/style.css">
 ```
 
 ### Update SystemJS config
@@ -67,13 +62,13 @@ You need to import the `Ng2DragDropModule` in the module of your app where you w
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { DemoComponent } from "./components/demo-component";
-import { Ng2DragDropModule } from 'ng2-drag-drop';
+import { NgDragDropModule } from 'ng-drag-drop';
 
 
 @NgModule({
   imports: [
       BrowserModule, 
-      Ng2DragDropModule.forRoot()
+      NgDragDropModule.forRoot()
   ],
   declarations: [DemoComponent],
   bootstrap: [DemoComponent]
@@ -259,8 +254,8 @@ HTML5 Drag drop is not touch supported but you can use the [DragDropTouch](https
 To start the dev flow on your system, follow these steps:
 
 1. `npm install` on the root of this repo.
-2. `npm install` in the demo folder. This is where the demo app resides. Sort of a test & play yard for ng2-drag-drop package.
-3. Next you need to sym-link your package with the demo folder so your changes to the package are reflected in the demo app. Please remember the demo and the package are seperate apps & the demo app does not get published to npm. To link run `npm link` on the root of the repo followed by `npm link ng2-drag-drop` in demo folder. You can read more about `npm link` [here](https://docs.npmjs.com/cli/link).
+2. `npm install` in the demo folder. This is where the demo app resides. Sort of a test & play yard for ng-drag-drop package.
+3. Next you need to sym-link your package with the demo folder so your changes to the package are reflected in the demo app. Please remember the demo and the package are seperate apps & the demo app does not get published to npm. To link run `npm link` on the root of the repo followed by `npm link ng-drag-drop` in demo folder. You can read more about `npm link` [here](https://docs.npmjs.com/cli/link).
 4. Finally run `npm run dev` at the root. This will open up the demo app in browser.
 5. Now you can make changes to the actual component or the demo app and debug. Please note that changing the code of demo app will autoreload the browser but you'll need to manually refresh the page if you change the component code.
 

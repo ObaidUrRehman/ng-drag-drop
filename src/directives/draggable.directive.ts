@@ -118,7 +118,7 @@ export class Draggable implements OnInit, OnDestroy {
     unbindDragListener: Function;
 
     constructor(protected el: ElementRef, private renderer: Renderer,
-        private ng2DragDropService: Ng2DragDropService, private zone: NgZone) {
+        private ng2DragDropService: NgDragDropService, private zone: NgZone) {
     }
 
     ngOnInit() {
