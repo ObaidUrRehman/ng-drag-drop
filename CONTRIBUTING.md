@@ -1,4 +1,4 @@
-# Contributing to ng2-drag-drop
+# Contributing to ng-drag-drop
 
 :+1::tada: First off, thanks for taking the time to contribute! :tada::+1:
 
@@ -16,5 +16,5 @@ Use your best judgment, and feel free to propose changes to this document in a p
 ### TypeScript Style Guide
 
 * TSLint is used
-* Make sure you have no pending code convention errors in your pull request. See the quality of your pull request on [Codacy Dashboard](https://www.codacy.com/app/orehman/ng2-drag-drop/pullRequests)
+* Make sure you have no pending code convention errors in your pull request. See the quality of your pull request on [Codacy Dashboard](https://www.codacy.com/app/orehman/ng-drag-drop/pullRequests)
 
