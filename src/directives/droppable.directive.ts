@@ -151,14 +151,18 @@ export class Droppable implements OnInit, OnDestroy {
 
     @HostListener('drop', ['$event'])
     drop(e) {
-        DomHelper.removeClass(this.el, this.dragOverClass);
-        e.preventDefault();
-        e.stopPropagation();
+        this.allowDrop().subscribe(result => {
+            if (result && this._isDragActive) {
+                DomHelper.removeClass(this.el, this.dragOverClass);
+                e.preventDefault();
+                e.stopPropagation();
 
-        this.ng2DragDropService.onDragEnd.next();
-        this.onDrop.emit(new DropEvent(e, this.ng2DragDropService.dragData));
-        this.ng2DragDropService.dragData = null;
-        this.ng2DragDropService.scope = null;
+                this.ng2DragDropService.onDragEnd.next();
+                this.onDrop.emit(new DropEvent(e, this.ng2DragDropService.dragData));
+                this.ng2DragDropService.dragData = null;
+                this.ng2DragDropService.scope = null;
+            }
+        });
     }
 
     allowDrop(): Observable<boolean> {
