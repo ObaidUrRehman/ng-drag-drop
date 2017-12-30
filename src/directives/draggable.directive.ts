@@ -183,6 +183,7 @@ export class Draggable implements OnInit, OnDestroy {
     }
 
     @HostListener('mousedown', ['$event'])
+    @HostListener('touchstart', ['$event'])
     mousedown(e) {
         this.mouseDownElement = e.target;
     }
