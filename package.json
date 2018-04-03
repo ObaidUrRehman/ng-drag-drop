@@ -38,7 +38,7 @@
   },
   "devDependencies": {
     "@angular/common": "^4.4.6",
-    "@angular/compiler": "^4.4.6",
+    "@angular/compiler": "^5.0.0",
     "@angular/core": "^4.4.6",
     "@angular/platform-browser": "^4.4.6",
     "@angular/platform-browser-dynamic": "^4.4.6",
