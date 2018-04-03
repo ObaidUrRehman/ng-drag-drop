@@ -1,6 +1,6 @@
 {
   "name": "ng-drag-drop",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "description": "Drag & Drop for Angular - based on HTML5 with no external dependencies.",
   "main": "index.js",
   "typings": "index.d.ts",
