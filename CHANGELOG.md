@@ -1,3 +1,6 @@
+## 4.0.1 (2018-04-03) - Maintenance Release
+- Fix: Allow draghandle to work for touchscreens when used with polyfill. Pull Request ([#112](https://github.com/ObaidUrRehman/ng2-drag-drop/pull/112))
+- Fix: Overlapping droppable with non matching dropScope steals drop event.  Pull Request ([#110](https://github.com/ObaidUrRehman/ng2-drag-drop/pull/110))
 ## 4.0.0 (2017-10-24)
 - Package renamed to `ng-drag-drop`
 - Module renamed from `Ng2DragDropModule` to `NgDragDropModule`
