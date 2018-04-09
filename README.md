@@ -1,7 +1,10 @@
 # Angular Drag & Drop
 
-[![Join the chat at https://join.slack.com/t/ng-drag-drop/shared_invite/MjM5ODY5MDUyODY1LTE1MDUyOTk0OTMtNjFhZmJiOTE2Zg](https://img.shields.io/badge/chat-on_slack-ff69b4.svg)](https://join.slack.com/t/ng-drag-drop/shared_invite/MjM5ODY5MDUyODY1LTE1MDUyOTk0OTMtNjFhZmJiOTE2Zg)
-[![npm version](https://img.shields.io/npm/v/ng-drag-drop.svg)](https://www.npmjs.com/package/ng-drag-drop) [![npm downloads](https://img.shields.io/npm/dm/ng-drag-drop.svg)](https://www.npmjs.com/package/ng-drag-drop) [![Devdependency Status](https://david-dm.org/ObaidUrRehman/ng-drag-drop/dev-status.svg)](https://david-dm.org/ObaidUrRehman/ng-drag-drop#info=devDependencies) [![Build Status](https://travis-ci.org/ObaidUrRehman/ng-drag-drop.svg?branch=master)](https://travis-ci.org/ObaidUrRehman/ng-drag-drop) [![Codacy Badge](https://api.codacy.com/project/badge/Grade/98ef19fdf92448d699bd93badd16e2f5)](https://www.codacy.com/app/orehman/ng-drag-drop?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ObaidUrRehman/ng-drag-drop&amp;utm_campaign=Badge_Grade)
+[![Join the chat at https://join.slack.com/t/ng-drag-drop/shared_invite/MjM5ODY5MDUyODY1LTE1MDUyOTk0OTMtNjFhZmJiOTE2Zg](https://img.shields.io/badge/chat-on_slack-ff69b4.svg?style=flat-square)](https://join.slack.com/t/ng-drag-drop/shared_invite/MjM5ODY5MDUyODY1LTE1MDUyOTk0OTMtNjFhZmJiOTE2Zg)
+[![npm version](https://img.shields.io/npm/v/ng-drag-drop.svg?style=flat-square)](https://www.npmjs.com/package/ng-drag-drop) 
+[![npm downloads](https://img.shields.io/npm/dm/ng-drag-drop.svg?style=flat-square)](https://www.npmjs.com/package/ng-drag-drop) 
+[![Build Status](https://img.shields.io/travis/ObaidUrRehman/ng-drag-drop.svg?style=flat-square)](https://travis-ci.org/ObaidUrRehman/ng-drag-drop) 
+[![Codacy Badge](https://img.shields.io/codacy/grade/98ef19fdf92448d699bd93badd16e2f5.svg?style=flat-square)](https://www.codacy.com/app/orehman/ng-drag-drop?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ObaidUrRehman/ng-drag-drop&amp;utm_campaign=Badge_Grade)
 
 Drag & Drop for [Angular](http://angular.io), based on HTML5 with no external dependencies. Provides `draggable` & `droppable` directives. Features:
 * Transfer data from `draggable` to `droppable`.
