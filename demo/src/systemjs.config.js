@@ -24,7 +24,7 @@
       '@angular/forms': 'npm:@angular/forms/bundles/forms.umd.js',
 
       // other libraries
-      'rxjs':                      'npm:rxjs',
+      'rxjs': 'npm:rxjs',
       'ng-drag-drop': 'node_modules/ng-drag-drop'
     },
     // packages tells the System loader how to load when no filename and/or no extension
@@ -32,9 +32,14 @@
       app: {
         defaultExtension: 'js'
       },
-      rxjs: {
-        defaultExtension: 'js'
+      'rxjs': {
+        defaultExtension: 'js',
+        main: 'index.js'
       },
+      'rxjs/ajax': {main: 'index.js', defaultExtension: 'js' },
+      'rxjs/operators': {main: 'index.js', defaultExtension: 'js' },
+      'rxjs/testing': {main: 'index.js', defaultExtension: 'js' },
+      'rxjs/websocket': {main: 'index.js', defaultExtension: 'js' },
       "ng-drag-drop": { main: 'index.js',  defaultExtension: 'js' },
     }
   });
