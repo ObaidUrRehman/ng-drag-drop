@@ -1,11 +1,13 @@
+
+import {of as observableOf,  Subscription ,  Observable } from 'rxjs';
+
+import {map} from 'rxjs/operators';
 import { Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit, OnDestroy, Renderer2, NgZone } from '@angular/core';
-import { Subscription } from 'rxjs/Subscription';
 import { DropEvent } from '../shared/drop-event.model';
 import { NgDragDropService } from '../services/ng-drag-drop.service';
 import { DomHelper } from '../shared/dom-helper';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/map';
+
+
 
 @Directive({
     selector: '[droppable]'
@@ -185,14 +187,14 @@ export class Droppable implements OnInit, OnDestroy {
         } else if (typeof this.dropScope === 'function') {
             allowed = this.dropScope(this.ng2DragDropService.dragData);
             if (allowed instanceof Observable) {
-                return allowed.map(result => result && this.dropEnabled);
+                return allowed.pipe(map(result => result && this.dropEnabled));
             }
         }
 
         /* tslint:enable:curly */
         /* tslint:disable:one-line */
 
-        return Observable.of(allowed && this.dropEnabled);
+        return observableOf(allowed && this.dropEnabled);
     }
 
     subscribeService() {
