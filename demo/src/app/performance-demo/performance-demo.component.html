@@ -11,7 +11,7 @@
                 <ul class="list-group">
                     <li draggable *ngFor="let item of list1" [dragScope]="'swap-target-2'" [dragClass]="'drag-over'" [dragData]="item" class="list-group-item ">
                         <!-- {{item.name}} -->
-                        <ng-template [ngTemplateOutlet]="itemTemplate" [ngOutletContext]="{item: item}"></ng-template>
+                        <ng-template [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}"></ng-template>
                     </li>
                 </ul>
             </div>
@@ -26,7 +26,7 @@
                 <ul class="list-group">
                     <li draggable *ngFor="let item of list2" [dragScope]="'swap-target-1'" [dragClass]="'drag-over'" [dragData]="item" class="list-group-item">
                         <!-- {{item.name}} -->
-                        <ng-template [ngTemplateOutlet]="itemTemplate" [ngOutletContext]="{item: item}"></ng-template>
+                        <ng-template [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}"></ng-template>
                     </li>
                 </ul>
             </div>

@@ -133,7 +133,7 @@ export class Draggable implements OnInit, OnDestroy {
     dragStart(e) {
         if (this.allowDrag()) {
 
-            // This is a kludgy approach to apply CSS to the drag helper element when an image is being dragged. 
+            // This is a kludgy approach to apply CSS to the drag helper element when an image is being dragged.
             DomHelper.addClass(this.el, this.dragTransitClass);
             setTimeout(() => {
                 DomHelper.addClass(this.el, this.dragClass);
@@ -183,6 +183,7 @@ export class Draggable implements OnInit, OnDestroy {
     }
 
     @HostListener('mousedown', ['$event'])
+    @HostListener('touchstart', ['$event'])
     mousedown(e) {
         this.mouseDownElement = e.target;
     }
