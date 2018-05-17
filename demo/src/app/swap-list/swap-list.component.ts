@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {DropEvent} from 'ng2-drag-drop';
+import {DropEvent} from 'ng-drag-drop';
 
 @Component({
   selector: 'swap-list',
