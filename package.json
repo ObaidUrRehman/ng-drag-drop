@@ -1,6 +1,6 @@
 {
   "name": "ng-drag-drop",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "description": "Drag & Drop for Angular - based on HTML5 with no external dependencies.",
   "main": "index.js",
   "typings": "index.d.ts",
@@ -33,18 +33,20 @@
   },
   "homepage": "https://github.com/ObaidUrRehman/ng-drag-drop#readme",
   "peerDependencies": {
-    "@angular/common": ">=4.3.0",
-    "@angular/core": ">=4.3.0"
+    "@angular/common": ">=6.0.1",
+    "@angular/core": ">=6.0.1"
   },
   "devDependencies": {
-    "@angular/common": "^4.4.6",
-    "@angular/compiler": "^4.4.6",
-    "@angular/core": "^4.4.6",
-    "@angular/platform-browser": "^4.4.6",
-    "@angular/platform-browser-dynamic": "^4.4.6",
-    "@angular/compiler-cli": "^4.4.6",
+    "@angular/common": "^6.0.1",
+    "@angular/compiler": "^6.0.1",
+    "@angular/compiler-cli": "^6.0.1",
+    "@angular/core": "^6.0.1",
+    "@angular/platform-browser": "^6.0.1",
+    "@angular/platform-browser-dynamic": "^6.0.1",
+    "@types/core-js": "0.9.43",
     "canonical-path": "0.0.2",
     "concurrently": "^3.5.0",
+    "core-js": "^2.4.1",
     "http-server": "^0.11.0",
     "jasmine-core": "~2.8.0",
     "karma": "^2.0.0",
@@ -57,11 +59,9 @@
     "lodash": "^4.17.4",
     "protractor": "~5.3.1",
     "rimraf": "^2.6.2",
+    "rxjs": "6.1.0",
     "tslint": "^5.8.0",
-    "typescript": "^2.4.2",
-    "core-js": "^2.4.1",
-    "rxjs": "5.5.0",
-    "zone.js": "^0.8.18",
-    "@types/core-js": "0.9.43"
+    "typescript": "~2.7.2",
+    "zone.js": "^0.8.18"
   }
 }
