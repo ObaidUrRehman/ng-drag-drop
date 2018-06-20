@@ -1,3 +1,6 @@
+## 5.0.0 (2018-06-20)
+- Migrate to angular 6.0.1 and Rxjs 6.1.0 Pull Request ([#135](https://github.com/ObaidUrRehman/ng2-drag-drop/pull/135))
+
 ## 4.0.1 (2018-04-03) - Maintenance Release
 - Fix: Allow draghandle to work for touchscreens when used with polyfill. Pull Request ([#112](https://github.com/ObaidUrRehman/ng2-drag-drop/pull/112))
 - Fix: Overlapping droppable with non matching dropScope steals drop event.  Pull Request ([#110](https://github.com/ObaidUrRehman/ng2-drag-drop/pull/110))
