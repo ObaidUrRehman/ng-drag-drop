@@ -1,6 +1,7 @@
 import { Directive, ElementRef, HostListener, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { Ng2SortableService } from '../services/ng-drag-drop.service';
 import { DomHelper} from '../shared/dom-helper';
+import { SortableContainer } from './sortable-container.directive';
 
 @Directive({
     selector: '[sortable]',
@@ -73,7 +74,7 @@ export class Sortable implements OnInit {
      * @private
      * Keeps track of mouse over element that is used to determine drag handles
      */
-    mouseOverElement: any;
+    mouseDownElement: any;
 
     /**
      * @private
@@ -93,7 +94,10 @@ export class Sortable implements OnInit {
      */
     dragImageElement: HTMLImageElement;
 
-    constructor(protected el: ElementRef, private ng2SortableService: Ng2SortableService) {
+    constructor(
+        protected el: ElementRef,
+        private ng2SortableService: Ng2SortableService,
+        private sortableContainer: SortableContainer) {
     }
 
     ngOnInit() {
@@ -106,6 +110,10 @@ export class Sortable implements OnInit {
             DomHelper.addClass(this.el, this.dragClass);
             this.ng2SortableService.sortIndex = this.sortIndex;
             this.ng2SortableService.dragItem = this.sortItem;
+
+            if (this.sortableContainer) {
+                this.ng2SortableService.sortableItems = this.sortableContainer.sortableItems;
+            }
 
             // Firefox requires setData() to be called otherwise the drag does not work.
             // We don't use setData() to transfer data anymore so this is just a dummy call.
@@ -126,7 +134,7 @@ export class Sortable implements OnInit {
 
     @HostListener('dragenter', ['$event'])
     dragEnter(e) {
-        if (this.ng2SortableService.sortIndex != null && this.ng2SortableService.dragItem != null &&
+        if (this.ng2SortableService.sortableItems.length && this.ng2SortableService.sortIndex != null && this.ng2SortableService.dragItem != null &&
             this.sortIndex !== this.ng2SortableService.sortIndex) {
             let sortItem = this.ng2SortableService.sortableItems[this.ng2SortableService.sortIndex];
 
@@ -160,14 +168,15 @@ export class Sortable implements OnInit {
         e.preventDefault();
     }
 
-    @HostListener('mouseover', ['$event'])
+    @HostListener('mousedown', ['$event'])
+    @HostListener('touchstart', ['$event'])
     mouseover(e) {
-        this.mouseOverElement = e.target;
+        this.mouseDownElement = e.target;
     }
 
     private allowDrag() {
         if (this.dragHandle) {
-            return DomHelper.matches(this.mouseOverElement, this.dragHandle) && this.dragEnabled;
+            return DomHelper.matches(this.mouseDownElement, this.dragHandle) && this.dragEnabled;
         } else {
             return this.dragEnabled;
         }

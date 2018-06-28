@@ -65,7 +65,5 @@ export class SortableContainer {
                 this.onSwap.emit(item);
             }
         }
-
-        this.sortableService.sortableItems = this.sortableItems;
     }
 }
