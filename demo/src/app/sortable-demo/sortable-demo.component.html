@@ -1,0 +1,82 @@
+<h3>Sortable Demo</h3>
+<p>This is a sortable demo</p>
+<hr>
+
+<div class="row">
+    <div class="col-sm-3">
+        <div class="card card-outline-success mb-3">
+            <div class="card-header card-inverse card-success">
+                Sort us
+                </div>
+            <div class="card-block scroll-list">
+                <div class="list-group" sortable-container [sortableItems]="vegetables">
+                    <li class="list-group-item list-group-item-action list-group-item-success"
+                        *ngFor="let item of vegetables; let i = index"
+                        sortable
+                        [sortItem]="item"
+                        [sortIndex]="i">
+                        {{item.name}}
+                    </li>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-5">
+        <div class="card card-outline-success mb-3">
+            <div class="card-header card-inverse card-success">
+                Sort us using DragHandle
+            </div>
+            <div class="card-block scroll-list">
+                <div class="list-group" sortable-container [sortableItems]="fruits">
+                    <li class="list-group-item justify-content-between list-group-item-action"
+                        *ngFor="let item of fruits; let i = index" sortable
+                        [sortItem]="item"
+                        [sortIndex]="i"
+                        [dragHandle]="'.drag-bar'">
+                        {{item.name}}
+                         <i #dragHandle class="drag-bar fa fa-bars fa-lg" aria-hidden="true"></i>
+                    </li>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<br/><br/><p>This is a sortable with swap list demo</p>
+<hr>
+<div class="row">
+    <div class="col-sm-5">
+        <div class="card card-outline-success mb-3">
+            <div class="card-header card-inverse card-success">
+                Container 1
+            </div>
+            <div class="card-block scroll-list">
+                <div class="list-group" sortable-container [sortableItems]="container1" style="min-height: 200px;">
+                    <li class="list-group-item list-group-item-action list-group-item-success"
+                        *ngFor="let item of container1; let i = index"
+                        sortable [sortIndex]="i" [sortItem]="item">
+                        {{item.name}}
+                    </li>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-5">
+        <div class="card card-outline-success mb-3">
+            <div class="card-header card-inverse card-success">
+                Container 2
+            </div>
+            <div class="card-block scroll-list">
+                <div class="list-group" sortable-container [sortableItems]="container2" style="min-height: 200px;">
+                    <li class="list-group-item list-group-item-action list-group-item-success"
+                        *ngFor="let item of container2; let i = index"
+                        sortable [sortIndex]="i" [sortItem]="item">
+                        {{item.name}}
+                    </li>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

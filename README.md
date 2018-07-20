@@ -212,6 +212,33 @@ Drag Handle can be defined for a `draggable` item which will restrict drag of th
 </li>               
 ```
 
+### Using the sortable directive
+before adding sortable directive add the sortable-container directive to its parent
+```js
+import {Component} from '@angular/core';
+
+@Component({
+    selector: 'app',
+    template: `
+<h3>Using the sortable directive</h3>
+<div sortable-container [sortableItems]="items">
+    <li *ngFor="let item of items; let i = index" sortable
+        [sortIndex]="i">
+        {{item.name}}
+    </li>
+</div>
+`
+})
+export class AppComponent {
+    items = [
+            {name: "Apple", type: "fruit"},
+            {name: "Carrot", type: "vegetable"},
+            {name: "Orange", type: "fruit"}];
+            
+    constructor() { }
+}             
+```
+
 ### Drag Helper Image
 By default when an element is dragged, a translucent image is generated from the drag target. This image is generated automatically and varies with browser. A custom image can be used if desired. Pass the url of the image to `[dragImage]` on the `draggable` directive.
 
@@ -309,6 +336,39 @@ For more information on Drag DOM Events: [Drag Event](https://developer.mozilla.
 | `onDragOver`       | e: DOM event   | Event fired when an element is being dragged over a valid drop target. |
 | `onDragLeave`    | e: DOM event   | Event fired when a dragged element leaves a valid drop target. |
 | `onDrop`    | e: `DropEvent`   | Event fired when an element is dropped on a valid drop target. |
+
+
+### Sortable directive
+
+### Attributes
+| Name   | Type      |Default Value |Description |
+|:-------|:----------|:-------------|:-----------|
+| `dragData`    |   `any` | `null` | The data that will be sorted |
+| `draghandle` | `string` | `null` | The selector that defines the drag Handle. If defined drag will only be allowed if dragged from the selector element. |
+| `sortIndex` | `number` |  | index of data in the array |
+
+### Events
+
+| Name   | Parameters  |Description |
+|:-------|:------------|:-----------|
+| `onDragStart`  | e: DOM event   | Event fired when Drag is started  |
+| `onDrag`       | e: DOM event   | Event fired while the element is being dragged |
+| `onDragEnd`    | e: DOM event   | Event fired when dragged ends |
+
+
+### Sortable Container directive
+
+### Attributes
+| Name   | Type      |Default Value |Description |
+|:-------|:----------|:-------------|:-----------|
+| `sortableItems` |    `Array<any>` |   | Collection on which sortable is to be applied |
+| `deleteOnSwap` | `boolean` | `true` | Delete from source when dropped into swap list |
+
+### Events
+
+| Name   | Parameters  |Description |
+|:-------|:------------|:-----------|
+| `onSwap`  | item: Swapped Item   | Event fired when items are swapped in another list|
 
 # License
 

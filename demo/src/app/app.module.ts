@@ -10,6 +10,7 @@ import { DeleteItemComponent } from './delete-item/delete-item.component';
 import { SwapListComponent } from './swap-list/swap-list.component';
 import { CompleteDemoComponent } from './complete-demo/complete-demo.component';
 import { PerformanceDemoComponent } from './performance-demo/performance-demo.component';
+import { SortableDemoComponent } from './sortable-demo/sortable-demo.component';
 
 import { NgDragDropModule } from 'ng-drag-drop';
 
@@ -23,7 +24,8 @@ import { NgDragDropModule } from 'ng-drag-drop';
   DefaultCssComponent,
   DragHelperComponent,
   DropScopeFunctionDemoComponent,
-  PerformanceDemoComponent],
+  PerformanceDemoComponent,
+  SortableDemoComponent],
   bootstrap: [DemoComponent],
   providers: []
 })
