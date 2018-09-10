@@ -58,7 +58,7 @@
     "karma-jasmine-html-reporter": "^1.0.0",
     "lite-server": "^2.3.0",
     "lodash": "^4.17.4",
-    "protractor": "~5.3.1",
+    "protractor": "~5.4.1",
     "rimraf": "^2.6.2",
     "rxjs": "6.1.0",
     "tslint": "^5.8.0",
