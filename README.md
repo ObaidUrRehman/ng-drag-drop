@@ -1,5 +1,10 @@
 # Angular Drag & Drop
 
+## :warning: Discontinuation Notice
+Almost 2 years ago I created this component to support HTML native drag drop in Angular. At that time there were a handful of libraries & did not had the features I wanted. Today, with the release of Angular 7 & the CDK's drag drop component is way better alternative for this component.
+Please use [Angular CDK's drag drop](https://material.angular.io/cdk/drag-drop/overview).
+
+
 [![Join the chat at https://join.slack.com/t/ng-drag-drop/shared_invite/MjM5ODY5MDUyODY1LTE1MDUyOTk0OTMtNjFhZmJiOTE2Zg](https://img.shields.io/badge/chat-on_slack-ff69b4.svg?style=flat-square)](https://join.slack.com/t/ng-drag-drop/shared_invite/MjM5ODY5MDUyODY1LTE1MDUyOTk0OTMtNjFhZmJiOTE2Zg)
 [![npm version](https://img.shields.io/npm/v/ng-drag-drop.svg?style=flat-square)](https://www.npmjs.com/package/ng-drag-drop) 
 [![npm downloads](https://img.shields.io/npm/dm/ng-drag-drop.svg?style=flat-square)](https://www.npmjs.com/package/ng-drag-drop) 
