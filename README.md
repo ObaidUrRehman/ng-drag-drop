@@ -28,7 +28,7 @@ Drag & Drop for [Angular](http://angular.io), based on HTML5 with no external de
 4. [Limitations](#limitations)
 5. [Development](#development)
 6. [API Doc](#api-doc)
-7. [Tips and Tricks](#tipsandtricks)
+7. [Tips and Tricks](#tips-and-tricks)
 
 # Demo
 
@@ -315,6 +315,7 @@ For more information on Drag DOM Events: [Drag Event](https://developer.mozilla.
 | `onDragOver`       | e: DOM event   | Event fired when an element is being dragged over a valid drop target. |
 | `onDragLeave`    | e: DOM event   | Event fired when a dragged element leaves a valid drop target. |
 | `onDrop`    | e: `DropEvent`   | Event fired when an element is dropped on a valid drop target. |
+
 
 # Tips And Tricks
 ### Change cursor to "move" or "copy" when Ctrl-key is pressed/released
