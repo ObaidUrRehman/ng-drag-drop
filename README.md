@@ -28,6 +28,7 @@ Drag & Drop for [Angular](http://angular.io), based on HTML5 with no external de
 4. [Limitations](#limitations)
 5. [Development](#development)
 6. [API Doc](#api-doc)
+7. [Tips and Tricks](#tips-and-tricks)
 
 # Demo
 
@@ -314,6 +315,52 @@ For more information on Drag DOM Events: [Drag Event](https://developer.mozilla.
 | `onDragOver`       | e: DOM event   | Event fired when an element is being dragged over a valid drop target. |
 | `onDragLeave`    | e: DOM event   | Event fired when a dragged element leaves a valid drop target. |
 | `onDrop`    | e: `DropEvent`   | Event fired when an element is dropped on a valid drop target. |
+
+
+# Tips And Tricks
+### Change cursor to "move" or "copy" when Ctrl-key is pressed/released
+In Chrome and Edge (Windows 10 - not tested in other browser/OS), when you drag an element, the cursor changes to "move" whether or not you press the Ctrl-key.
+
+Fortunately, it's easy to change this behavior.
+
+On the draggable element, you bind to the events "onDragStart", "onDragOver", "onDragLeave", and manipulate the cursor in the bound method of the component.
+
+So, in the template :
+```html
+  <div class="some-class" draggable 
+    (onDragStart)="onItemDragStart($event)" (onDragOver)="onItemDragOver($event)" (onDragLeave)="onItemDragLeave($event)">
+    <!-- some content here -->
+  </div>
+```
+And in the *.ts file :
+```js
+    onItemDragStart(event) {
+      event.dataTransfer.dropEffect = event.ctrlKey ? 'copy' : 'move';
+    }
+
+    onItemDragOver(event) {
+      event.dataTransfer.dropEffect = event.ctrlKey ? 'copy' : 'move';
+    }
+
+    onItemDragLeave(event) {
+      event.dataTransfer.dropEffect = event.ctrlKey ? 'copy' : 'move';
+    }
+```
+In the droppable element, here's how you find if the Ctrl-key is pressed or not :
+
+In the template :
+```html
+  <div class="some-other-class" droppable (onDrop)="onItemDrop($event)">
+    <!-- some content here -->
+  </div>
+```
+In the component's *.ts file : 
+```js
+    onItemDrop(event) {
+      const isCopy = event.nativeEvent.ctrlKey;
+      // do something with the dropped item
+    }
+```
 
 # License
 
